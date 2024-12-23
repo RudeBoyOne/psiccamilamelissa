@@ -1,0 +1,28 @@
+name: 💡 deploy site pisccamilamelissa
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: 📝 Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
+
+      - name: 🔐 Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: 📂 Sync files
+        run: |
+          rsync -avz --delete \
+          -e "ssh -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }}" \
+          ./ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_NAME }}:${{ secrets.DEPLOY_PATH }}
+      - name: 🍏 Job status
+        run: echo "🍏 This job's status is ${{ job.status }}."
