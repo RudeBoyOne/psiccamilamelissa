@@ -1,3 +1,4 @@
+import * as bootstrap from 'bootstrap';
 import './navbar.scss'
 import logo from '../../../assets/images/logo.jpg'
 
