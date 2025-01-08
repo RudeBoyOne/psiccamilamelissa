@@ -1,36 +1,36 @@
 {
-  "name": "psiccamilamelissa",
-  "version": "1.0.0",
-  "description": "site/aplicação para divulgação e prestação de serviços da psicologa Camila Melissa de Souza",
-  "main": "index.js",
-  "scripts": {
-    "start": "parcel index.html --open --port 3000 --no-cache",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RudeBoyOne/psiccamilamelissa.git"
-  },
-  "keywords": [
-    "site",
-    "aplicação",
-    "psicologa",
-    "serviços",
-    "terapia"
-  ],
-  "author": "Lucas Ferreira Nogueira",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/RudeBoyOne/psiccamilamelissa/issues"
-  },
-  "homepage": "https://github.com/RudeBoyOne/psiccamilamelissa#readme",
-  "devDependencies": {
-    "@parcel/transformer-sass": "^2.13.3",
-    "parcel": "^2.13.3"
-  },
-  "dependencies": {
-    "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.3.3",
-    "bootstrap-icons": "^1.11.3"
-  }
+    "name": "psiccamilamelissa",
+    "version": "1.0.0",
+    "description": "site/aplicação para divulgação e prestação de serviços da psicologa Camila Melissa de Souza",
+    "scripts": {
+        "start": "parcel index.html --open --port 3000 --no-cache",
+        "build": "parcel build index.html --dist-dir build --public-url ./",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/RudeBoyOne/psiccamilamelissa.git"
+    },
+    "keywords": [
+        "site",
+        "aplicação",
+        "psicologa",
+        "serviços",
+        "terapia"
+    ],
+    "author": "Lucas Ferreira Nogueira",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/RudeBoyOne/psiccamilamelissa/issues"
+    },
+    "homepage": "https://github.com/RudeBoyOne/psiccamilamelissa#readme",
+    "devDependencies": {
+        "@parcel/transformer-sass": "^2.13.3",
+        "parcel": "^2.13.3"
+    },
+    "dependencies": {
+        "@popperjs/core": "^2.11.8",
+        "bootstrap": "^5.3.3",
+        "bootstrap-icons": "^1.11.3"
+    }
 }
