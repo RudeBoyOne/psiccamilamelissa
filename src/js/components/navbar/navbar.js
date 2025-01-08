@@ -57,3 +57,11 @@ const navbar = `
 const headerElement = document.createElement('header');
 headerElement.innerHTML = navbar;
 document.body.insertAdjacentElement('afterbegin', headerElement);
+
+document.querySelectorAll('.offcanvas-body .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        const offcanvas = document.querySelector('#offcanvasNavbar');
+        const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvas);
+        bsOffcanvas.hide();
+    });
+});
