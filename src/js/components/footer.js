@@ -2,7 +2,7 @@ import './components.scss'
 
 const footer = `
     <section class="d-flex flex-column gap-4">
-        <section class="d-flex justify-content-center gap-3">
+        <section class="d-flex justify-content-center gap-4">
             <div>
                 <a class="text-light icon-link icon-link-hover fs-1" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);"  href="https://www.instagram.com/psic.camilamelissa" target="_blank">
                     <i class="bi bi-instagram"></i>
@@ -26,28 +26,28 @@ const footer = `
         </section>
         <section class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-3">
             <div>
-                <a class="text-light text-decoration-none custom-hover p-2 fs-3" href="#home">
+                <a class="text-light text-decoration-none custom-hover p-2 fs-2" href="#home">
                     Início
                 </a>
             </div>
             <div>
-                <a class="text-light text-decoration-none custom-hover p-2 fs-3" href="#about">
+                <a class="text-light text-decoration-none custom-hover p-2 fs-2" href="#about">
                     Sobre
                 </a>
             </div>
             <div>
-            <a class="text-light text-decoration-none custom-hover p-2 fs-3" href="#articles">
+            <a class="text-light text-decoration-none custom-hover p-2 fs-2" href="#articles">
                     Artigos
                 </a>
             </div>
             <div>
-                <a class="text-light text-decoration-none custom-hover p-2 fs-4" href="#contact">
+                <a class="text-light text-decoration-none custom-hover p-2 fs-2" href="#contact">
                     Contato
                 </a>
             </div>
         </section>
         <section class="text-center d-flex justify-content-center">
-            <small>&copy; 2025 | feito por: <a class="text-decoration-none link-opacity-100-hover" href="https://lucasfncode.com.br" target="_blank">Lucas Ferreira Nogueira</a></small>
+            <small>&copy; 2025 | feito por: <a class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="https://lucasfncode.com.br" target="_blank">Lucas Ferreira Nogueira</a></small>
         </section>
     </section> `;
 
