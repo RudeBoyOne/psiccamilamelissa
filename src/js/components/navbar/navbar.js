@@ -1,4 +1,4 @@
-import * as bootstrap from 'bootstrap';
+import { Offcanvas } from 'bootstrap';
 import './navbar.scss'
 import logo from '../../../assets/images/logo.jpg'
 
@@ -62,7 +62,10 @@ document.body.insertAdjacentElement('afterbegin', headerElement);
 document.querySelectorAll('.offcanvas-body .nav-link').forEach(link => {
     link.addEventListener('click', () => {
         const offcanvas = document.querySelector('#offcanvasNavbar');
-        const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvas);
-        bsOffcanvas.hide();
+        const bsOffcanvas = Offcanvas.getInstance(offcanvas);
+
+        setTimeout(() => {
+            bsOffcanvas.hide();
+        }, 300);
     });
 });
