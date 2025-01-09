@@ -1,6 +1,6 @@
 import { Offcanvas } from 'bootstrap';
-import './navbar.scss'
-import logo from '../../../assets/images/logo.jpg'
+import './components.scss'
+import logo from '../../assets/images/logo.jpg'
 
 const navbar = `
     <nav class="navbar navbar-expand-lg primary-color">
