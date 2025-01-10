@@ -1,17 +1,21 @@
 import { Offcanvas } from 'bootstrap';
 import './components.scss'
-import logo from '../../assets/images/logo.jpg'
+import logo from '../../assets/images/logo-redimensionado.jpg'
+import logoName from '../../assets/images/logo-nome.jpg'
 
 const navbar = `
-    <nav class="navbar navbar-expand-lg primary-color">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#home">
-        <img src="${logo}" alt="Logo psicologa Camila Melissa de Souza" width="100px">
-    </a>
+    <nav class="navbar navbar-expand-lg primary-color container">
+  <div class="container-fluid flex-nowrap">
+    <div>
+        <a class="navbar-brand m-0" href="#home">
+            <img src="${logo}" alt="Logo psicologa Camila Melissa de Souza" width="100px">
+        </a>
+        <img src="${logoName}" alt="Logo psicologa Camila Melissa de Souza" class="w-50">
+    </div>
     <button class="navbar-toggler btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <i class="bi bi-list"></i>
     </button>
-    <div class="collapse navbar-collapse fs-5" id="navbarNav">
+    <div class="collapse navbar-collapse fs-4" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
           <a class="nav-link text-light custom-hover" aria-current="page" href="#home">Início</a>
@@ -34,6 +38,7 @@ const navbar = `
   <div class="offcanvas-header primary-color text-light" data-bs-theme="dark">
     <a class="navbar-brand" href="#home">
         <img src="${logo}" alt="Logo psicologa Camila Melissa de Souza" width="100px">
+        <img src="${logoName}" alt="Logo psicologa Camila Melissa de Souza" class="w-50">
     </a>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
@@ -56,6 +61,7 @@ const navbar = `
 </div> `;
 
 const headerElement = document.createElement('header');
+headerElement.classList.add('primary-color')
 headerElement.innerHTML = navbar;
 document.body.insertAdjacentElement('afterbegin', headerElement);
 
