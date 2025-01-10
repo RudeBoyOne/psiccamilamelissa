@@ -1,4 +1,11 @@
-export const getOrCreateMainElement = () => {
+const setClassesInBodyElement = () => {
+    const body = document.getElementsByTagName('body')[0];
+    body.classList.add('d-flex', 'flex-column', 'min-vh-100');
+}
+
+setClassesInBodyElement();
+
+const getOrCreateMainElement = () => {
     let main = document.getElementById('main');
     if (!main) {
         main = document.createElement('main');
@@ -8,5 +15,8 @@ export const getOrCreateMainElement = () => {
             header.insertAdjacentElement('afterend', main);
         }
     }
+    main.classList.add('d-flex', 'container', 'flex-grow-1');
     return main;
 };
+
+export default getOrCreateMainElement;
