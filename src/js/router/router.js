@@ -1,19 +1,18 @@
+import getOrCreateMainElement from "../utils/mainUtils";
+import pages from "./pages";
 
-
-function diz() {
-    return "chegou";
+const insertTemplateHtmlInMainElement = (template) => {
+    const main = getOrCreateMainElement();
+    main.innerHTML = template;
 }
-const pages = {
-    "": "",
-    404: diz
-};
 
 const handleLocation = async () => {
     const path = window.location.hash;
-    console.log(path);
     const page = pages[path];
-    page();
+    insertTemplateHtmlInMainElement(page);
 };
 
+
 window.onpopstate = handleLocation;
-handleLocation();
+
+export default handleLocation;
