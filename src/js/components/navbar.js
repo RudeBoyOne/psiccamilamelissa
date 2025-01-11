@@ -47,7 +47,7 @@ const navbar = `
   <div class="offcanvas-body primary-color text-light fs-2 p-4">
     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
       <li class="nav-item">
-        <a class="nav-link custom-hover-sidebar" aria-current="page" href="#home">Início</a>
+        <a class="nav-link custom-hover-sidebar" href="#home">Início</a>
       </li>
       <li class="nav-item">
         <a class="nav-link custom-hover-sidebar" href="#about">Sobre</a>
@@ -77,3 +77,22 @@ document.querySelectorAll('.offcanvas-body .nav-link').forEach(link => {
         }, 300);
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.nav-link')
+    navLinks.forEach((link) => {
+        let hashLink = link.getAttribute('href');
+        let hashUri = window.location.hash;
+        if (hashLink === hashUri) {
+            link.classList.add('nav-active');
+        }
+        link.addEventListener('click', () => {
+            navLinks.forEach((navLink) => {
+                navLink.classList.remove('nav-active');
+            })
+            link.classList.add('nav-active');
+        })
+
+    })
+})
