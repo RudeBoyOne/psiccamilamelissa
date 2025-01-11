@@ -58,3 +58,7 @@
   visibility: visible;
   transform: scaleX(1);
 }
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}

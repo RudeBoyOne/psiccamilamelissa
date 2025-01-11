@@ -40,7 +40,9 @@ const navbar = `
         <img src="${logo}" alt="Logo psicologa Camila Melissa de Souza" width="100px">
         <img src="${logoName}" alt="Logo psicologa Camila Melissa de Souza" class="w-50">
     </a>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <button type="button" class="btn btn-dark" data-bs-dismiss="offcanvas" aria-label="Close">
+        <i class="bi bi-x-lg"></i>
+    </button>
   </div>
   <div class="offcanvas-body primary-color text-light fs-2 p-4">
     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
