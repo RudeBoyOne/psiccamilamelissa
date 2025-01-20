@@ -14,6 +14,17 @@ jobs:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
 
+      - name: 🔧 Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20.16.0"
+
+      - name: 📦 Install dependencies
+        run: npm install
+
+      - name: 🛠️ Build project
+        run: npm run build
+
       - name: 🔐 Set up SSH
         uses: webfactory/ssh-agent@v0.5.3
         with:
@@ -24,5 +35,6 @@ jobs:
           rsync -avz --delete \
           -e "ssh -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }}" \
           ./build/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_NAME }}:${{ secrets.DEPLOY_PATH }}
+
       - name: 🍏 Job status
         run: echo "🍏 This job's status is ${{ job.status }}."
