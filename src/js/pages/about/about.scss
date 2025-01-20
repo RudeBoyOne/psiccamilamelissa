@@ -1,0 +1,21 @@
+@use "../../../css/colors.scss" as *;
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: $accent-color;
+  margin-left: -1px;
+}
+
+.timeline {
+  position: relative;
+  margin: 20px 0;
+}
+
+.card {
+  position: relative;
+}

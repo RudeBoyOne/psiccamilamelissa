@@ -19,7 +19,7 @@ const contact = `
                         aria-selected="true">Contatos</button>
                 </li>
                 <li class="nav-item col" role="presentation">
-                    <button class="nav-link w-100 btn-outline-primary" id="pills-profile-tab" data-bs-toggle="pill"
+                    <button class="nav-link w-100" id="pills-profile-tab" data-bs-toggle="pill"
                         data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
                         aria-selected="false">Mensagem</button>
                 </li>
@@ -60,14 +60,13 @@ const contact = `
                                 <img src=${emailIcon} alt="logo email" width="48px">
                             </div>
                             <div>
-                                <p class="m-0"> camila.melissa.souza@gmail.com </p>
+                                <p class="m-0">camila.melissa.souza@gmail.com </p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
                     tabindex="0">
-                    <h2>Formulário de Contato</h2>
                     <form class="d-flex flex-column gap-4">
                         <div class="form-group">
                             <div class="input-group">
@@ -99,6 +98,6 @@ const contact = `
             </div>
         </section>
     </section>
-`
+`;
 
 export default contact;

@@ -4,7 +4,7 @@ import { Offcanvas } from 'bootstrap';
 import './components.scss'
 
 const navbar = `
-    <nav class="navbar navbar-expand-lg primary-color container">
+<nav class="navbar navbar-expand-lg primary-color container">
   <div class="container-fluid flex-nowrap">
     <div>
         <a class="navbar-brand m-0" href="#home">
@@ -78,22 +78,25 @@ document.querySelectorAll('.offcanvas-body .nav-link').forEach(link => {
     });
 });
 
-
-window.addEventListener('hashchange', () => {
-    const navLinks = document.querySelectorAll('.nav-link')
+const activeNavLink = () => {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const hashUri = window.location.hash || '#home';
     navLinks.forEach((link) => {
-        link.classList.remove('nav-active');
-        let hashLink = link.getAttribute('href');
-        let hashUri = window.location.hash;
-        if (hashLink === hashUri) {
-            link.classList.add('nav-active');
-        }
-        link.addEventListener('click', () => {
-            navLinks.forEach((navLink) => {
-                navLink.classList.remove('nav-active');
-            })
-            link.classList.add('nav-active');
-        })
+        link.classList.toggle('nav-active', link.getAttribute('href') === hashUri);
 
-    })
-})
+        link.removeEventListener('click', handleClick);
+        if (link.getAttribute('data-bs-toggle') === '') {
+            link.addEventListener('click', (event) => handleClick(event, navLinks));
+        }
+    });
+};
+
+const handleClick = (event, navLinks) => {
+    navLinks.forEach((navLink) => {
+        navLink.classList.remove('nav-active');
+    });
+    event.currentTarget.classList.add('nav-active');
+};
+
+document.addEventListener('DOMContentLoaded', activeNavLink);
+window.addEventListener('hashchange', activeNavLink);
