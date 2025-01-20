@@ -89,7 +89,7 @@ const contact = `
                                 <span class="input-group-text">
                                     Mensagem
                                 </span>
-                                <textarea class="form-control" id="mensagem" rows="5"></textarea>
+                                <textarea class="form-control noResize" id="mensagem" rows="5"></textarea>
                             </div>
                         </div>
                         <div class="d-grid">
