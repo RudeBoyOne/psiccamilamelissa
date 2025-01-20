@@ -79,9 +79,10 @@ document.querySelectorAll('.offcanvas-body .nav-link').forEach(link => {
 });
 
 
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('hashchange', () => {
     const navLinks = document.querySelectorAll('.nav-link')
     navLinks.forEach((link) => {
+        link.classList.remove('nav-active');
         let hashLink = link.getAttribute('href');
         let hashUri = window.location.hash;
         if (hashLink === hashUri) {
