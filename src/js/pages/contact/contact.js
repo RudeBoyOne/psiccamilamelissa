@@ -1,9 +1,9 @@
-import avatar from '../../assets/images/avatar.jpg'
-import emailIcon from '../../assets/images/icons/email.png'
-import instagramIcon from '../../assets/images/icons/instagram.png'
-import linkedinIcon from '../../assets/images/icons/linkedin.png'
-import whatsappIcon from '../../assets/images/icons/whatsapp.png'
-import '../components/components.scss'
+import avatar from '../../../assets/images/avatar.jpg'
+import emailIcon from '../../../assets/images/icons/email.png'
+import instagramIcon from '../../../assets/images/icons/instagram.png'
+import linkedinIcon from '../../../assets/images/icons/linkedin.png'
+import whatsappIcon from '../../../assets/images/icons/whatsapp.png'
+import './contact.scss'
 
 const contact = `
      <section class="d-flex flex-column-reverse flex-sm-row align-items-center p-3">

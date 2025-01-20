@@ -79,25 +79,3 @@
   transform: scaleX(1);
   transition: all 0.3s ease-in-out;
 }
-
-.contact-box {
-  height: 420px;
-}
-
-.nav-pills .nav-link.active {
-  background-color: $accent-color !important;
-  color: #ffffff;
-}
-
-.nav-pills .nav-link {
-  background-color: #eeeeee;
-  color: $accent-color;
-}
-
-.nav-pills .nav-link:hover {
-  color: $detail-color;
-}
-
-.noResize {
-    resize: none;
-}
