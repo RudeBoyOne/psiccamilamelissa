@@ -10,7 +10,7 @@ const about = `
                 <div class="row mb-3">
                     <div class="col-md-6 d-flex justify-content-end">
                         <!-- Evento à esquerda -->
-                        <div class="card">
+                        <div class="card w-100">
                             <div class="card-body">
                                 <h5 class="card-title">Fato 1</h5>
                                 <p class="card-text">Descrição do fato 1.</p>
@@ -21,7 +21,7 @@ const about = `
                 <div class="row mb-3">
                     <div class="col-md-6 offset-md-6 d-flex justify-content-start">
                         <!-- Evento à direita -->
-                        <div class="card">
+                        <div class="card w-100">
                             <div class="card-body">
                                 <h5 class="card-title">Fato 2</h5>
                                 <p class="card-text">Descrição do fato 2.</p>
@@ -32,7 +32,7 @@ const about = `
                 <div class="row mb-3">
                     <div class="col-md-6 d-flex justify-content-end">
                         <!-- Evento à esquerda -->
-                        <div class="card">
+                        <div class="card w-100">
                             <div class="card-body">
                                 <h5 class="card-title">Fato 3</h5>
                                 <p class="card-text">Descrição do fato 3.</p>
@@ -43,7 +43,7 @@ const about = `
                 <div class="row mb-3">
                     <div class="col-md-6 offset-md-6 d-flex justify-content-start">
                         <!-- Evento à direita -->
-                        <div class="card">
+                        <div class="card w-100">
                             <div class="card-body">
                                 <h5 class="card-title">Fato 4</h5>
                                 <p class="card-text">Descrição do fato 4.</p>
@@ -54,7 +54,7 @@ const about = `
                 <div class="row mb-3">
                     <div class="col-md-6 d-flex justify-content-end">
                         <!-- Evento à esquerda -->
-                        <div class="card">
+                        <div class="card w-100">
                             <div class="card-body">
                                 <h5 class="card-title">Fato 3</h5>
                                 <p class="card-text">Descrição do fato 3.</p>
@@ -65,7 +65,7 @@ const about = `
                 <div class="row mb-3">
                     <div class="col-md-6 offset-md-6 d-flex justify-content-start">
                         <!-- Evento à direita -->
-                        <div class="card">
+                        <div class="card w-100">
                             <div class="card-body">
                                 <h5 class="card-title">Fato 4</h5>
                                 <p class="card-text">Descrição do fato 4.</p>
