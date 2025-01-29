@@ -1,4 +1,4 @@
-import './about.scss'
+import '../../css/pages/about.scss';
 
 const about = `
     <section class="p-3 w-100">

@@ -1,7 +1,7 @@
-import logo from '../../assets/images/logo-redimensionado.jpg'
-import logoName from '../../assets/images/logo-nome.jpg'
+import logo from '../../assets/images/logo-redimensionado.jpg';
+import logoName from '../../assets/images/logo-nome.jpg';
 import { Offcanvas } from 'bootstrap';
-import './components.scss'
+import '../../css/components/components.scss';
 
 const navbar = `
 <nav class="navbar navbar-expand-lg primary-color container">

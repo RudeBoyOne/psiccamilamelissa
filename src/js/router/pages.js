@@ -1,6 +1,6 @@
 import homePage from '../pages/home';
-import aboutPage from '../pages/about/about';
-import contactPage from '../pages/contact/contact';
+import aboutPage from '../pages/about';
+import contactPage from '../pages/contact';
 
 
 const pages = {

@@ -1,4 +1,4 @@
-import './components.scss'
+import '../../css/components/components.scss';
 
 const footer = `
     <section class="d-flex flex-column gap-4 text-light container p-3">
