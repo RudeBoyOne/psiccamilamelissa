@@ -1,6 +1,6 @@
 import homePage from '../pages/home';
 import aboutPage from '../pages/about';
-import articlesPage from '../pages/articles';
+import { articles  as articlesPage } from '../pages/articles/articles';
 import contactPage from '../pages/contact';
 
 

@@ -1,3 +1,4 @@
+import { addCardListeners } from "../pages/articles/articles";
 import getOrCreateMainElement from "../utils/mainUtils";
 import pages from "./pages";
 
@@ -9,6 +10,10 @@ const insertTemplateHtmlInMainElement = (template) => {
 
     setTimeout(() => {
         main.innerHTML = template;
+        
+        if (window.location.hash === '#articles') {
+            addCardListeners();            
+        }
 
         main.classList.remove('fade-out');
         main.classList.add('fade-in');
