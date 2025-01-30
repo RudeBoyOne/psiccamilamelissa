@@ -18,7 +18,7 @@ const about = `
                 Na minha trajetória profissional, tenho experiencia clínica com crianças a partir de 4 anos de idade, adolescentes e adultos. Conclui um curso de aperfeiçoamento em Clínica Psicanalítica em 2022 e recentemente publiquei meu primeiro artigo em uma revista de psicanálise, fato que me trouxe muita satisfação acadêmica e profissional. 
             </p>
         </div>
-        <hr class="border border-color border-1 rounded-3 mt-5 mb-5">
+        <hr class="border border-1 rounded-3 mt-5 mb-5">
         <div class="container p-3">
             <h2 class="text-center mb-5"> Minha trajetória </h2>
             <div class="timeline">
