@@ -4,9 +4,9 @@ import '../../../css/pages/articles.scss';
 
 const articles = `
     <section class="p-3 w-100">
-        <section>
+        <section class="mt-4">
             <h1>Meus artigos</h1>
-            <h6>Nesta seção você encontra todos meus artigos publicados ou em produção</h6>
+            <h5>Nesta seção você encontra todos meus artigos publicados ou em produção</h5>
             <p>Clique no artigo para leitura completa <i class="bi bi-hand-index-thumb-fill"></i> </p>
         </section>
         <hr class="border border-1 rounded-3 mt-3 mb-3">

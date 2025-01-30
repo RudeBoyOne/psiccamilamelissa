@@ -3,7 +3,7 @@ import avatar from '../../assets/images/avatar.jpg';
 
 const about = `
     <section class="p-3 w-100">
-        <div class="container mt-5">
+        <div class="container mt-4">
             <h1 class="mb-4"> Olá, eu sou a Camila </h1>
             <p class="lh-lg text-justify">
                 psicóloga formada pela Universidade Cruzeiro do Sul desde 2019. Trabalho como psicóloga clínica desde a minha formação, e sou completamente encantada pela minha profissão. Adoro a escolha que fiz de diariamente escutar pessoas contando suas histórias, ressignificando suas dores e compartilhando suas alegrias. 

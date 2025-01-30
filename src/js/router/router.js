@@ -1,4 +1,5 @@
 import { addCardListeners } from "../pages/articles/articles";
+import { activeAllTooltip } from "../pages/contact";
 import getOrCreateMainElement from "../utils/mainUtils";
 import pages from "./pages";
 
@@ -10,9 +11,22 @@ const insertTemplateHtmlInMainElement = (template) => {
 
     setTimeout(() => {
         main.innerHTML = template;
-        
-        if (window.location.hash === '#articles') {
-            addCardListeners();            
+
+        let path = window.location.hash;
+
+/*         if (path === '#articles') {
+            addCardListeners();
+        }
+ */
+        switch (path) {
+            case '#articles':
+                addCardListeners();
+                break;
+            case '#contact':
+                activeAllTooltip();
+                break;
+            default:
+                break;
         }
 
         main.classList.remove('fade-out');

@@ -1,3 +1,4 @@
+import { Tooltip } from 'bootstrap';
 import avatar from '../../assets/images/avatar.jpg';
 import emailIcon from '../../assets/images/icons/email.png';
 import instagramIcon from '../../assets/images/icons/instagram.png';
@@ -6,7 +7,7 @@ import whatsappIcon from '../../assets/images/icons/whatsapp.png';
 import '../../css/pages/contact.scss';
 
 const contact = `
-     <section class="d-flex flex-column-reverse flex-sm-row align-items-center p-3">
+     <section class="d-flex flex-column-reverse flex-lg-row align-items-center p-3">
         <section class="col-12 col-sm-6 pe-sm-3">
             <img src=${avatar}
                 alt="avatar de uma psicóloga de 30 anos que usa óculos e tranças no cabelo" class="img-fluid rounded">
@@ -25,49 +26,66 @@ const contact = `
                 </li>
             </ul>
             <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active pt-4 pt-sm-5" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
+                <div class="tab-pane fade show active pt-3" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
                     tabindex="0">
-                    <div class="d-flex flex-column gap-3 w-100">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <img src=${whatsappIcon} alt="logo whatsapp"
-                                    width="48px">
-                            </div>
-                            <div>
-                                <p class="m-0"> (11) 959525369 </p>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <img src=${instagramIcon} alt="logo instagam"
-                                    width="48px">
-                            </div>
-                            <div>
-                                <p class="m-0"> @pisc.camilamelissa </p>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <img src=${linkedinIcon} alt="logo linkedin"
-                                    width="48px">
-                            </div>
-                            <div>
-                                <p class="m-0"> in/camila-melissa-de-souza </p>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <img src=${emailIcon} alt="logo email" width="48px">
-                            </div>
-                            <div>
-                                <p class="m-0">camila.melissa.souza@gmail.com </p>
-                            </div>
-                        </div>
-                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item list-group-item-action pt-3 pb-3">
+                            <a class="link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover" href="#" data-bs-toggle="tooltip" data-bs-title="WhatsApp">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <img src=${whatsappIcon} alt="logo whatsapp"
+                                            width="48px">
+                                    </div>
+                                    <div>
+                                        <p class="m-0"> (11) 959525369 </p>
+                                    </div>
+                                </div>
+                            </a>
+                        
+                        </li>
+                        <li class="list-group-item list-group-item-action pt-3 pb-3">
+                            <a class="link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover" href="https://www.instagram.com/psic.camilamelissa" target="_blank" data-bs-toggle="tooltip" data-bs-title="Instagram">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <img src=${instagramIcon} alt="logo instagam"
+                                            width="48px">
+                                    </div>
+                                    <div>
+                                        <p class="m-0"> @pisc.camilamelissa </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item list-group-item-action pt-3 pb-3">
+                            <a class="link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover" href="https://www.linkedin.com/in/camila-melissa-de-souza-a91413191" target="_blank" data-bs-toggle="tooltip" data-bs-title="Linkedin">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <img src=${linkedinIcon} alt="logo linkedin"
+                                            width="48px">
+                                    </div>
+                                    <div>
+                                        <p class="m-0"> in/camila-melissa-de-souza </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item list-group-item-action pt-3 pb-3">
+                            <a class="link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover" href="#" data-bs-toggle="tooltip" data-bs-title="E-mail">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <img src=${emailIcon} alt="logo email" width="48px">
+                                    </div>
+                                    <div>
+                                        <p class="m-0">camila.melissa.souza@gmail.com </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
+                <div class="tab-pane fade pt-3" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
                     tabindex="0">
-                    <form class="d-flex flex-column gap-4">
+                    <form class="d-flex flex-column gap-3 gap-lg-4">
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-text">Nome</span>
@@ -100,4 +118,11 @@ const contact = `
     </section>
 `;
 
-export default contact;
+const activeAllTooltip = () => {
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new Tooltip(tooltipTriggerEl, {
+        trigger: 'hover'
+    }));
+}
+
+export { contact, activeAllTooltip };
