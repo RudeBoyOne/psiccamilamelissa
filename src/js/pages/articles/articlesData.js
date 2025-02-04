@@ -3,7 +3,7 @@ import artigoPublicadoEnclausuramentoDaPalavra from '../../../assets/files/artig
 
 const articlesMap = {
     enclausuramentoDaPalavra: {
-        title: 'Enclausuramento da Palavra',
+        title: 'O Enclausuramento da Palavra',
         pdf: artigoPublicadoEnclausuramentoDaPalavra,
         img: avatar
     }

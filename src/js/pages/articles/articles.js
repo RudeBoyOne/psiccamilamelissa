@@ -16,7 +16,7 @@ const articles = `
                 ([id, { title, img }]) =>
                     `
                         <div class="col">
-                            <div class="card h-100 shadows" data-article="${id}">
+                            <div class="card card-article h-100 shadows" data-article="${id}">
                                 <img src=${img} class="card-img-top" alt="Prévia do Artigo">
                                 <div class="card-body">
                                     <h5 class="card-title">${title}</h5>
@@ -33,7 +33,8 @@ const articles = `
 ;
 
 const addCardListeners = () => {
-    document.querySelectorAll('.card').forEach(card => {
+    document.querySelectorAll('.card-article').forEach(card => {
+        card.style.cursor = 'pointer';
         card.addEventListener('click', () => {
             const articleId = card.getAttribute('data-article');
             const article = articlesData[articleId];

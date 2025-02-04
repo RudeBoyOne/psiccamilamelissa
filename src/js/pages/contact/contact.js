@@ -1,10 +1,12 @@
 import { Tooltip } from 'bootstrap';
-import avatar from '../../assets/images/avatar.jpg';
-import emailIcon from '../../assets/images/icons/email.png';
-import instagramIcon from '../../assets/images/icons/instagram.png';
-import linkedinIcon from '../../assets/images/icons/linkedin.png';
-import whatsappIcon from '../../assets/images/icons/whatsapp.png';
-import '../../css/pages/contact.scss';
+import avatar from '../../../assets/images/avatar.jpg';
+import emailIcon from '../../../assets/images/icons/email.png';
+import instagramIcon from '../../../assets/images/icons/instagram.png';
+import linkedinIcon from '../../../assets/images/icons/linkedin.png';
+import whatsappIcon from '../../../assets/images/icons/whatsapp.png';
+import '../../../css/pages/contact.scss';
+import sendEmail from '../../services/emailSendingService';
+import toast from './contactToast';
 
 const contact = `
      <section class="d-flex flex-column-reverse flex-lg-row align-items-center p-3">
@@ -30,7 +32,7 @@ const contact = `
                     tabindex="0">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item list-group-item-action pt-3 pb-3">
-                            <a class="link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover" href="#" data-bs-toggle="tooltip" data-bs-title="WhatsApp">
+                            <a class="link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover" href="#" data-bs-toggle="tooltip"  data-bs-custom-class="custom-tooltip" data-bs-title="WhatsApp">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
                                         <img src=${whatsappIcon} alt="logo whatsapp"
@@ -44,7 +46,8 @@ const contact = `
                         
                         </li>
                         <li class="list-group-item list-group-item-action pt-3 pb-3">
-                            <a class="link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover" href="https://www.instagram.com/psic.camilamelissa" target="_blank" data-bs-toggle="tooltip" data-bs-title="Instagram">
+                            <a class="link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover" href="https://www.instagram.com/psic.camilamelissa" target="_blank" data-bs-toggle="tooltip"         data-bs-custom-class="custom-tooltip"
+                            data-bs-title="Instagram">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
                                         <img src=${instagramIcon} alt="logo instagam"
@@ -57,7 +60,8 @@ const contact = `
                             </a>
                         </li>
                         <li class="list-group-item list-group-item-action pt-3 pb-3">
-                            <a class="link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover" href="https://www.linkedin.com/in/camila-melissa-de-souza-a91413191" target="_blank" data-bs-toggle="tooltip" data-bs-title="Linkedin">
+                            <a class="link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover" href="https://www.linkedin.com/in/camila-melissa-de-souza-a91413191" target="_blank" data-bs-toggle="tooltip" data-bs-custom-class="custom-tooltip"
+                            data-bs-title="Linkedin">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
                                         <img src=${linkedinIcon} alt="logo linkedin"
@@ -70,7 +74,7 @@ const contact = `
                             </a>
                         </li>
                         <li class="list-group-item list-group-item-action pt-3 pb-3">
-                            <a class="link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover" href="#" data-bs-toggle="tooltip" data-bs-title="E-mail">
+                            <a class="link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover" href="#" data-bs-toggle="tooltip" data-bs-custom-class="custom-tooltip" data-bs-title="E-mail">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
                                         <img src=${emailIcon} alt="logo email" width="48px">
@@ -85,11 +89,11 @@ const contact = `
                 </div>
                 <div class="tab-pane fade pt-3" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
                     tabindex="0">
-                    <form class="d-flex flex-column gap-3 gap-lg-4">
+                    <form id="formMessage" class="d-flex flex-column gap-3 gap-lg-4">
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-text">Nome</span>
-                                <input type="text" class="form-control" id="nome" required>
+                                <input type="text" class="form-control" name="name" id="name" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -97,7 +101,7 @@ const contact = `
                                 <span class="input-group-text">
                                     <i class="bi bi-envelope-at-fill"></i>
                                 </span>
-                                <input type="email" class="form-control" id="email" placeholder="Seu E-mail" required>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Seu E-mail" required>
                             </div>
 
                         </div>
@@ -106,7 +110,7 @@ const contact = `
                                 <span class="input-group-text">
                                     Mensagem
                                 </span>
-                                <textarea class="form-control noResize" id="mensagem" rows="5"></textarea>
+                                <textarea class="form-control noResize" name="message" id="messagem" rows="5" required></textarea>
                             </div>
                         </div>
                         <div class="d-grid">
@@ -125,4 +129,56 @@ const activeAllTooltip = () => {
     }));
 }
 
-export { contact, activeAllTooltip };
+const createSpinner = () => {
+    const spinner = document.createElement('span');
+    spinner.classList.add('spinner-border', 'spinner-border-sm', 'me-2', 'invisible');
+    spinner.setAttribute('role', 'status');
+    spinner.setAttribute('aria-hidden', 'true');
+
+    return spinner;
+}
+
+const emailSending = () => {
+    const form = document.getElementById('formMessage');
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    const spinner = createSpinner();
+    submitButton.insertAdjacentElement('afterbegin', spinner);
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const message = formData.get('message');
+
+        const messageToSend = {
+            name: name,
+            email: email,
+            message: message
+        }
+
+        form.querySelectorAll('input, textarea, button').forEach((input) => input.disabled = true);
+        spinner.classList.remove('invisible');
+        spinner.classList.add('visible');
+
+        try {
+            const result = await sendEmail(messageToSend);
+
+            if (result) {
+                form.reset();
+                toast();
+                form.querySelectorAll('input, textarea, button').forEach((input) => input.disabled = false);
+                spinner.classList.remove('visible');
+                spinner.classList.add('invisible');
+            }
+
+        } catch (error) {
+            console.error('Mensagem não enviada: ', error);
+        }
+
+    })
+}
+
+export { contact, activeAllTooltip, emailSending };

@@ -1,5 +1,5 @@
 import { addCardListeners } from "../pages/articles/articles";
-import { activeAllTooltip } from "../pages/contact";
+import { activeAllTooltip, emailSending } from "../pages/contact/contact";
 import getOrCreateMainElement from "../utils/mainUtils";
 import pages from "./pages";
 
@@ -14,16 +14,13 @@ const insertTemplateHtmlInMainElement = (template) => {
 
         let path = window.location.hash;
 
-/*         if (path === '#articles') {
-            addCardListeners();
-        }
- */
         switch (path) {
             case '#articles':
                 addCardListeners();
                 break;
             case '#contact':
                 activeAllTooltip();
+                emailSending();
                 break;
             default:
                 break;

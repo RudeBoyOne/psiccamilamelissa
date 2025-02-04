@@ -15,7 +15,7 @@ const getOrCreateMainElement = () => {
             header.insertAdjacentElement('afterend', main);
         }
     }
-    main.classList.add('d-flex', 'container', 'flex-grow-1');
+    main.classList.add('d-flex', 'container', 'flex-grow-1', 'p-0');
     return main;
 };
 
