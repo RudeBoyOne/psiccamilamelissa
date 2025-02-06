@@ -15,7 +15,6 @@ const toast = () => {
         </div>
     `;
 
-    // document.body.insertAdjacentHTML('afterbegin', templateToast);
     document.getElementById('main').insertAdjacentHTML('afterbegin', templateToast);
 
     const toastHtml = document.getElementById('toast');

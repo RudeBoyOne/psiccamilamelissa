@@ -26,12 +26,15 @@
     "homepage": "https://github.com/RudeBoyOne/psiccamilamelissa#readme",
     "devDependencies": {
         "@parcel/transformer-sass": "^2.13.3",
+        "buffer": "^6.0.3",
         "parcel": "^2.13.3",
+        "process": "^0.11.10",
         "svgo": "^3.3.2"
     },
     "dependencies": {
         "@popperjs/core": "^2.11.8",
         "bootstrap": "^5.3.3",
-        "bootstrap-icons": "^1.11.3"
+        "bootstrap-icons": "^1.11.3",
+        "pdfjs-dist": "^4.10.38"
     }
 }

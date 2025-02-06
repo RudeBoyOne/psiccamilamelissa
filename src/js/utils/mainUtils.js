@@ -10,9 +10,9 @@ const getOrCreateMainElement = () => {
     if (!main) {
         main = document.createElement('main');
         main.id = 'main';
-        const header = document.getElementsByTagName('header')[0];
-        if (header) {
-            header.insertAdjacentElement('afterend', main);
+        const footer = document.body.lastElementChild;
+        if (footer) {
+            document.body.insertBefore(main, footer);
         }
     }
     main.classList.add('d-flex', 'container', 'flex-grow-1', 'p-0');

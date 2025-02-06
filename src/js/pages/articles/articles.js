@@ -1,6 +1,7 @@
 import articlesData from './articlesData';
 import modal from './articlesModal';
 import '../../../css/pages/articles.scss';
+import { showPdf } from './displayPdf';
 
 const articles = `
     <section class="p-3 w-100">
@@ -12,9 +13,9 @@ const articles = `
         <hr class="border border-1 rounded-3 mt-3 mb-3">
         <div class="row row-cols-1 row-cols-md-3 g-4">
             ${Object.entries(articlesData)
-            .map(
-                ([id, { title, img }]) =>
-                    `
+        .map(
+            ([id, { title, img }]) =>
+                `
                         <div class="col">
                             <div class="card card-article h-100 shadows" data-article="${id}">
                                 <img src=${img} class="card-img-top" alt="Prévia do Artigo">
@@ -27,7 +28,7 @@ const articles = `
                             </div>
                         </div>
                     `
-            ).join('')}
+        ).join('')}
         </div>
     </section> `;
 ;
@@ -39,11 +40,14 @@ const addCardListeners = () => {
             const articleId = card.getAttribute('data-article');
             const article = articlesData[articleId];
 
-            if (article) {
-                modal(article.title, article.pdf);
-            } else {
-                console.error('Artigo não encontrado:', articleId);
-            }
+            localStorage.setItem('pdf', article.pdf);
+
+            window.location.hash = '#display_pdf';
+
+            setTimeout(() => {
+                showPdf(article.pdf);
+            }, 3000)
+
         });
     });
 };

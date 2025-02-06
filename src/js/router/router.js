@@ -1,4 +1,5 @@
 import { addCardListeners } from "../pages/articles/articles";
+import { showPdf } from "../pages/articles/displayPdf";
 import { activeAllTooltip, emailSending } from "../pages/contact/contact";
 import getOrCreateMainElement from "../utils/mainUtils";
 import pages from "./pages";
@@ -17,6 +18,9 @@ const insertTemplateHtmlInMainElement = (template) => {
         switch (path) {
             case '#articles':
                 addCardListeners();
+                break;
+            case '#display_pdf':
+                showPdf();
                 break;
             case '#contact':
                 activeAllTooltip();
