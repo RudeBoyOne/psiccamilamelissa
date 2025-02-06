@@ -1,17 +1,17 @@
 import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
 import pdfWorker from 'pdfjs-dist/build/pdf.worker.min.mjs';
+import '../../../css/pages/articles.scss';
 
 GlobalWorkerOptions.workerSrc = new URL('../../../../node_modules/pdfjs-dist/build/pdf.worker.min.mjs', import.meta.url).toString();
 
 const displayPdf = `
-    <div class="container-fluid d-flex flex-column align-items-center p-3">
-        <div class="d-flex align-items-center justify-content-end w-100 mt-3 gap-3">
-            <a id="download-pdf" href="./src/assets/files/artigoPublicadoEnclausuramentoDaPalavra.pdf" download
-                class="btn btn-dark mb-2 mb-md-0">Baixar PDF</a>
-            <a id="go-back" href="#articles" class="btn btn-secondary mb-2 mb-md-0">Voltar</a>
+    <section class="container d-flex flex-column align-items-center gap-4 p-3">
+        <div class="d-flex align-items-center justify-content-evenly gap-3 mt-4">
+            <a id="download-pdf" class="btn btn-dark btn-dark-without-border">Baixar PDF</a>
+            <a id="go-back" href="#articles" class="btn btn-secondary">Voltar</a>
         </div>
-        <div class="w-100">
-            <canvas id="pdf-canvas" class="border border-dark w-100"></canvas>
+        <div class="d-flex justify-content-center w-auto">
+            <canvas id="pdf-canvas" class="border border-secondary-subtle rounded shadow w-100"></canvas>
         </div>
         <nav aria-label="PDF navigation">
             <ul class="pagination justify-content-center mb-3">
@@ -30,7 +30,7 @@ const displayPdf = `
                 </li>
             </ul>
         </nav>
-    </div>
+    </section>
 `;
 
 const showPdf = (pdf) => {
@@ -40,10 +40,13 @@ const showPdf = (pdf) => {
         console.error('Caminho relativo do PDF não encontrado.');
         return;
     }
-
     localStorage.setItem('pdfPath', relativePath);
 
+    const buttonDownload = document.getElementById('download-pdf');
+
     const url = new URL(relativePath, window.location.origin).href
+
+    buttonDownload.setAttribute('href', url);
 
     let pdfDoc = null,
         pageNum = 1,

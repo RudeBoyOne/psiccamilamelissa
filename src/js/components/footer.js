@@ -46,8 +46,9 @@ const footer = `
                 </a>
             </div>
         </section>
-        <section class="text-center d-flex justify-content-center">
-            <small>&copy; 2025 | feito por: <a class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="https://lucasfncode.com.br" target="_blank">Lucas Ferreira Nogueira</a></small>
+        <section class="text-center d-flex justify-content-center flex-column gap-2">
+            <small>psic.camilamelissa &copy; 2025</small>
+            <small>feito por: <a class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="https://lucasfncode.com.br" target="_blank">Lucas Ferreira Nogueira</a></small>
         </section>
     </section> `;
 
