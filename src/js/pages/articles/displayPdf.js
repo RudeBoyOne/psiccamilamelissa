@@ -10,7 +10,7 @@ const displayPdf = `
             <a id="download-pdf" class="btn btn-dark btn-dark-without-border">Baixar PDF</a>
             <a id="go-back" href="#articles" class="btn btn-secondary">Voltar</a>
         </div>
-        <div class="d-flex justify-content-center w-auto">
+        <div id="pdf-container" class="d-flex justify-content-center w-auto">
             <canvas id="pdf-canvas" class="border border-secondary-subtle rounded shadow w-100"></canvas>
         </div>
         <nav aria-label="PDF navigation">
@@ -33,8 +33,17 @@ const displayPdf = `
     </section>
 `;
 
-const showPdf = (pdf) => {
+const createSpinner = () => {
+    const spinner = document.createElement('div');
+    spinner.classList.add('spinner-grow', 'text-dark');
+    spinner.setAttribute('role', 'status');
+    spinner.innerHTML = `<span class="visually-hidden">Loading...</span>`;
+    spinner.style.display = 'block';
+    spinner.style.zIndex = '1000'; 
+    return spinner;
+}
 
+const showPdf = (pdf) => {
     const relativePath = pdf || localStorage.getItem('pdfPath');
     if (!relativePath) {
         console.error('Caminho relativo do PDF não encontrado.');
@@ -43,22 +52,53 @@ const showPdf = (pdf) => {
     localStorage.setItem('pdfPath', relativePath);
 
     const buttonDownload = document.getElementById('download-pdf');
-
-    const url = new URL(relativePath, window.location.origin).href
-
-    buttonDownload.setAttribute('href', url);
+    const url = new URL(relativePath, window.location.origin).href;
+    buttonDownload.href = url;
 
     let pdfDoc = null,
         pageNum = 1,
         pageRendering = false,
-        pageNumPending = null,
-        scale = 1.5,
-        canvas = document.getElementById('pdf-canvas'),
-        ctx = canvas.getContext('2d');
+        renderTask = null,
+        scale = 1.5;
 
-    function renderPage(num) {
+    const pdfContainer = document.getElementById('pdf-container');
+    const existingCanvas = pdfContainer.querySelector('canvas');
+    if (existingCanvas) {
+        existingCanvas.remove();
+    }
+
+    const canvas = document.createElement('canvas');
+    canvas.id = 'pdf-canvas';
+    canvas.className = 'border border-secondary-subtle rounded shadow w-100';
+    pdfContainer.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+
+    const existingSpinner = pdfContainer.querySelector('.spinner-grow');
+    if (existingSpinner) {
+        existingSpinner.remove();
+    }
+
+    const spinner = createSpinner();
+    pdfContainer.insertBefore(spinner, canvas);
+
+    function cancelPendingRender() {
+        if (renderTask && renderTask.promise) {
+            renderTask.cancel();
+        }
+    }
+
+    async function renderPage(num) {
+        if (pageRendering) {
+            await new Promise(resolve => {
+                setTimeout(resolve, 100); // Aguarde um pouco para a renderização terminar
+            });
+        }
+
         pageRendering = true;
-        pdfDoc.getPage(num).then(function (page) {
+        spinner.style.display = 'block';
+
+        try {
+            const page = await pdfDoc.getPage(num);
             const viewport = page.getViewport({ scale: scale });
             canvas.height = viewport.height;
             canvas.width = viewport.width;
@@ -67,25 +107,29 @@ const showPdf = (pdf) => {
                 canvasContext: ctx,
                 viewport: viewport
             };
-            const renderTask = page.render(renderContext);
 
-            renderTask.promise.then(function () {
-                pageRendering = false;
-                if (pageNumPending !== null) {
-                    renderPage(pageNumPending);
-                    pageNumPending = null;
-                }
-            });
+            renderTask = page.render(renderContext);
+
+            await renderTask.promise;
+
+            pageRendering = false;
+            spinner.style.display = 'none';
 
             document.getElementById('page-num').textContent = num;
-        });
+        } catch (error) {
+            console.error('Erro ao renderizar página:', error);
+            pageRendering = false;
+            spinner.style.display = 'none';
+        }
     }
 
-    function queueRenderPage(num) {
+    async function queueRenderPage(num) {
         if (pageRendering) {
-            pageNumPending = num;
+            const existingNum = pageNum;
+            await renderPage(num);
+            document.getElementById('page-num').textContent = num;
         } else {
-            renderPage(num);
+            await renderPage(num);
         }
     }
 
@@ -93,6 +137,7 @@ const showPdf = (pdf) => {
         if (pageNum <= 1) {
             return;
         }
+        cancelPendingRender();
         pageNum--;
         queueRenderPage(pageNum);
     }
@@ -101,15 +146,17 @@ const showPdf = (pdf) => {
         if (pageNum >= pdfDoc.numPages) {
             return;
         }
+        cancelPendingRender();
         pageNum++;
         queueRenderPage(pageNum);
     }
 
-    getDocument(url).promise.then(function (pdf) {
-        pdfDoc = pdf;
-        document.getElementById('page-count').textContent = pdf.numPages;
-
-        renderPage(pageNum);
+    getDocument(url).promise.then(function (pdfDoc_) {
+        pdfDoc = pdfDoc_;
+        document.getElementById('page-count').textContent = pdfDoc.numPages;
+        queueRenderPage(pageNum);
+    }).catch(function (error) {
+        console.error('Erro ao carregar o PDF:', error);
     });
 
     document.getElementById('prev-page').addEventListener('click', onPrevPage);
