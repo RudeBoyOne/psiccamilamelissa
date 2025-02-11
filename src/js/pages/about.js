@@ -2,6 +2,9 @@ import '../../css/pages/about.scss';
 import estagio from '../../assets/images/estagio.png';
 import formatura from '../../assets/images/formatura.png';
 import atendimento from '../../assets/images/atendimento.png';
+import congresso from '../../assets/images/congresso.png';
+import sedes from '../../assets/images/sedes.png';
+import cprj from '../../assets/images/cprj.jpg';
 import avatar from '../../assets/images/avatar.jpg';
 
 const about = `
@@ -81,7 +84,7 @@ const about = `
                         <!-- Evento à direita -->
                         <div class="card w-100 d-flex flex-column flex-md-row-reverse shadows">
                             <div class="col-md-4">
-                                <img src="${avatar}" class="img-fluid rounded" alt="...">
+                                <img src="${sedes}" class="img-fluid rounded" alt="...">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -99,7 +102,7 @@ const about = `
                         <!-- Evento à esquerda -->
                         <div class="card w-100 d-flex flex-column flex-md-row shadows">
                             <div class="col-md-4 d-flex">
-                                <img src="${avatar}" class="img-fluid rounded" alt="...">
+                                <img src="${congresso}" class="img-fluid rounded" alt="...">
                             </div>
                             <div class="col-md-8 d-flex flex-column">
                                 <div class="card-body">
@@ -117,7 +120,7 @@ const about = `
                         <!-- Evento à direita -->
                         <div class="card w-100 d-flex flex-column flex-md-row-reverse shadows">
                             <div class="col-md-4">
-                                <img src="${avatar}" class="img-fluid rounded" alt="...">
+                                <img src="${cprj}" class="img-fluid rounded" alt="...">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
