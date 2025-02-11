@@ -33,13 +33,11 @@ const displayPdf = `
 
 
 const showPdf = async () => {
-    const pdfCanvas = document.createElement('canvas');
-    pdfCanvas.setAttribute('id', 'pdf-canvas');
-    pdfCanvas.classList.add('border', 'border-secondary-subtle', 'rounded', 'shadow', 'w-100');
+    const canvas = document.createElement('canvas');
+    canvas.setAttribute('id', 'pdf-canvas');
+    canvas.classList.add('border', 'border-secondary-subtle', 'rounded', 'shadow', 'w-100');
     const pdfContainerCanvas = document.getElementById('pdf-container-canvas')
-    pdfContainerCanvas.appendChild(pdfCanvas);
-
-    canvas = document.getElementById('pdf-canvas');
+    pdfContainerCanvas.appendChild(canvas);
     ctx = canvas.getContext('2d');
 
     const relativePath = localStorage.getItem('pdf');
