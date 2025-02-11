@@ -1,5 +1,4 @@
 import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
-import pdfWorker from 'pdfjs-dist/build/pdf.worker.min.mjs';
 import '../../../css/pages/articles.scss';
 
 GlobalWorkerOptions.workerSrc = new URL('../../../../node_modules/pdfjs-dist/build/pdf.worker.min.mjs', import.meta.url).toString();
@@ -10,8 +9,7 @@ const displayPdf = `
             <a id="download-pdf" class="btn btn-dark btn-dark-without-border">Baixar PDF</a>
             <a id="go-back" href="#articles" class="btn btn-secondary">Voltar</a>
         </div>
-        <div id="pdf-container" class="d-flex justify-content-center w-auto">
-            <canvas id="pdf-canvas" class="border border-secondary-subtle rounded shadow w-100"></canvas>
+        <div id="pdf-container-canvas" class="d-flex justify-content-center w-auto">
         </div>
         <nav aria-label="PDF navigation">
             <ul class="pagination justify-content-center mb-3">
@@ -33,69 +31,28 @@ const displayPdf = `
     </section>
 `;
 
-const createSpinner = () => {
-    const spinner = document.createElement('div');
-    spinner.classList.add('spinner-grow', 'text-dark');
-    spinner.setAttribute('role', 'status');
-    spinner.innerHTML = `<span class="visually-hidden">Loading...</span>`;
-    spinner.style.display = 'block';
-    spinner.style.zIndex = '1000'; 
-    return spinner;
-}
 
-const showPdf = (pdf) => {
-    const relativePath = pdf || localStorage.getItem('pdfPath');
-    if (!relativePath) {
-        console.error('Caminho relativo do PDF não encontrado.');
-        return;
-    }
-    localStorage.setItem('pdfPath', relativePath);
+const showPdf = async () => {
+    const pdfCanvas = document.createElement('canvas');
+    pdfCanvas.setAttribute('id', 'pdf-canvas');
+    pdfCanvas.classList.add('border', 'border-secondary-subtle', 'rounded', 'shadow', 'w-100');
+    const pdfContainerCanvas = document.getElementById('pdf-container-canvas')
+    pdfContainerCanvas.appendChild(pdfCanvas);
 
-    const buttonDownload = document.getElementById('download-pdf');
+    canvas = document.getElementById('pdf-canvas');
+    ctx = canvas.getContext('2d');
+
+    const relativePath = localStorage.getItem('pdf');
+
     const url = new URL(relativePath, window.location.origin).href;
-    buttonDownload.href = url;
 
     let pdfDoc = null,
         pageNum = 1,
         pageRendering = false,
-        renderTask = null,
-        scale = 1.5;
+        scale = 1.5
 
-    const pdfContainer = document.getElementById('pdf-container');
-    const existingCanvas = pdfContainer.querySelector('canvas');
-    if (existingCanvas) {
-        existingCanvas.remove();
-    }
-
-    const canvas = document.createElement('canvas');
-    canvas.id = 'pdf-canvas';
-    canvas.className = 'border border-secondary-subtle rounded shadow w-100';
-    pdfContainer.appendChild(canvas);
-    const ctx = canvas.getContext('2d');
-
-    const existingSpinner = pdfContainer.querySelector('.spinner-grow');
-    if (existingSpinner) {
-        existingSpinner.remove();
-    }
-
-    const spinner = createSpinner();
-    pdfContainer.insertBefore(spinner, canvas);
-
-    function cancelPendingRender() {
-        if (renderTask && renderTask.promise) {
-            renderTask.cancel();
-        }
-    }
-
-    async function renderPage(num) {
-        if (pageRendering) {
-            await new Promise(resolve => {
-                setTimeout(resolve, 100); // Aguarde um pouco para a renderização terminar
-            });
-        }
-
+    const renderPage = async (num) => {
         pageRendering = true;
-        spinner.style.display = 'block';
 
         try {
             const page = await pdfDoc.getPage(num);
@@ -108,59 +65,53 @@ const showPdf = (pdf) => {
                 viewport: viewport
             };
 
-            renderTask = page.render(renderContext);
+            const renderTask = page.render(renderContext);
 
             await renderTask.promise;
 
             pageRendering = false;
-            spinner.style.display = 'none';
-
             document.getElementById('page-num').textContent = num;
+
         } catch (error) {
             console.error('Erro ao renderizar página:', error);
             pageRendering = false;
-            spinner.style.display = 'none';
         }
-    }
+    };
 
-    async function queueRenderPage(num) {
+    const queueRenderPage = (num) => {
         if (pageRendering) {
-            const existingNum = pageNum;
-            await renderPage(num);
-            document.getElementById('page-num').textContent = num;
+            setTimeout(() => queueRenderPage(num), 100);
         } else {
-            await renderPage(num);
+            renderPage(num);
         }
-    }
+    };
 
-    function onPrevPage() {
-        if (pageNum <= 1) {
-            return;
-        }
-        cancelPendingRender();
+    const onPrevPage = () => {
+        if (pageNum <= 1) return;
         pageNum--;
         queueRenderPage(pageNum);
-    }
+    };
 
-    function onNextPage() {
-        if (pageNum >= pdfDoc.numPages) {
-            return;
-        }
-        cancelPendingRender();
+    const onNextPage = () => {
+        if (pageNum >= pdfDoc.numPages) return;
         pageNum++;
         queueRenderPage(pageNum);
-    }
+    };
 
-    getDocument(url).promise.then(function (pdfDoc_) {
-        pdfDoc = pdfDoc_;
+    try {
+        pdfDoc = await getDocument(url).promise;
         document.getElementById('page-count').textContent = pdfDoc.numPages;
-        queueRenderPage(pageNum);
-    }).catch(function (error) {
+        renderPage(pageNum);
+    } catch (error) {
         console.error('Erro ao carregar o PDF:', error);
-    });
+    }
 
     document.getElementById('prev-page').addEventListener('click', onPrevPage);
     document.getElementById('next-page').addEventListener('click', onNextPage);
-}
+
+    const buttonDownload = document.getElementById('download-pdf');
+    buttonDownload.href = url;
+
+};
 
 export { displayPdf, showPdf };

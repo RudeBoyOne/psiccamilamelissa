@@ -1,7 +1,5 @@
 import articlesData from './articlesData';
-import modal from './articlesModal';
 import '../../../css/pages/articles.scss';
-import { showPdf } from './displayPdf';
 
 const articles = `
     <section class="p-3 w-100">
@@ -39,15 +37,8 @@ const addCardListeners = () => {
         card.addEventListener('click', () => {
             const articleId = card.getAttribute('data-article');
             const article = articlesData[articleId];
-
             localStorage.setItem('pdf', article.pdf);
-
             window.location.hash = '#display_pdf';
-
-            setTimeout(() => {
-                showPdf(article.pdf);
-            }, 3000)
-
         });
     });
 };
