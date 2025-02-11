@@ -10,11 +10,11 @@ import toast from './contactToast';
 
 const contact = `
      <section class="d-flex flex-column-reverse flex-lg-row align-items-center p-3">
-        <section class="col-12 col-sm-6 pe-sm-3">
+        <section class="col-12 col-lg-6 pe-lg-3">
             <img src=${avatar}
                 alt="avatar de uma psicóloga de 30 anos que usa óculos e tranças no cabelo" class="img-fluid rounded">
         </section>
-        <section class="col-12 col-sm-6 contact-box">
+        <section class="col-12 col-lg-6 contact-box">
             <ul class="nav nav-pills mb-3 row" id="pills-tab" role="tablist">
                 <li class="nav-item col" role="presentation">
                     <button class="nav-link active w-100" id="pills-home-tab" data-bs-toggle="pill"
