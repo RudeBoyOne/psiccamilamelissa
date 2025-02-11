@@ -38,7 +38,7 @@ const showPdf = async () => {
     canvas.classList.add('border', 'border-secondary-subtle', 'rounded', 'shadow', 'w-100');
     const pdfContainerCanvas = document.getElementById('pdf-container-canvas')
     pdfContainerCanvas.appendChild(canvas);
-    ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d');
 
     const relativePath = localStorage.getItem('pdf');
 
