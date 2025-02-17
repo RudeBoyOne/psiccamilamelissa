@@ -1,4 +1,4 @@
-import avatar from '../../assets/images/avatar.jpg';
+import imgHome from '../../assets/images/imgHome2.png'
 
 const homePage = `
     <section class="d-flex flex-column-reverse flex-lg-row align-items-center p-3">
@@ -10,7 +10,7 @@ const homePage = `
             </p>
         </section>
         <section class="col-12 col-lg-6">
-            <img src=${avatar} alt="avatar de uma psicóloga de 30 anos que usa óculos e tranças no cabelo" class="img-fluid rounded">
+            <img src=${imgHome} alt="avatar de uma psicóloga de 30 anos que usa óculos e tranças no cabelo" class="img-fluid rounded">
         </section>
     </section> `;
 

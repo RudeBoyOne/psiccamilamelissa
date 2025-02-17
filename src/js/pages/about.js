@@ -5,7 +5,6 @@ import atendimento from '../../assets/images/atendimento.png';
 import congresso from '../../assets/images/congresso.png';
 import sedes from '../../assets/images/sedes.png';
 import cprj from '../../assets/images/cprj.jpg';
-import avatar from '../../assets/images/avatar.jpg';
 
 const about = `
     <section class="p-3 w-100">
@@ -28,14 +27,14 @@ const about = `
         <div class="container p-3">
             <h2 class="text-center mb-5"> Minha trajetória </h2>
             <div class="timeline">
-                <div class="row mb-3">
-                    <div class="col-md-6 d-flex justify-content-end">
+                <div class="row mb-5">
+                    <div class="col-lg-6 d-flex justify-content-end">
                         <!-- Evento à esquerda -->
-                        <div class="card w-100 d-flex flex-column flex-md-row shadows">
-                            <div class="col-md-4 d-flex">
+                        <div class="card w-100 d-flex flex-column flex-lg-row shadows">
+                            <div class="col-lg-4 d-flex">
                                 <img src="${estagio}" class="img-fluid rounded" alt="...">
                             </div>
-                            <div class="col-md-8 d-flex flex-column">
+                            <div class="col-lg-8 d-flex flex-column">
                                 <div class="card-body">
                                     <h5 class="card-title">Estágio no terceiro setor</h5>
                                     <h6 class="card-subtitle mb-2 text-body-secondary">2016 à 2019</h6>
@@ -45,14 +44,14 @@ const about = `
                         </div>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <div class="col-md-6 offset-md-6 d-flex justify-content-start">
+                <div class="row mb-5">
+                    <div class="col-lg-6 offset-lg-6 d-flex justify-content-start">
                         <!-- Evento à direita -->
-                        <div class="card w-100 d-flex flex-column flex-md-row-reverse shadows">
-                            <div class="col-md-4">
+                        <div class="card w-100 d-flex flex-column flex-lg-row-reverse shadows">
+                            <div class="col-lg-4">
                                 <img src="${formatura}" class="img-fluid rounded" alt="...">
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-lg-8">
                                 <div class="card-body">
                                     <h5 class="card-title">Formação na Cruzeiro do Sul</h5>
                                     <h6 class="card-subtitle mb-2 text-body-secondary">2019</h6>
@@ -62,14 +61,14 @@ const about = `
                         </div>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <div class="col-md-6 d-flex justify-content-end">
+                <div class="row mb-5">
+                    <div class="col-lg-6 d-flex justify-content-end">
                         <!-- Evento à esquerda -->
-                        <div class="card w-100 d-flex flex-column flex-md-row shadows">
-                            <div class="col-md-4 d-flex">
+                        <div class="card w-100 d-flex flex-column flex-lg-row shadows">
+                            <div class="col-lg-4 d-flex">
                                 <img src="${atendimento}" class="img-fluid rounded" alt="...">
                             </div>
-                            <div class="col-md-8 d-flex flex-column">
+                            <div class="col-lg-8 d-flex flex-column">
                                 <div class="card-body">
                                     <h5 class="card-title">Atendimento clínico presencial e a distância</h5>
                                     <h6 class="card-subtitle mb-2 text-body-secondary">2020 / até o momento </h6>
@@ -79,14 +78,14 @@ const about = `
                         </div>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <div class="col-md-6 offset-md-6 d-flex justify-content-start">
+                <div class="row mb-5">
+                    <div class="col-lg-6 offset-lg-6 d-flex justify-content-start">
                         <!-- Evento à direita -->
-                        <div class="card w-100 d-flex flex-column flex-md-row-reverse shadows">
-                            <div class="col-md-4">
+                        <div class="card w-100 d-flex flex-column flex-lg-row-reverse shadows">
+                            <div class="col-lg-4">
                                 <img src="${sedes}" class="img-fluid rounded" alt="...">
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-lg-8">
                                 <div class="card-body">
                                     <h5 class="card-title">Curso em Clínica Psicanalítica</h5>
                                     <h5 class="card-subtitle">Instituto Sedes Sapientiae</h5>
@@ -97,14 +96,14 @@ const about = `
                         </div>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <div class="col-md-6 d-flex justify-content-end">
+                <div class="row mb-5">
+                    <div class="col-lg-6 d-flex justify-content-end">
                         <!-- Evento à esquerda -->
-                        <div class="card w-100 d-flex flex-column flex-md-row shadows">
-                            <div class="col-md-4 d-flex">
+                        <div class="card w-100 d-flex flex-column flex-lg-row shadows">
+                            <div class="col-lg-4 d-flex">
                                 <img src="${congresso}" class="img-fluid rounded" alt="...">
                             </div>
-                            <div class="col-md-8 d-flex flex-column">
+                            <div class="col-lg-8 d-flex flex-column">
                                 <div class="card-body">
                                     <h5 class="card-title">Apresentação de artigo</h5>
                                     <h6 class="card-subtitle">Congresso ABRASME – Associação Brasileira de Saúde Mental</h6>
@@ -115,14 +114,14 @@ const about = `
                         </div>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <div class="col-md-6 offset-md-6 d-flex justify-content-start">
+                <div class="row mb-5">
+                    <div class="col-lg-6 offset-lg-6 d-flex justify-content-start">
                         <!-- Evento à direita -->
-                        <div class="card w-100 d-flex flex-column flex-md-row-reverse shadows">
-                            <div class="col-md-4">
+                        <div class="card w-100 d-flex flex-column flex-lg-row-reverse shadows">
+                            <div class="col-lg-4">
                                 <img src="${cprj}" class="img-fluid rounded" alt="...">
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-lg-8">
                                 <div class="card-body">
                                     <h5 class="card-title">Publicação de artigo</h5>
                                     <h6 class="card-subtitle">Revista Circulo Psicanalítico do Rio de Janeiro</h6>

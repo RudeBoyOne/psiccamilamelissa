@@ -1,5 +1,5 @@
 import { Tooltip } from 'bootstrap';
-import avatar from '../../../assets/images/avatar.jpg';
+import imgContact from '../../../assets/images/imgContact2.png';
 import emailIcon from '../../../assets/images/icons/email.png';
 import instagramIcon from '../../../assets/images/icons/instagram.png';
 import linkedinIcon from '../../../assets/images/icons/linkedin.png';
@@ -11,7 +11,7 @@ import toast from './contactToast';
 const contact = `
      <section class="d-flex flex-column-reverse flex-lg-row align-items-center p-3">
         <section class="col-12 col-lg-6 pe-lg-3">
-            <img src=${avatar}
+            <img src=${imgContact}
                 alt="avatar de uma psicóloga de 30 anos que usa óculos e tranças no cabelo" class="img-fluid rounded">
         </section>
         <section class="col-12 col-lg-6 contact-box">
