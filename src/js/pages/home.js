@@ -1,17 +1,51 @@
 import imgHome from '../../assets/images/imgHome2.png'
+import '../../css/pages/home.scss'
 
 const homePage = `
     <section class="d-flex flex-column-reverse flex-lg-row align-items-center p-3">
-        <section class="col-12 col-lg-6 pt-4 p-lg-4">
-            <p class="text-justify">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum cum iusto nesciunt vitae possimus placeat. Veritatis unde repudiandae iure doloribus autem, ipsa ullam sed corporis sint, beatae odio dolore vero?
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum a officia eum assumenda, corporis deleniti impedit delectus molestias ab laborum, architecto, distinctio labore voluptate facilis velit modi. Distinctio, rem ex.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est fuga vero exercitationem quidem, illum officia incidunt quo minima quasi placeat rerum natus consectetur ut dolorem accusantium id consequuntur repudiandae quis?
+        <section class="col-12 col-lg-6 pt-4 p-lg-4 d-flex flex-column justify-content-between">
+            <p class="text-justify lh-lg">
+                <span class="fw-bold text-decoration-underline text-uppercase"> Atendimento clínico de qualidade,</span> focado na abordagem psicanalítica. A psicanálise é uma ferramenta poderosa para explorar o inconsciente e entender os fatores que influenciam nossos comportamentos e emoções. Meu objetivo é ajudar você a enfrentar desafios e compreender suas emoções.
             </p>
+            <p class="text-justify lh-lg">
+                <span class="fw-bold text-decoration-underline text-uppercase"> Por que escolher a psicanálise?</span> A psicanálise oferece um espaço para mergulhar profundamente em si mesmo, revelando aspectos ocultos que influenciam seu bem-estar emocional. Compreender o inconsciente pode ser transformador e libertador, permitindo uma vida mais consciente.
+            </p>
+            <p class="text-justify lh-lg">
+                <span class="fw-bold text-decoration-underline text-uppercase"> Na minha clínica,</span> você encontrará um ambiente acolhedor e seguro, onde suas histórias, dores e alegrias serão respeitadas e valorizadas. Acredito que cada indivíduo é único e merece uma escuta atenta e sensível, para que possamos juntos ressignificar experiências e promover o autoconhecimento.
+            </p>
+            <p class="text-justify fw-bold text-uppercase">
+                Venha conhecer meu trabalho e juntos trilhar um caminho de autoconhecimento e transformação.
+            </p>
+
+            <div id="container" class="d-flex justify-content-center">
+                <a id="whatsapp-link" href="https://wa.me/5511959525369?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20terapia/análise." target="_blank" class="learn-more">
+                    <span class="circle" aria-hidden="true">
+                        <span class="icon arrow"></span>
+                    </span>
+                    <span class="button-text">Vamos Conversar?</span>
+                </a>
+            </div>
+
+
+
         </section>
         <section class="col-12 col-lg-6">
             <img src=${imgHome} alt="avatar de uma psicóloga de 30 anos que usa óculos e tranças no cabelo" class="img-fluid rounded">
         </section>
-    </section> `;
+    </section> 
+`;
 
-export default homePage;
+const eventButton = () => {
+    const link = document.getElementById("whatsapp-link");
+    link.addEventListener("click", function (event) {
+        event.preventDefault();
+        const url = link.getAttribute('href');
+        setTimeout(function () {
+            link.blur();
+            window.open(url, "_blank");
+        }, 600)
+    });
+}
+
+
+export { homePage, eventButton };

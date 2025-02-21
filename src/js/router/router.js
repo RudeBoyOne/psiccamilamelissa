@@ -1,6 +1,7 @@
 import { addCardListeners } from "../pages/articles/articles";
 import { showPdf } from "../pages/articles/displayPdf";
 import { activeAllTooltip, emailSending } from "../pages/contact/contact";
+import { eventButton } from "../pages/home";
 import getOrCreateMainElement from "../utils/mainUtils";
 import pages from "./pages";
 
@@ -16,6 +17,11 @@ const insertTemplateHtmlInMainElement = (template) => {
         let path = window.location.hash;
 
         switch (path) {
+            case '#home':
+            case '#':
+            case '':
+                eventButton();
+                break;
             case '#articles':
                 addCardListeners();
                 break;
