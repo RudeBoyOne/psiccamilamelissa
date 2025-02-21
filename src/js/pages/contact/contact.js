@@ -32,7 +32,7 @@ const contact = `
                     tabindex="0">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item list-group-item-action pt-3 pb-3">
-                            <a class="link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover" href="#" data-bs-toggle="tooltip"  data-bs-custom-class="custom-tooltip" data-bs-title="WhatsApp">
+                            <a class="link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover" href="https://wa.me/5511959525369?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20terapia/análise." target="_blank" data-bs-toggle="tooltip"  data-bs-custom-class="custom-tooltip" data-bs-title="WhatsApp">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
                                         <img src=${whatsappIcon} alt="logo whatsapp"
@@ -54,13 +54,13 @@ const contact = `
                                             width="48px">
                                     </div>
                                     <div>
-                                        <p class="m-0"> @pisc.camilamelissa </p>
+                                        <p class="m-0"> @psic.camilamelissa </p>
                                     </div>
                                 </div>
                             </a>
                         </li>
                         <li class="list-group-item list-group-item-action pt-3 pb-3">
-                            <a class="link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover" href="https://www.linkedin.com/in/camila-melissa-de-souza-a91413191" target="_blank" data-bs-toggle="tooltip" data-bs-custom-class="custom-tooltip"
+                            <a class="link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover" href="https://www.linkedin.com/in/psic-camilamelissa" target="_blank" data-bs-toggle="tooltip" data-bs-custom-class="custom-tooltip"
                             data-bs-title="Linkedin">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
@@ -68,7 +68,7 @@ const contact = `
                                             width="48px">
                                     </div>
                                     <div>
-                                        <p class="m-0"> in/camila-melissa-de-souza </p>
+                                        <p class="m-0"> in/psic-camilamelissa </p>
                                     </div>
                                 </div>
                             </a>
