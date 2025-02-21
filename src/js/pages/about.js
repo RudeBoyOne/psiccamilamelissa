@@ -88,7 +88,7 @@ const about = `
                             <div class="col-lg-8">
                                 <div class="card-body">
                                     <h5 class="card-title">Curso em Clínica Psicanalítica - Conflito e Sintoma</h5>
-                                    <h5 class="card-subtitle">Instituto Sedes Sapientiae</h5>
+                                    <h6 class="card-subtitle">Instituto Sedes Sapientiae</h6>
                                     <h6 class="card-subtitle mb-2 text-body-secondary">2022 à 2024</h6>
                                     <p class="card-text">Estudo aprofundado nas obras completas de Freud e estudos de caso.</p>
                                 </div>
@@ -126,7 +126,7 @@ const about = `
                                     <h5 class="card-title">Publicação do meu artigo</h5>
                                     <h6 class="card-subtitle">Revista Circulo Psicanalítico do Rio de Janeiro</h6>
                                     <h6 class="card-subtitle mb-2 text-body-secondary">2024</h6>
-                                    <p class="card-text">O enclausuramento da palavra. Cadernos de Psicanálise | CPRJ, v. 46, n. 51, p. 87-102, 5 nov. 2024. </p>
+                                    <p class="card-text text-smaller">O enclausuramento da palavra. Cadernos de Psicanálise | CPRJ, v. 46, n. 51, p. 87-102, 5 nov. 2024. </p>
                                 </div>
                             </div>
                         </div>

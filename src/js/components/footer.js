@@ -19,7 +19,7 @@ const footer = `
                 </a>
             </div>
             <div>
-                <a class="text-light icon-link icon-link-hover fs-2" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="">
+                <a class="text-light icon-link icon-link-hover fs-2" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="https://wa.me/5511959525369?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20terapia/análise." target="_blank" >
                     <i class="bi bi-whatsapp link-opacity-50-hover"></i>
                 </a>
             </div>

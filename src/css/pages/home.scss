@@ -14,112 +14,113 @@ a {
   text-decoration: none;
 }
 
-button,
-a {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  outline: none;
-  border: 0;
-  vertical-align: middle;
-  background: transparent;
-  padding: 0;
-  font-size: inherit;
-  font-family: inherit;
+#container.button-home {
+  #whatsapp-link {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
 
-  &.learn-more {
-    width: 80%;
-    height: auto;
+    &.learn-more {
+      width: 80%;
+      height: auto;
 
-    .circle {
-      @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
-      position: relative;
-      display: block;
-      margin: 0;
-      width: 4rem;
-      height: 4rem;
-      background: $green;
-      border-radius: 0.5rem;
-
-      .icon {
+      .circle {
         @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        background: $white;
+        position: relative;
+        display: block;
+        margin: 0;
+        width: 4rem;
+        height: 4rem;
+        background: $green;
+        border-radius: 0.5rem;
 
-        &.arrow {
+        .icon {
           @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
-          left: 0.625rem;
-          width: 1.6rem;
-          height: 0.125rem;
-          background: none;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          background: $white;
 
-          &::before {
-            position: absolute;
-            content: "";
-            top: -0.25rem;
-            right: 0.0625rem;
-            width: 0.625rem;
-            height: 0.625rem;
-            border-top: 0.125rem solid #fff;
-            border-right: 0.125rem solid #fff;
-            transform: rotate(45deg);
+          &.arrow {
+            @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
+            left: 0.625rem;
+            width: 1.6rem;
+            height: 0.125rem;
+            background: none;
+
+            &::before {
+              position: absolute;
+              content: "";
+              top: -0.25rem;
+              right: 0.0625rem;
+              width: 0.625rem;
+              height: 0.625rem;
+              border-top: 0.125rem solid #fff;
+              border-right: 0.125rem solid #fff;
+              transform: rotate(45deg);
+            }
           }
         }
       }
-    }
 
-    .button-text {
-      @include transition(all, 1s, cubic-bezier(0.65, 0, 0.076, 1));
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 1.2rem 0;
-      margin: 0 0 0 1.85rem;
-      color: $green;
-      font-weight: 700;
-      line-height: 1.6;
-      text-align: center;
-      text-transform: uppercase;
-    }
-  }
-
-  &:hover,
-  &:focus {
-    .circle {
-      width: 100%;
-
-      .icon {
-        &.arrow {
-          background: #fff;
-          transform: translate(1rem, 0);
-        }
+      .button-text {
+        @include transition(all, 1s, cubic-bezier(0.65, 0, 0.076, 1));
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 1.2rem 0;
+        margin: 0 0 0 1.85rem;
+        color: $green;
+        font-weight: 700;
+        line-height: 1.6;
+        text-align: center;
+        text-transform: uppercase;
       }
     }
 
-    .button-text {
-      color: #fff;
-    }
-  }
+    &:hover,
+    &:focus {
+      .circle {
+        width: 100%;
 
-  &.clicked {
-    .circle {
-      width: 4rem;
-
-      .icon {
-        &.arrow {
-          background: none;
-          transform: none;
+        .icon {
+          &.arrow {
+            background: #fff;
+            transform: translate(1rem, 0);
+          }
         }
+      }
+
+      .button-text {
+        color: #fff;
       }
     }
 
-    .button-text {
-      color: $green;
+    &.clicked {
+      .circle {
+        width: 4rem;
+
+        .icon {
+          &.arrow {
+            background: none;
+            transform: none;
+          }
+        }
+      }
+
+      .button-text {
+        color: $green;
+      }
     }
   }
 }

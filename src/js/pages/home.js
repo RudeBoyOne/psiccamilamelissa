@@ -17,7 +17,7 @@ const homePage = `
                 Venha conhecer meu trabalho e juntos trilhar um caminho de autoconhecimento e transformação.
             </p>
 
-            <div id="container" class="d-flex justify-content-center">
+            <div id="container" class="d-flex justify-content-center button-home">
                 <a id="whatsapp-link" href="https://wa.me/5511959525369?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20terapia/análise." target="_blank" class="learn-more">
                     <span class="circle" aria-hidden="true">
                         <span class="icon arrow"></span>
