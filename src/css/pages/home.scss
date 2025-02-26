@@ -2,6 +2,12 @@ $bg: #f3f8fa;
 $white: #fff;
 $green: #198754;
 
+@media (min-width: 992px) {
+  .text-section {
+    height: 100%;
+  }
+}
+
 @mixin transition(
   $property: all,
   $duration: 1s,
@@ -20,7 +26,8 @@ a {
     display: inline-block;
     cursor: pointer;
     outline: none;
-    border: 0;
+    border: 1px solid $green;
+    border-radius: 0.6rem;
     vertical-align: middle;
     background: transparent;
     padding: 0;
@@ -28,7 +35,7 @@ a {
     font-family: inherit;
 
     &.learn-more {
-      width: 80%;
+      width: 87%;
       height: auto;
 
       .circle {

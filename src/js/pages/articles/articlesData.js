@@ -5,7 +5,8 @@ const articlesMap = {
     enclausuramentoDaPalavra: {
         title: 'O Enclausuramento da Palavra',
         pdf: artigoPublicadoEnclausuramentoDaPalavra,
-        img: artigoImg
+        img: artigoImg,
+        description: 'Cadernos de Psicanálise | CPRJ, v. 46, n. 51, p. 87-102, 5 nov. 2024.'
     }
 };
 

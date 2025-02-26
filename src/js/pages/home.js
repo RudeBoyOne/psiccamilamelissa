@@ -3,7 +3,7 @@ import '../../css/pages/home.scss'
 
 const homePage = `
     <section class="d-flex flex-column-reverse flex-lg-row align-items-center p-3">
-        <section class="col-12 col-lg-6 pt-4 p-lg-4 d-flex flex-column justify-content-between">
+        <section class="col-12 col-lg-6 pt-4 p-lg-4 d-flex flex-column justify-content-evenly text-section">
             <p class="text-justify lh-lg">
                 <span class="fw-bold text-decoration-underline text-uppercase"> Atendimento clínico de qualidade,</span> focado na abordagem psicanalítica. A psicanálise é uma ferramenta poderosa para explorar o inconsciente e entender os fatores que influenciam nossos comportamentos e emoções. Meu objetivo é ajudar você a enfrentar desafios e compreender suas emoções.
             </p>
@@ -14,7 +14,7 @@ const homePage = `
                 <span class="fw-bold text-decoration-underline text-uppercase"> Na minha clínica,</span> você encontrará um ambiente acolhedor e seguro, onde suas histórias, dores e alegrias serão respeitadas e valorizadas. Acredito que cada indivíduo é único e merece uma escuta atenta e sensível, para que possamos juntos ressignificar experiências e promover o autoconhecimento.
             </p>
             <p class="text-justify fw-bold text-uppercase">
-                Venha conhecer meu trabalho e juntos trilhar um caminho de autoconhecimento e transformação.
+                Venha conhecer meu trabalho e vamos juntos trilhar um caminho de autoconhecimento e transformação.
             </p>
 
             <div id="container" class="d-flex justify-content-center button-home">
@@ -22,7 +22,7 @@ const homePage = `
                     <span class="circle" aria-hidden="true">
                         <span class="icon arrow"></span>
                     </span>
-                    <span class="button-text">Vamos Conversar?</span>
+                    <span class="button-text">Vamos Conversar? <i class="bi bi-whatsapp"></i> </span>
                 </a>
             </div>
 

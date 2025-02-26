@@ -12,15 +12,15 @@ const articles = `
         <div class="row row-cols-1 row-cols-md-3 g-4">
             ${Object.entries(articlesData)
         .map(
-            ([id, { title, img }]) =>
+            ([id, { title, img, description}]) =>
                 `
                         <div class="col">
                             <div class="card card-article h-100 shadows" data-article="${id}">
                                 <img src=${img} class="card-img-top" alt="Prévia do Artigo">
                                 <div class="card-body">
                                     <h5 class="card-title">${title}</h5>
-                                    <p class="card-text text-justify">
-                                        Este é um exemplo de resumo do artigo científico. Clique no card para ler o artigo completo.
+                                    <p class="card-subtitle text-justify fs-6">
+                                        ${description}
                                     </p>
                                 </div>
                             </div>
