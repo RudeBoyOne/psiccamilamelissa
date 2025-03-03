@@ -26,22 +26,22 @@ const footer = `
         </section>
         <section class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-3">
             <div>
-                <a class="text-light text-decoration-none custom-hover p-2 fs-4" href="#home">
+                <a class="text-light text-decoration-none custom-hover p-2 fs-4" href="/home">
                     Início
                 </a>
             </div>
             <div>
-                <a class="text-light text-decoration-none custom-hover p-2 fs-4" href="#about">
+                <a class="text-light text-decoration-none custom-hover p-2 fs-4" href="/about">
                     Sobre
                 </a>
             </div>
             <div>
-            <a class="text-light text-decoration-none custom-hover p-2 fs-4" href="#articles">
+            <a class="text-light text-decoration-none custom-hover p-2 fs-4" href="/articles">
                     Artigos
                 </a>
             </div>
             <div>
-                <a class="text-light text-decoration-none custom-hover p-2 fs-4" href="#contact">
+                <a class="text-light text-decoration-none custom-hover p-2 fs-4" href="/contact">
                     Contato
                 </a>
             </div>

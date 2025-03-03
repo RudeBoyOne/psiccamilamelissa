@@ -7,7 +7,7 @@ const navbar = `
 <nav class="navbar navbar-expand-lg primary-color container">
   <div class="container-fluid flex-nowrap">
     <div>
-        <a class="navbar-brand m-0" href="#home">
+        <a class="navbar-brand m-0" href="/home">
             <img src="${logo}" alt="Logo psicologa Camila Melissa de Souza" width="100px">
         </a>
         <img src="${logoName}" alt="Logo psicologa Camila Melissa de Souza" class="w-50">
@@ -18,16 +18,16 @@ const navbar = `
     <div class="collapse navbar-collapse fs-4" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link text-light custom-hover" aria-current="page" href="#home">Início</a>
+          <a class="nav-link text-light custom-hover" aria-current="page" href="/home">Início</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light custom-hover" href="#about">Sobre</a>
+          <a class="nav-link text-light custom-hover" href="/about">Sobre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light custom-hover" href="#articles">Artigos</a>
+          <a class="nav-link text-light custom-hover" href="/articles">Artigos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light custom-hover" href="#contact">Contato</a>
+          <a class="nav-link text-light custom-hover" href="/contact">Contato</a>
         </li>
       </ul>
     </div>
