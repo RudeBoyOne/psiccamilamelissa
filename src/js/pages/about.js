@@ -32,7 +32,7 @@ const about = `
                         <!-- Evento à esquerda -->
                         <div class="card w-100 d-flex flex-column flex-lg-row shadows">
                             <div class="col-lg-4 d-flex">
-                                <img src="${estagio}" class="img-fluid rounded" alt="...">
+                                <img src="${estagio}" class="img-fluid rounded" alt="Psicóloga Camila Melissa de Souza, uma mulher negra de 30 anos, com uma camiseta preta e uma blusa de frio branca por cima, usando óculos e cabelo black power, acompanhada de seus educandos da época de seu estágio">
                             </div>
                             <div class="col-lg-8 d-flex flex-column">
                                 <div class="card-body">
@@ -49,7 +49,7 @@ const about = `
                         <!-- Evento à direita -->
                         <div class="card w-100 d-flex flex-column flex-lg-row-reverse shadows">
                             <div class="col-lg-4">
-                                <img src="${formatura}" class="img-fluid rounded" alt="...">
+                                <img src="${formatura}" class="img-fluid rounded" alt="Psicóloga Camila Melissa de Souza, uma mulher negra de 30 anos, em sua formatura, com traje a rigor, uma beca de formanda">
                             </div>
                             <div class="col-lg-8">
                                 <div class="card-body">
@@ -66,11 +66,11 @@ const about = `
                         <!-- Evento à esquerda -->
                         <div class="card w-100 d-flex flex-column flex-lg-row shadows">
                             <div class="col-lg-4 d-flex">
-                                <img src="${atendimento}" class="img-fluid rounded" alt="...">
+                                <img src="${atendimento}" class="img-fluid rounded" alt="Psicóloga Camila Melissa de Souza, uma mulher negra de 30 anos, com camiseta branca e calça jeans, sentada em uma poltrona lendo um livro">
                             </div>
                             <div class="col-lg-8 d-flex flex-column">
                                 <div class="card-body">
-                                    <h5 class="card-title">Atendimento clínico presencial e a distância</h5>
+                                    <h5 class="card-title">Atendimento clínico presencial e online</h5>
                                     <h6 class="card-subtitle mb-2 text-body-secondary">2020 / até o momento </h6>
                                     <p class="card-text">Atendimento clínico à adolescentes e adultos.</p>
                                 </div>
@@ -83,7 +83,7 @@ const about = `
                         <!-- Evento à direita -->
                         <div class="card w-100 d-flex flex-column flex-lg-row-reverse shadows">
                             <div class="col-lg-4">
-                                <img src="${sedes}" class="img-fluid rounded" alt="...">
+                                <img src="${sedes}" class="img-fluid rounded" alt="Arte logo da escola de psicnálise Sedes Sapientiae">
                             </div>
                             <div class="col-lg-8">
                                 <div class="card-body">
@@ -101,7 +101,7 @@ const about = `
                         <!-- Evento à esquerda -->
                         <div class="card w-100 d-flex flex-column flex-lg-row shadows">
                             <div class="col-lg-4 d-flex">
-                                <img src="${congresso}" class="img-fluid rounded" alt="...">
+                                <img src="${congresso}" class="img-fluid rounded" alt="Psicóloga Camila Melissa de Souza, uma mulher negra de 30 anos, acompanhada de sua amiga de profissão no congresso ABRASME">
                             </div>
                             <div class="col-lg-8 d-flex flex-column">
                                 <div class="card-body">
@@ -119,7 +119,7 @@ const about = `
                         <!-- Evento à direita -->
                         <div class="card w-100 d-flex flex-column flex-lg-row-reverse shadows">
                             <div class="col-lg-4">
-                                <img src="${cprj}" class="img-fluid rounded" alt="...">
+                                <img src="${cprj}" class="img-fluid rounded" alt="Arte logo do Circulo Psicanalítico do Rio de Janeiro">
                             </div>
                             <div class="col-lg-8">
                                 <div class="card-body">

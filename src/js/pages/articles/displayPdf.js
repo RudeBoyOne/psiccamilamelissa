@@ -7,7 +7,7 @@ const displayPdf = `
     <section class="container d-flex flex-column align-items-center gap-4 p-3">
         <div class="d-flex align-items-center justify-content-evenly gap-3 mt-4">
             <a id="download-pdf" class="btn btn-dark btn-dark-without-border">Baixar PDF</a>
-            <a id="go-back" href="#articles" class="btn btn-secondary">Voltar</a>
+            <a id="go-back" href="/articles" class="btn btn-secondary">Voltar</a>
         </div>
         <div id="pdf-container-canvas" class="d-flex justify-content-center w-auto">
         </div>

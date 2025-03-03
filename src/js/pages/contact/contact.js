@@ -12,7 +12,7 @@ const contact = `
      <section class="d-flex flex-column-reverse flex-lg-row align-items-center p-3 gap-3">
         <section class="col-12 col-lg-6">
             <img src=${imgContact}
-                alt="avatar de uma psicóloga de 30 anos que usa óculos e tranças no cabelo" class="img-fluid rounded">
+                alt="Psicóloga Camila Melissa de Souza, uma mulher negra de 30 anos usando óculos e cabelo black power, com colar de continhas verdes e uma camiseta branca, sorrindo" class="img-fluid rounded">
         </section>
         <section class="col-12 col-lg-6 d-flex flex-column justify-content-center">
             <ul class="nav nav-pills mb-3 row" id="pills-tab" role="tablist">

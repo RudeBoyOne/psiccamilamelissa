@@ -1,5 +1,6 @@
 import articlesData from './articlesData';
 import '../../../css/pages/articles.scss';
+import handleLocation from '../../router/router';
 
 const articles = `
     <section class="p-3 w-100">
@@ -38,7 +39,9 @@ const addCardListeners = () => {
             const articleId = card.getAttribute('data-article');
             const article = articlesData[articleId];
             localStorage.setItem('pdf', article.pdf);
-            window.location.hash = '#display_pdf';
+            const url = '/display_pdf';
+            history.pushState(null, null, url);
+            handleLocation();
         });
     });
 };
