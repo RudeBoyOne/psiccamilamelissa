@@ -1,6 +1,6 @@
 import logo from '../../assets/images/logo-redimensionado.jpg';
 import logoName from '../../assets/images/logo-nome.jpg';
-import { Offcanvas } from 'bootstrap';
+import Offcanvas from 'bootstrap/js/dist/offcanvas';
 import '../../css/components/components.scss';
 
 const navbar = `
@@ -47,16 +47,16 @@ const navbar = `
   <div class="offcanvas-body primary-color text-light fs-2 p-4">
     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
       <li class="nav-item">
-        <a class="nav-link custom-hover-sidebar" href="#home">Início</a>
+        <a class="nav-link custom-hover-sidebar" href="/home">Início</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link custom-hover-sidebar" href="#about">Sobre</a>
+        <a class="nav-link custom-hover-sidebar" href="/about">Sobre</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link custom-hover-sidebar" href="#articles">Artigos</a>
+        <a class="nav-link custom-hover-sidebar" href="/articles">Artigos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link custom-hover-sidebar" href="#contact">Contato</a>
+        <a class="nav-link custom-hover-sidebar" href="/contact">Contato</a>
       </li>
     </ul>
   </div>
@@ -80,9 +80,9 @@ document.querySelectorAll('.offcanvas-body .nav-link').forEach(link => {
 
 const activeNavLink = () => {
     const navLinks = document.querySelectorAll('.nav-link');
-    const hashUri = window.location.hash || '#home';
+    const pathUri = window.location.pathname || '/home';
     navLinks.forEach((link) => {
-        link.classList.toggle('nav-active', link.getAttribute('href') === hashUri);
+        link.classList.toggle('nav-active', link.getAttribute('href') === pathUri);
 
         link.removeEventListener('click', handleClick);
         if (link.getAttribute('data-bs-toggle') === '') {
@@ -99,4 +99,18 @@ const handleClick = (event, navLinks) => {
 };
 
 document.addEventListener('DOMContentLoaded', activeNavLink);
-window.addEventListener('hashchange', activeNavLink);
+
+const originalPushState = history.pushState;
+const originalReplaceState = history.replaceState;
+
+history.pushState = function (...args) {
+    originalPushState.apply(history, args);
+    window.dispatchEvent(new Event("pathnameChange"));
+};
+
+history.replaceState = function (...args) {
+    originalReplaceState.apply(history, args);
+    window.dispatchEvent(new Event("pathnameChange"));
+};
+
+window.addEventListener("pathnameChange", activeNavLink);

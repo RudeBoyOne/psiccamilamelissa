@@ -1,4 +1,4 @@
-import { Tooltip } from 'bootstrap';
+import Tooltip from 'bootstrap/js/dist/tooltip';
 import imgContact from '../../../assets/images/imgContact2.png';
 import emailIcon from '../../../assets/images/icons/email.png';
 import instagramIcon from '../../../assets/images/icons/instagram.png';
