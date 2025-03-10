@@ -1,1 +1,1 @@
-export const baseUrl = 'https://emailsending.lucasfncode.com.br';
+export const baseUrl = 'https://emailsending.psiccamilamelissa.com.br';
