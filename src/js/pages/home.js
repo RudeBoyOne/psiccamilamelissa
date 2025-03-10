@@ -25,7 +25,7 @@ const homePage = `
                     <span class="circle" aria-hidden="true">
                         <span class="icon arrow"></span>
                     </span>
-                    <span class="button-text">Vamos Conversar? <i class="bi bi-whatsapp"></i> </span>
+                    <span class="button-text">Vamos Conversar? <i class="bi bi-whatsapp ms-1"></i> </span>
                 </a>
             </div>
 
