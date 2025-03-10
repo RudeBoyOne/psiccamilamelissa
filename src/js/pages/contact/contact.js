@@ -93,7 +93,7 @@ const contact = `
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-text">Nome</span>
-                                <input type="text" class="form-control" name="name" id="name" required>
+                                <input type="text" class="form-control" name="name" id="name" aria-label="Nome" required maxlength="50">
                             </div>
                         </div>
                         <div class="form-group">
@@ -101,21 +101,19 @@ const contact = `
                                 <span class="input-group-text">
                                     <i class="bi bi-envelope-at-fill"></i>
                                 </span>
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Seu E-mail" required>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Seu E-mail" aria-label="E-mail" required maxlength="100">
                             </div>
-
                         </div>
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-text">
-                                    Mensagem
-                                </span>
-                                <textarea class="form-control noResize" name="message" id="messagem" rows="5" required></textarea>
+                                <span class="input-group-text">Mensagem</span>
+                                <textarea class="form-control noResize" name="message" id="message" rows="5" aria-label="Mensagem" required pattern="[A-Za-zÀ-ÿ\s]+"></textarea>
                             </div>
                         </div>
                         <div class="d-grid">
                             <button type="submit" class="btn btn-dark">Enviar</button>
                         </div>
+                    </form>
                 </div>
             </div>
         </section>
@@ -138,6 +136,11 @@ const createSpinner = () => {
     return spinner;
 }
 
+const sanitizeInput = (str) => {
+    return str.replace(/[<>"]/g, '').trim();
+};
+
+
 const emailSending = () => {
     const form = document.getElementById('formMessage');
     const submitButton = form.querySelector('button[type="submit"]');
@@ -149,15 +152,17 @@ const emailSending = () => {
         e.preventDefault();
 
         const formData = new FormData(form);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const message = formData.get('message');
+        const name = sanitizeInput(formData.get('name'));
+        const email = sanitizeInput(formData.get('email'));
+        const message = sanitizeInput(formData.get('message'));
 
         const messageToSend = {
             name: name,
             email: email,
             message: message
         }
+
+        console.log(messageToSend);
 
         form.querySelectorAll('input, textarea, button').forEach((input) => input.disabled = true);
         spinner.classList.remove('invisible');
