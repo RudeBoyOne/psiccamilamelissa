@@ -1,6 +1,6 @@
 import Tooltip from 'bootstrap/js/dist/tooltip';
 import imgContact from '../../../assets/images/imgContact2.png';
-import emailIcon from '../../../assets/images/icons/email.png';
+import emailIcon from '../../../assets/images/icons/mail.png';
 import instagramIcon from '../../../assets/images/icons/instagram.png';
 import linkedinIcon from '../../../assets/images/icons/linkedin.png';
 import whatsappIcon from '../../../assets/images/icons/whatsapp.png';
@@ -74,15 +74,15 @@ const contact = `
                             </a>
                         </li>
                         <li class="list-group-item list-group-item-action pt-3 pb-3">
-                            <a class="link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover" href="#" data-bs-toggle="tooltip" data-bs-custom-class="custom-tooltip" data-bs-title="E-mail">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <img src=${emailIcon} alt="logo email" width="48px">
-                                    </div>
-                                    <div>
-                                        <p class="m-0">camila.melissa.souza@gmail.com </p>
-                                    </div>
+                            <a href="mailto:contato@psiccamilamelissa.com.br?subject=Agendamento%20de%20consulta&body=Olá,%20gostaria%20de%20marcar%20uma%20consulta." class="link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover" data-bs-toggle="tooltip" data-bs-custom-class="custom-tooltip" data-bs-title="E-mail">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <img src=${emailIcon} alt="logo email" width="48px">
                                 </div>
+                                <div>
+                                    <p class="m-0">contato@psiccamilamelissa.com.br</p>
+                                </div>
+                            </div>
                             </a>
                         </li>
                     </ul>
