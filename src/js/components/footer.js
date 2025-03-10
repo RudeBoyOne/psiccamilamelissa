@@ -14,7 +14,7 @@ const footer = `
                 </a>
             </div>
             <div>
-                <a class="text-light icon-link icon-link-hover fs-2" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);"  href="">
+                <a href="mailto:contato@psiccamilamelissa.com.br?subject=Agendamento%20de%20consulta&body=Olá,%20gostaria%20de%20marcar%20uma%20consulta." class="text-light icon-link icon-link-hover fs-2" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);">
                     <i class="bi bi-envelope"></i>
                 </a>
             </div>
@@ -47,8 +47,12 @@ const footer = `
             </div>
         </section>
         <section class="text-center d-flex justify-content-center flex-column">
-            <small>psic.camilamelissa &copy; 2025</small>
-            <small>feito por: <a class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="https://lucasfncode.com.br" target="_blank">Lucas Ferreira Nogueira</a></small>
+            <small>psic.camilamelissa &copy; todos os direitos reservados </small>
+            <small>feito por: 
+                <a class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="https://lucasfncode.com.br" target="_blank">
+                    Lucas Ferreira Nogueira
+                </a>
+                </small>
         </section>
     </section> `;
 
