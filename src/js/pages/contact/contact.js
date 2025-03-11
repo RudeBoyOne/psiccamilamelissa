@@ -162,8 +162,6 @@ const emailSending = () => {
             message: message
         }
 
-        console.log(messageToSend);
-
         form.querySelectorAll('input, textarea, button').forEach((input) => input.disabled = true);
         spinner.classList.remove('invisible');
         spinner.classList.add('visible');
