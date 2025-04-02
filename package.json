@@ -25,6 +25,8 @@
     },
     "homepage": "https://github.com/RudeBoyOne/psiccamilamelissa#readme",
     "devDependencies": {
+        "@parcel/packager-raw-url": "^2.13.3",
+        "@parcel/transformer-jsonld": "^2.13.3",
         "@parcel/transformer-sass": "^2.13.3",
         "buffer": "^6.0.3",
         "parcel": "^2.13.3",
