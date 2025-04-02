@@ -2,7 +2,7 @@ const metaTagsConfig = {
     '/': {
         title: "Pisc Camila Melissa",
         meta: [
-            { name: "description", content: "Atendimento clínico de qualidade em São Paulo, focado na abordagem psicanalítica, psicanálise." },
+            { name: "description", content: "Oferecemos atendimento clínico de qualidade em São Paulo, com foco na psicanálise. Descubra um espaço seguro para autoconhecimento, transformação emocional e compreensão profunda do inconsciente. Entre em contato e conheça nossa abordagem." },
             { name: "keywords", content: "psicóloga, psicólogo, psicanalista, psicanálise, atendimento clínico, clínica, terapia, terapia psicanálitica, Terapia psicanalítica, São Paulo, saúde mental" },
             { name: "author", content: "Psicóloga Camila Melissa de Souza" }
         ]
@@ -10,7 +10,7 @@ const metaTagsConfig = {
     '/home': {
         title: "Pisc Camila Melissa",
         meta: [
-            { name: "description", content: "Atendimento clínico de qualidade em São Paulo, focado na abordagem psicanalítica, psicanálise." },
+            { name: "description", content: "Oferecemos atendimento clínico de qualidade em São Paulo, com foco na psicanálise. Descubra um espaço seguro para autoconhecimento, transformação emocional e compreensão profunda do inconsciente. Entre em contato e conheça nossa abordagem." },
             { name: "keywords", content: "psicóloga, psicólogo, psicanalista, psicanálise, atendimento clínico, clínica, terapia, terapia psicanálitica, Terapia psicanalítica, São Paulo, saúde mental" },
             { name: "author", content: "Psicóloga Camila Melissa de Souza" }
         ]
