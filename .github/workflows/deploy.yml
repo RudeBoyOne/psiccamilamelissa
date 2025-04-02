@@ -1,4 +1,4 @@
-name: 💡 deploy site pisccamilamelissa
+name: 🚀 Deploy Site Psiccamilamelissa
 
 on:
   push:
@@ -7,11 +7,10 @@ on:
 
 jobs:
   deploy:
-    name: 📝 Deploy
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🚚 Get latest code
+      - name: 📂 Checkout repository
         uses: actions/checkout@v3
 
       - name: 🔧 Set up Node.js
@@ -30,13 +29,19 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: 📂 Sync files
+      - name: 📤 Deploy to Server
+        env:
+          USERNAME: ${{ secrets.SERVER_USER }}
+          SERVER: ${{ secrets.SERVER_NAME }}
+          PORT: ${{ secrets.SSH_PORT }}
+          REMOTE_DIR: ${{ secrets.DEPLOY_PATH }}
+          FILES: ${{ secrets.IGNORE_FILES }}
         run: |
           rsync -avz --delete \
-          --exclude '.htaccess' \
-          --exclude ${{ secrets.IGNORE_FILES }} \
-          -e "ssh -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }}" \
-          ./build/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_NAME }}:${{ secrets.DEPLOY_PATH }}
+          $(for exclude in $FILES; do echo --exclude "$exclude"; done) \
+          -e "ssh -o StrictHostKeyChecking=no -p $PORT" \
+          ./build/ $USERNAME@$SERVER:$REMOTE_DIR
 
       - name: 🍏 Job status
-        run: echo "🍏 This job's status is ${{ job.status }}."
+        run: |
+          echo "🍏 Deployment status: ${{ job.status }}"
