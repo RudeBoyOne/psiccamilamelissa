@@ -5,6 +5,7 @@ import { eventButton } from "../pages/home";
 import getOrCreateMainElement from "../utils/mainUtils";
 import pages from "./pages";
 import metaTagsConfig from "./metaTags";
+import notFound from "../pages/notFound";
 
 
 const updateMetaTags = (metaTags) => {
@@ -93,7 +94,7 @@ const insertTemplateHtmlInMainElement = (template) => {
 const handleLocation = async () => {
     removeCanonicalTag();
     const path = window.location.pathname;
-    const page = pages[path];
+    const page = pages[path] || notFound;
     insertTemplateHtmlInMainElement(page);
 };
 

@@ -26,7 +26,7 @@ const metaTagsConfig = {
     '/articles': {
         title: "Pisc Camila Melissa: Artigos",
         meta: [
-            { name: "description", content: "Artigos e guias sobre saúde mental, psicanálise e psicologia." },
+            { name: "description", content: "Explore artigos e guias sobre saúde mental, psicanálise e psicologia. Encontre conteúdos publicados e em produção que promovem reflexões profundas e enriquecedoras. Clique para leitura completa e descubra insights valiosos sobre bem-estar emocional." },
             { name: "keywords", content: "artigos, psicanálise, saúde mental, psicologia, artigos ciêntificos, textos acadêmicos" },
             { name: "author", content: "Psicóloga Camila Melissa de Souza" }
         ]
@@ -42,7 +42,7 @@ const metaTagsConfig = {
     '/contact': {
         title: "Pisc Camila Melissa: Contato",
         meta: [
-            { name: "description", content: "Entre em contato conosco para mais informações." },
+            { name: "description", content: "Entre em contato para mais informações sobre nossos serviços e agendamentos. Estamos aqui para oferecer suporte e esclarecer dúvidas. Encontre nosso WhatsApp e outros canais de comunicação disponíveis." },
             { name: "keywords", content: "contato, contatos, psicanálise, psicanalista, psicóloga, psicologia, saúde mental" },
             { name: "author", content: "Psicóloga Camila Melissa de Souza" }
         ]
