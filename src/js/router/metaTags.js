@@ -18,7 +18,7 @@ const metaTagsConfig = {
     '/about': {
         title: "Pisc Camila Melissa: Sobre",
         meta: [
-            { name: "description", content: "Psicóloga formada pela Universidade Cruzeiro do Sul com especialização em clínica psicanalítica. Experiência com adolescentes e adultos." },
+            { name: "description", content: "Psicóloga clínica formada pela Universidade Cruzeiro do Sul, especialista em psicanálise. Experiência com crianças, adolescentes e adultos, com foco em escuta sensível, parentalidade, abandono afetivo e questões raciais e de gênero. Comprometida com autoconhecimento e transformação emocional." },
             { name: "keywords", content: "psicóloga, psicólogo, clínica, especialização, psicanálise, São Paulo, saúde mental" },
             { name: "author", content: "Psicóloga Camila Melissa de Souza" }
         ]
