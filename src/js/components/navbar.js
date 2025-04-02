@@ -8,9 +8,9 @@ const navbar = `
   <div class="container-fluid flex-nowrap">
     <div>
         <a class="navbar-brand m-0" href="/home">
-            <img src="${logo}" alt="Logo psicologa Camila Melissa de Souza" width="100px">
+            <img src="${logo}" alt="Logo psicologa Camila Melissa de Souza" width="100" height="100">
         </a>
-        <img src="${logoName}" alt="Logo psicologa Camila Melissa de Souza" class="w-50">
+        <img src="${logoName}" alt="Logo psicologa Camila Melissa de Souza" class="w-50 h-100" >
     </div>
     <button class="navbar-toggler btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <i class="bi bi-list"></i>
@@ -37,8 +37,8 @@ const navbar = `
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
   <div class="offcanvas-header primary-color text-light" data-bs-theme="dark">
     <a class="navbar-brand" href="#home">
-        <img src="${logo}" alt="Logo psicologa Camila Melissa de Souza" width="100px">
-        <img src="${logoName}" alt="Logo psicologa Camila Melissa de Souza" class="w-50">
+        <img src="${logo}" alt="Logo psicologa Camila Melissa de Souza" width="100" height="100">
+        <img src="${logoName}" alt="Logo psicologa Camila Melissa de Souza" class="w-50 h-100">
     </a>
     <button type="button" class="btn btn-dark" data-bs-dismiss="offcanvas" aria-label="Close">
         <i class="bi bi-x-lg"></i>

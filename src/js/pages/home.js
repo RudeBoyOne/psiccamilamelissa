@@ -1,4 +1,4 @@
-import imgHome from '../../assets/images/imgHome2.png'
+import imgHome from '../../assets/images/home.webp'
 import '../../css/pages/home.scss'
 
 const homePage = `

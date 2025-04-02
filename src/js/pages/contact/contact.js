@@ -1,5 +1,5 @@
 import Tooltip from 'bootstrap/js/dist/tooltip';
-import imgContact from '../../../assets/images/imgContact2.png';
+import imgContact from '../../../assets/images/contact.webp';
 import emailIcon from '../../../assets/images/icons/mail.png';
 import instagramIcon from '../../../assets/images/icons/instagram.png';
 import linkedinIcon from '../../../assets/images/icons/linkedin.png';

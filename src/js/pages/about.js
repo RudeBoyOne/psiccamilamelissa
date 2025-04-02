@@ -1,8 +1,9 @@
 import '../../css/pages/about.scss';
-import estagio from '../../assets/images/estagio.png';
-import formatura from '../../assets/images/formatura.png';
-import atendimento from '../../assets/images/atendimento.png';
-import congresso from '../../assets/images/congresso.png';
+import estagio from '../../assets/images/estagio.webp';
+import formatura from '../../assets/images/formatura.webp';
+import atendimento from '../../assets/images/clinic.webp';
+import congresso from '../../assets/images/congresso.webp';
+import gerar from '../../assets/images/logotipo-gerar.svg';
 import sedes from '../../assets/images/sedes.png';
 import cprj from '../../assets/images/cprj.jpg';
 
@@ -127,6 +128,23 @@ const about = `
                                     <h6 class="card-subtitle">Revista Circulo Psicanalítico do Rio de Janeiro</h6>
                                     <h6 class="card-subtitle mb-2 text-body-secondary">2024</h6>
                                     <p class="card-text text-smaller">O enclausuramento da palavra. Cadernos de Psicanálise | CPRJ, v. 46, n. 51, p. 87-102, 5 nov. 2024. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <div class="col-lg-6 d-flex justify-content-end">
+                        <!-- Evento à esquerda -->
+                        <div class="card w-100 d-flex flex-column flex-lg-row shadows">
+                            <div class="col-lg-4 d-flex p-4 p-sm-3 pt-sm-5 pb-sm-5">
+                                <img src="${gerar}" class="img-fluid rounded" alt="Psicóloga Camila Melissa de Souza, uma mulher negra de 30 anos, acompanhada de sua amiga de profissão no congresso ABRASME">
+                            </div>
+                            <div class="col-lg-8 d-flex flex-column">
+                                <div class="card-body">
+                                    <h5 class="card-title">Curso Psicanálise, Parentalidade & Perinatalidade</h5>
+                                    <h6 class="card-subtitle">Instituto Gerar de Psicanálise</h6>
+                                    <h6 class="card-subtitle mb-2 text-body-secondary">2025 / até momento</h6>
                                 </div>
                             </div>
                         </div>
