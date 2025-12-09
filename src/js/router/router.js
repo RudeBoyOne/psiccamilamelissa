@@ -27,18 +27,19 @@ const updateMetaTags = (metaTags) => {
     });
 };
 
-function updateCanonicalForHome() {
-    const currentURL = window.location.origin;
+function updateCanonical(path) {
+    const canonicalBase = window.location.origin;
+    let canonicalURL = canonicalBase + (path === '/' || path === '/home' ? '' : path);
+    
     const canonicalLink = document.querySelector("link[rel='canonical']");
-    console.log(currentURL);
 
     if (!canonicalLink) {
         const newLink = document.createElement("link");
         newLink.setAttribute("rel", "canonical");
-        newLink.setAttribute("href", currentURL);
+        newLink.setAttribute("href", canonicalURL);
         document.head.insertAdjacentElement("beforeend", newLink);
     } else {
-        canonicalLink.setAttribute("href", currentURL);
+        canonicalLink.setAttribute("href", canonicalURL);
     }
 }
 
@@ -59,22 +60,28 @@ const insertTemplateHtmlInMainElement = (template) => {
 
         let path = window.location.pathname;
         const metaTags = metaTagsConfig[path] || metaTagsConfig['default'];
-
+        
         switch (path) {
             case '/home':
             case '/':
                 eventButton();
-                updateCanonicalForHome();
+                updateCanonical(path); 
+                break;
+            case '/about':
+                updateCanonical(path); 
                 break;
             case '/articles':
                 addCardListeners();
+                updateCanonical(path); 
                 break;
             case '/display_pdf':
                 showPdf();
+                updateCanonical(path); 
                 break;
             case '/contact':
                 activeAllTooltip();
                 emailSending();
+                updateCanonical(path); 
                 break;
             default:
                 break;
@@ -92,7 +99,7 @@ const insertTemplateHtmlInMainElement = (template) => {
 };
 
 const handleLocation = async () => {
-    removeCanonicalTag();
+    removeCanonicalTag(); 
     const path = window.location.pathname;
     const page = pages[path] || notFound;
     insertTemplateHtmlInMainElement(page);
