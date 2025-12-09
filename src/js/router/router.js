@@ -7,6 +7,7 @@ import pages from "./pages";
 import metaTagsConfig from "./metaTags";
 import notFound from "../pages/notFound";
 
+const CANONICAL_DOMAIN = "https://psiccamilamelissa.com.br";
 
 const updateMetaTags = (metaTags) => {
     document.title = metaTags.title;
@@ -28,26 +29,23 @@ const updateMetaTags = (metaTags) => {
 };
 
 function updateCanonical(path) {
-    const canonicalBase = window.location.origin;
-    let canonicalURL = canonicalBase + (path === '/' || path === '/home' ? '' : path);
+    let canonicalPath = (path === '/home') ? '/' : path;
     
-    const canonicalLink = document.querySelector("link[rel='canonical']");
+    if (canonicalPath !== '/' && canonicalPath.endsWith('/')) {
+        canonicalPath = canonicalPath.slice(0, -1);
+    }
+    
+    let canonicalURL = CANONICAL_DOMAIN + (canonicalPath === '/' ? '/' : canonicalPath);
+    
+    let canonicalLink = document.querySelector("link[rel='canonical']");
 
     if (!canonicalLink) {
-        const newLink = document.createElement("link");
-        newLink.setAttribute("rel", "canonical");
-        newLink.setAttribute("href", canonicalURL);
-        document.head.insertAdjacentElement("beforeend", newLink);
-    } else {
-        canonicalLink.setAttribute("href", canonicalURL);
+        canonicalLink = document.createElement("link");
+        canonicalLink.setAttribute("rel", "canonical");
+        document.head.appendChild(canonicalLink);
     }
-}
-
-function removeCanonicalTag() {
-    const canonicalLink = document.querySelector("link[rel='canonical']");
-    if (canonicalLink) {
-        canonicalLink.remove();
-    }
+    
+    canonicalLink.setAttribute("href", canonicalURL);
 }
 
 const insertTemplateHtmlInMainElement = (template) => {
@@ -99,7 +97,6 @@ const insertTemplateHtmlInMainElement = (template) => {
 };
 
 const handleLocation = async () => {
-    removeCanonicalTag(); 
     const path = window.location.pathname;
     const page = pages[path] || notFound;
     insertTemplateHtmlInMainElement(page);
