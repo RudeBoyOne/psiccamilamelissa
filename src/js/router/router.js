@@ -27,28 +27,6 @@ const updateMetaTags = (metaTags) => {
     });
 };
 
-function updateCanonicalForHome() {
-    const currentURL = window.location.origin;
-    const canonicalLink = document.querySelector("link[rel='canonical']");
-    console.log(currentURL);
-
-    if (!canonicalLink) {
-        const newLink = document.createElement("link");
-        newLink.setAttribute("rel", "canonical");
-        newLink.setAttribute("href", currentURL);
-        document.head.insertAdjacentElement("beforeend", newLink);
-    } else {
-        canonicalLink.setAttribute("href", currentURL);
-    }
-}
-
-function removeCanonicalTag() {
-    const canonicalLink = document.querySelector("link[rel='canonical']");
-    if (canonicalLink) {
-        canonicalLink.remove();
-    }
-}
-
 const insertTemplateHtmlInMainElement = (template) => {
     const main = getOrCreateMainElement();
 
@@ -64,7 +42,6 @@ const insertTemplateHtmlInMainElement = (template) => {
             case '/home':
             case '/':
                 eventButton();
-                updateCanonicalForHome();
                 break;
             case '/articles':
                 addCardListeners();
@@ -92,7 +69,6 @@ const insertTemplateHtmlInMainElement = (template) => {
 };
 
 const handleLocation = async () => {
-    removeCanonicalTag();
     const path = window.location.pathname;
     const page = pages[path] || notFound;
     insertTemplateHtmlInMainElement(page);
