@@ -27,6 +27,12 @@ TypeScript landing page, Tailwind CSS (via PostCSS), Parcel 2.13.3. No framework
 - Icons: Bootstrap Icons (social), Lucide Icons (all others).
 - JS: Components are factory functions that create DOM elements.
 
+### Animações
+
+- **Todas as animações usam Tailwind CSS.** Nada de CSS puro, keyframes avulsos ou libs de animação.
+- Preferir `transition-all` + `duration-300` + `ease-in-out` como padrão.
+- Para estados animados controlados por JS, usar `element.style.propriedade` (inline). Para estado inicial estático, usar classes Tailwind.
+
 ## Production
 
 - Apache `.htaccess` handles: HTTPS redirect, www→non-www, `/home`→`/` redirect.

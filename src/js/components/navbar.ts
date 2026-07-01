@@ -17,7 +17,7 @@ const createNavbar = () => {
             <button id="menu-toggle" class="text-white p-2" aria-label="Abrir menu">
             </button>
           </div>
-          <div id="mobile-menu" class="hidden border-t border-white/20 bg-accent">
+          <div id="mobile-menu" class="border-t border-white/20 bg-accent origin-top transition-all duration-300 ease-in-out overflow-hidden" style="transform: scaleY(0); opacity: 0; max-height: 0px;">
             <div class="px-4 py-4 space-y-4">
               <a href="#sobre" class="block text-white font-label font-semibold text-sm tracking-widest uppercase py-2 no-underline">SOBRE</a>
               <a href="#artigos" class="block text-white font-label font-semibold text-sm tracking-widest uppercase py-2 no-underline">ARTIGOS</a>
@@ -50,24 +50,52 @@ const createNavbar = () => {
   `
 
   const toggleBtn = header.querySelector('#menu-toggle')!
-  toggleBtn.appendChild(createIconElement(Menu, 'w-7 h-7'))
 
-  const mobileMenu = header.querySelector('#mobile-menu')!
+  const iconContainer = document.createElement('div')
+  iconContainer.className = 'relative w-7 h-7'
+
+  const menuWrapper = document.createElement('span')
+  menuWrapper.className = 'absolute inset-0 flex items-center justify-center transition-all duration-300'
+  menuWrapper.appendChild(createIconElement(Menu, 'w-7 h-7'))
+
+  const closeWrapper = document.createElement('span')
+  closeWrapper.className = 'absolute inset-0 flex items-center justify-center transition-all duration-300'
+  closeWrapper.style.opacity = '0'
+  closeWrapper.style.transform = 'rotate(-90deg) scale(0.75)'
+  closeWrapper.appendChild(createIconElement(X, 'w-7 h-7'))
+
+  iconContainer.appendChild(menuWrapper)
+  iconContainer.appendChild(closeWrapper)
+  toggleBtn.appendChild(iconContainer)
+
+  const mobileMenu = header.querySelector('#mobile-menu')! as HTMLElement
   let isOpen = false
 
   toggleBtn.addEventListener('click', () => {
     isOpen = !isOpen
-    mobileMenu.classList.toggle('hidden', !isOpen)
-    toggleBtn.innerHTML = ''
-    toggleBtn.appendChild(createIconElement(isOpen ? X : Menu, 'w-7 h-7'))
+
+    mobileMenu.style.transform = isOpen ? 'scaleY(1)' : 'scaleY(0)'
+    mobileMenu.style.opacity = isOpen ? '1' : '0'
+    mobileMenu.style.maxHeight = isOpen ? `${mobileMenu.scrollHeight}px` : '0px'
+
+    menuWrapper.style.opacity = isOpen ? '0' : '1'
+    menuWrapper.style.transform = isOpen ? 'rotate(90deg) scale(0.75)' : 'rotate(0deg) scale(1)'
+    closeWrapper.style.opacity = isOpen ? '1' : '0'
+    closeWrapper.style.transform = isOpen ? 'rotate(0deg) scale(1)' : 'rotate(-90deg) scale(0.75)'
   })
 
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       isOpen = false
-      mobileMenu.classList.add('hidden')
-      toggleBtn.innerHTML = ''
-      toggleBtn.appendChild(createIconElement(Menu, 'w-7 h-7'))
+
+      mobileMenu.style.transform = 'scaleY(0)'
+      mobileMenu.style.opacity = '0'
+      mobileMenu.style.maxHeight = '0px'
+
+      menuWrapper.style.opacity = '1'
+      menuWrapper.style.transform = 'rotate(0deg) scale(1)'
+      closeWrapper.style.opacity = '0'
+      closeWrapper.style.transform = 'rotate(-90deg) scale(0.75)'
     })
   })
 
