@@ -33,8 +33,8 @@ const createFooter = () => {
       <div class="flex flex-col lg:flex-row gap-12 lg:gap-24">
         <div class="flex-shrink-0">
           <a href="/" class="flex items-center gap-3 mb-8">
-            <img src="${logoSrc}" alt="Camila Melissa" class="w-[58px] h-[58px] rounded-full object-cover">
-            <img src="${logoNameSrc}" alt="Psicóloga Camila Melissa" class="h-[35px]">
+            <img src="${logoSrc}" alt="Camila Melissa" class="w-[53px] h-[53px] lg:w-[58px] lg:h-[58px] rounded-full object-cover">
+            <img src="${logoNameSrc}" alt="Psicóloga Camila Melissa" class="h-[33px] lg:h-[35px]">
           </a>
 
           <div class="flex items-center gap-4">

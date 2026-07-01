@@ -15,7 +15,7 @@ const createMain = () => {
             <span class="text-accent text-sm font-body px-3">para dentro é o começo da mudança.</span>
           </div>
 
-          <h1 class="font-heading font-bold text-[70px] sm:text-[90px] leading-[1.1] text-accent mb-6">
+          <h1 class="font-heading font-bold text-[44px] sm:text-[70px] xl:text-[90px] leading-[1.1] text-accent mb-6">
             Atendimento<br>clínico
           </h1>
 
