@@ -1,15 +1,15 @@
 import fotoCamila from '../../assets/images/foto-camila.png'
 import heroBgDecoration from '../../assets/images/hero-bg-decoration.svg'
-import { UserCheck, Users, BookOpen, MessageCircle } from 'lucide'
+import { UserCheck, Users, BookOpen } from 'lucide'
 import { createIconElement } from '../utils/icons'
 
-const createHero = () => {
+const createMain = () => {
   const section = document.createElement('section')
-  section.className = 'bg-white overflow-hidden'
+  section.className = 'bg-white'
   section.innerHTML = `
     <div class="max-w-7xl mx-auto">
       <div class="flex flex-col lg:flex-row lg:items-center">
-        <div class="flex-1 px-4 sm:px-6 lg:px-8 pt-12 lg:pt-24 pb-8 lg:pb-20">
+        <div class="flex-1 px-4 sm:px-6 lg:px-8 pt-12 lg:pb-8 lg:pb-20">
           <div class="inline-flex items-center bg-muted rounded-full px-1 py-1 mb-8">
             <span class="bg-accent text-white text-sm font-body px-4 py-1 rounded-full">Olhar</span>
             <span class="text-accent text-sm font-body px-3">para dentro é o começo da mudança.</span>
@@ -32,6 +32,7 @@ const createHero = () => {
              target="_blank"
              class="inline-flex items-center gap-3 bg-accent text-white font-body font-bold text-[22px] px-8 py-5 rounded-feature hover:opacity-90 transition-opacity">
             Vamos conversar?
+            <i class="bi bi-whatsapp text-2xl"></i>
           </a>
         </div>
 
@@ -39,8 +40,8 @@ const createHero = () => {
           <img src="${heroBgDecoration}" alt="" class="absolute inset-0 w-full h-full object-contain pointer-events-none" aria-hidden="true">
           <img src="${fotoCamila}"
                alt="Camila Melissa de Souza, psicóloga e psicanalista"
-               class="relative w-[605px] max-w-full h-auto object-contain mx-auto">
-          <div class="relative -mt-8 mx-auto w-[382px] max-w-[90%] bg-white rounded-input shadow-caption p-4 text-center">
+               class="relative w-[570px] max-w-full h-auto object-contain mx-auto">
+          <div class="relative -mt-8 mx-auto w-[382px] max-w-[90%] bg-white rounded-input shadow-caption p-4 text-center lg:mb-[-1.5rem] mb-0">
             <p class="font-body font-bold text-[24px] text-[#33475B]">Camila Melissa de Souza</p>
             <p class="font-body font-medium text-[16px] text-[#87898C]">Psicóloga & Psicanalista</p>
           </div>
@@ -68,10 +69,7 @@ const createHero = () => {
     qualitiesList.appendChild(div)
   })
 
-  const ctaBtn = section.querySelector('a[href*="wa.me"]')!
-  ctaBtn.appendChild(createIconElement(MessageCircle, 'w-6 h-6'))
-
   return section
 }
 
-export default createHero
+export default createMain

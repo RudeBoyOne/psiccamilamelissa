@@ -1,7 +1,7 @@
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
 import createNavbar from './components/navbar'
-import createHero from './components/hero'
+import createMain from './components/main'
 import createAbout from './components/about'
 import createQuote from './components/quote'
 import createArticles from './components/articles'
@@ -27,7 +27,7 @@ const init = async () => {
   main.className = 'flex-1'
 
   const sections = [
-    createHero(),
+    createMain(),
     createAbout(),
     createQuote(),
     createArticles(),
