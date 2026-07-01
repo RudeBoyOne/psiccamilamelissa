@@ -6,13 +6,13 @@ import { createIconElement } from '../utils/icons'
 const createNavbar = () => {
   const header = document.createElement('header')
   header.innerHTML = `
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
       <div class="rounded-b-navbar bg-accent">
         <div class="lg:hidden">
-          <div class="flex items-center justify-between h-[100px]">
+          <div class="flex items-center justify-between h-[100px] pl-[13px] pr-[13px]">
             <a href="/" class="flex items-center shrink-0">
-              <img src="${logoSrc}" alt="Camila Melissa" class="w-[58px] h-[58px] rounded-full object-cover">
-              <img src="${logoNameSrc}" alt="Psicóloga Camila Melissa" class="h-[35px] ml-[12px] rounded-[13px]">
+              <img src="${logoSrc}" alt="Camila Melissa" class="w-[38px] h-[38px] rounded-full object-cover">
+              <img src="${logoNameSrc}" alt="Psicóloga Camila Melissa" class="h-[23px] ml-[12px] rounded-[13px]">
             </a>
             <button id="menu-toggle" class="text-white p-2" aria-label="Abrir menu">
             </button>
