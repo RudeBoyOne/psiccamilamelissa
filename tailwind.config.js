@@ -36,6 +36,16 @@ export default {
         'dark': '0px 10px 20px 0px rgba(41, 41, 42, 0.07)',
         'caption': '0px 39px 100px 0px rgba(25, 62, 108, 0.12)',
       },
+      keyframes: {
+        'pulse-ring': {
+          '0%': { boxShadow: '0 0 0 0 rgba(180, 100, 80, 0.4)' },
+          '70%': { boxShadow: '0 0 0 30px rgba(180, 100, 80, 0)' },
+          '100%': { boxShadow: '0 0 0 0 rgba(180, 100, 80, 0)' },
+        },
+      },
+      animation: {
+        'pulse-ring': 'pulse-ring 2s ease-out infinite',
+      },
       borderRadius: {
         'pill': '26.5px',
         'feature': '8px',
