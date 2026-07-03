@@ -10,8 +10,13 @@ TypeScript landing page, Tailwind CSS (via PostCSS), Parcel 2.13.3. No framework
 |---------|--------|
 | `npm start` | Dev server on `:3000` (`parcel index.html --open --port 3000 --no-cache`) |
 | `npm run build` | Build to `build/` dir (`--dist-dir build --public-url ./`) |
+| `npm run clean` | Remove `dist/` and `.parcel-cache/` (`rm -rf dist .parcel-cache`) |
 | `npx tsc --noEmit` | TypeScript typecheck |
 | `npx eslint .` | Lint check |
+
+> **Cache do Parcel**: o Parcel 2 faz cache em `.parcel-cache/` (não em `dist/`). O cache armazena artefatos de build (transformações, resolução de dependências, bundling, otimizações) e é **invalidado automaticamente** quando arquivos relevantes mudam. A flag `--no-cache` **não desativa o cache por completo** — ela torna o cache **read-only** (Parcel não escreve novos entries mas ainda lê entries existentes). Isso significa que um cache corrompido ou desatualizado em `.parcel-cache/` pode servir bundles velhos mesmo com `--no-cache`.
+> 
+> **Quando limpar o cache**: se alterações de JS/CSS não refletirem no navegador, rodar `npm run clean` (ou `rm -rf dist .parcel-cache`) e reiniciar o dev server. Entre ciclos de teste, sempre limpar `.parcel-cache/` se comportamento novo não aparecer. O `dist/` também deve ser removido pois arquivos residuais de builds anteriores podem permanecer se o cache não for limpo.
 
 ## Architecture
 
@@ -47,6 +52,8 @@ TypeScript landing page, Tailwind CSS (via PostCSS), Parcel 2.13.3. No framework
 
 1. **Framelink MCP for Figma** — Extrair layout, componentes, espaçamentos, tipografia, cores e variações responsivas. Garantir aderência visual ao design.
 2. **chrome-devtools** — Validar no navegador, debugar console/rede/layout, testar responsivo e interações.
+   - **Navegação**: sempre usar `reload` para atualizar a página, nunca abrir novas abas/instâncias. Reutilizar a aba existente.
+   - **Gestão de páginas**: manter apenas uma página ativa. Fechar páginas excedentes com `chrome-devtools_close_page`.
 3. **context7** — Consultar documentação oficial das stacks antes de implementar decisões críticas.
 
 ### Restrições técnicas

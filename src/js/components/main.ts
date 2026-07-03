@@ -10,9 +10,9 @@ const createMain = () => {
     <div class="max-w-7xl mx-auto">
       <div class="flex flex-col lg:flex-row lg:items-center">
         <div class="flex-1 px-4 sm:px-6 lg:px-8 pt-12 lg:pb-8 lg:pb-20">
-          <div class="inline-flex items-center bg-muted rounded-full px-1 py-1 mb-8">
+          <div class="inline-flex items-center bg-muted rounded-full px-1 py-1 mb-8 overflow-hidden">
             <span class="bg-accent text-white text-sm font-body px-4 py-1 rounded-full">Olhar</span>
-            <span class="text-accent text-sm font-body px-3">para dentro é o começo da mudança.</span>
+            <span class="inline-block whitespace-nowrap overflow-hidden align-middle text-accent text-sm font-body px-3 transition-all duration-[3000ms] ease-in-out">para dentro é o começo da mudança.</span>
           </div>
 
           <h1 class="font-heading font-bold text-[44px] sm:text-[70px] xl:text-[90px] leading-[1.1] text-accent mb-6">
@@ -49,6 +49,24 @@ const createMain = () => {
       </div>
     </div>
   `
+
+  const secondSpan = section.querySelector<HTMLSpanElement>('.inline-flex.items-center span:last-child')!
+  secondSpan.style.width = '0'
+  secondSpan.style.opacity = '0'
+
+  const animate = () => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        secondSpan.style.width = `${secondSpan.scrollWidth}px`
+        secondSpan.style.opacity = '1'
+      })
+    })
+  }
+
+  Promise.race([
+    document.fonts.ready,
+    new Promise(r => setTimeout(r, 1000)),
+  ]).then(animate)
 
   const qualitiesList = section.querySelector('#qualities-list')!
 
