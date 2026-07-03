@@ -9,13 +9,13 @@ const createMain = () => {
   section.innerHTML = `
     <div class="max-w-7xl mx-auto">
       <div class="flex flex-col lg:flex-row lg:items-center">
-        <div class="flex-1 px-4 sm:px-6 lg:px-8 pt-12 lg:pb-8 lg:pb-20">
+        <div class="flex-1 px-4 sm:px-6 lg:px-8 pt-12 lg:pb-20">
           <div class="inline-flex items-center bg-muted rounded-full px-1 py-1 mb-8 overflow-hidden">
-            <span class="bg-accent text-white text-sm font-body px-4 py-1 rounded-full">Olhar</span>
-            <span class="inline-block whitespace-nowrap overflow-hidden align-middle text-accent text-sm font-body px-3 transition-all duration-[3000ms] ease-in-out">para dentro é o começo da mudança.</span>
+            <span class="bg-accent text-white text-sm font-body px-2 sm:px-4 py-1 rounded-full">Olhar</span>
+            <span class="inline-block whitespace-nowrap overflow-hidden align-middle text-accent text-sm font-body px-1.5 sm:px-3 transition-all duration-[3000ms] ease-in-out">para dentro é o começo da mudança.</span>
           </div>
 
-          <h1 class="font-heading font-bold text-[44px] sm:text-[70px] xl:text-[90px] leading-[1.1] text-accent mb-6">
+          <h1 class="font-heading font-bold text-[44px] sm:text-[55px] md:text-[70px] xl:text-[90px] leading-[1.1] text-accent mb-6">
             Atendimento<br>clínico
           </h1>
 

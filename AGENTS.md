@@ -58,6 +58,10 @@ TypeScript landing page, Tailwind CSS (via PostCSS), Parcel 2.13.3. No framework
 
 ### Restrições técnicas
 
+- **Mobile-first obrigatório.** Toda responsividade deve seguir o paradigma mobile-first do Tailwind: classes **sem prefixo** = estilo mobile padrão (aplica em todas as viewports), `sm:`, `md:`, `lg:`, `xl:` para overrides progressivos. `max-*` só é permitido para **targetiar um range específico** em conjunto com um prefixo min-width (ex: `sm:max-md:flex`). **Nunca** use `max-*` como substituto de base mobile — o correto é `px-2 sm:px-4`, não `px-4 max-sm:px-2`.
+- **Sem scroll horizontal.** Nunca deve haver scroll horizontal em nenhuma viewport. Scroll permitido apenas no eixo vertical. O layout deve ser coeso até **360px de largura** (Samsung S8).
+- **Verificação em 3 viewports obrigatória** antes de finalizar qualquer alteração de layout: 360px (mobile), 768px (tablet), 1280px+ (desktop). Sem scroll horizontal em nenhuma delas.
+- **Preferir valores da escala do Tailwind** (`text-xl`, `text-3xl`, `p-4`, `gap-8`) em vez de valores arbitrários (`text-[44px]`, `gap-[33px]`). Arbitrários só quando o design exigir tamanho fora da escala disponível.
 - **Sem React**.
 - Toda estilização via **Tailwind CSS**. CSS puro só em casos extremos onde Tailwind não oferecer solução — e com autorização explícita do usuário (reportar motivo + local + aguardar OK).
 - Ícones:
@@ -74,6 +78,17 @@ TypeScript landing page, Tailwind CSS (via PostCSS), Parcel 2.13.3. No framework
 4. Pendências/riscos (se houver)
 5. Necessidade de CSS puro (se houver) com pedido de autorização
 6. Próximo passo recomendado
+
+### Impacto de alterações no layout
+
+- Toda modificação em classes de um elemento (padding, margin, font-size, width, display, etc.) deve ser testada em **elementos filhos, vizinhos e no site como um todo**.
+- Verificar sempre em **3 viewports**: 360px (mobile), 768px (tablet), 1280px+ (desktop).
+- Padding e margin devem sempre ser **balanceados** — jamais alterar apenas um lado sem verificar o outro. Se reduzir `px-4` para `px-2`, garantir que ambos os lados foram reduzidos simetricamente.
+- Alterações em display (ex: `inline` → `inline-block`) podem afetar o box model e o fluxo de elementos adjacentes.
+- Antes de finalizar, validar:
+  - `document.documentElement.scrollWidth <= document.documentElement.clientWidth` nas 3 viewports (sem scroll horizontal)
+  - Badges/spans com animação não cortam texto: `clientWidth >= scrollWidth`
+  - Navegação não quebra no breakpoint de transição (1024px)
 
 ### Regras de segurança
 

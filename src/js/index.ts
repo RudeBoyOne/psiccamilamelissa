@@ -24,7 +24,7 @@ const init = async () => {
   document.body.insertAdjacentElement('afterbegin', navbar)
 
   const main = document.getElementById('main')!
-  main.className = 'flex-1'
+  main.className = 'flex-1 overflow-x-hidden'
 
   const sections = [
     createMain(),
