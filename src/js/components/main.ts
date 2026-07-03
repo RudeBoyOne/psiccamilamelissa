@@ -16,10 +16,10 @@ const createMain = () => {
           </div>
 
           <h1 class="font-heading font-bold text-[44px] sm:text-[55px] md:text-[70px] xl:text-[90px] leading-[1.1] text-accent mb-6">
-            Atendimento<br>clínico
+            Atendimento clínico
           </h1>
 
-          <p class="font-body text-[18px] sm:text-[24px] leading-[1.58] text-gray-6 max-w-[597px] mb-10">
+          <p class="font-body text-lg sm:text-2xl leading-[1.58] text-gray-6 max-w-[597px] mb-10">
             focado na abordagem psicanalítica. A psicanálise é uma ferramenta
             poderosa para explorar o inconsciente e entender os fatores que
             influenciam nossos comportamentos e emoções.
@@ -81,7 +81,7 @@ const createMain = () => {
     div.className = 'flex items-center gap-3'
     div.appendChild(createIconElement(icon, 'w-8 h-8 text-gray-5'))
     const span = document.createElement('span')
-    span.className = 'font-body text-[22px] leading-[1.41] text-gray-5'
+    span.className = 'font-body text-sm sm:text-xl leading-[1.41] text-gray-5'
     span.textContent = text
     div.appendChild(span)
     qualitiesList.appendChild(div)
