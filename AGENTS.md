@@ -40,9 +40,9 @@ TypeScript landing page, Tailwind CSS 3.4 (via PostCSS), daisyUI 4, Lit 3 (Web C
 
 ### Animações
 
-- **Todas as animações usam Tailwind CSS.** Nada de CSS puro, keyframes avulsos ou libs de animação.
+- **Todas as animações usam exclusivamente classes Tailwind.** Nada de CSS puro, keyframes avulsos, libs de animação ou CSS inline.
 - Preferir `transition-all` + `duration-300` + `ease-in-out` como padrão.
-- Para estados animados controlados por JS, usar `element.style.propriedade` (inline) ou style bindings nos templates Lit. Para estado inicial estático, usar classes Tailwind.
+- Para estados animados controlados por JS, usar classes Tailwind condicionais ou bindings de classe no Lit. **CSS inline (`element.style`) é estritamente proibido.**
 
 ## Production
 
@@ -81,6 +81,7 @@ Esta regra se aplica a qualquer tarefa que envolva bibliotecas, frameworks, SDKs
 - **Preferir valores da escala do Tailwind** (`text-xl`, `text-3xl`, `p-4`, `gap-8`) em vez de valores arbitrários (`text-[44px]`, `gap-[33px]`). Arbitrários só quando o design exigir tamanho fora da escala disponível.
 - **Sem React, sem frameworks pesados** — Lit + Web Components nativos.
 - Toda estilização via **Tailwind CSS** + **daisyUI**. CSS puro só em casos extremos onde Tailwind não oferecer solução — e com autorização explícita do usuário (reportar motivo + local + aguardar OK).
+- **CSS inline é estritamente proibido.** O atributo `style=""` não deve ser usado em hipótese alguma. Preferir classes Tailwind, bindings de classe no Lit, ou (como último recurso, com autorização explícita) CSS puro em arquivo `.css`.
 - Ícones:
   - Redes sociais → **Bootstrap Icons**
   - Demais ícones → **Lucide Icons**
@@ -113,4 +114,4 @@ Esta regra se aplica a qualquer tarefa que envolva bibliotecas, frameworks, SDKs
 - Não fazer mudanças silenciosas de stack fora do escopo.
 - **Context7 é obrigatório em todo planejamento** — consultar antes de decidir.
 - Conflito entre layout e código existente: priorizar fidelidade ao layout + estabilidade técnica.
-- Não implementar CSS puro sem autorização explícita do usuário.
+- Jamais implementar CSS puro ou CSS inline sem autorização explícita do usuário. Violações serão rejeitadas em code review.

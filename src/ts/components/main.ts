@@ -75,11 +75,11 @@ export class HeroSection extends LitElement {
               </a>
             </div>
 
-            <div class="relative flex-shrink-0 mt-8 lg:mt-0 lg:ml-8">
-              <img src="${heroBgDecoration}" alt="" class="absolute inset-0 w-full h-full object-contain pointer-events-none" aria-hidden="true">
+            <div class="relative flex-shrink-0 mt-8 lg:mt-0 lg:ml-8 overflow-visible">
+              <img src="${heroBgDecoration}" alt="" class="absolute pointer-events-none w-[490px] sm:w-[738px] lg:w-[850px] max-w-none -left-10 sm:left-4 lg:-left-52 lg:-top-8" aria-hidden="true">
               <img src="${fotoCamila}"
                    alt="Camila Melissa de Souza, psicóloga e psicanalista"
-                   class="relative w-[509px] max-w-full h-auto object-contain mx-auto">
+                   class="relative w-[519px] max-w-full h-auto object-contain mx-auto">
               <div class="relative -mt-8 mx-auto w-[382px] max-w-[90%] bg-white rounded-input shadow-caption p-4 text-center lg:mb-[-1.5rem] mb-0">
                 <p class="font-body font-bold text-[24px] text-[#33475B]">Camila Melissa de Souza</p>
                 <p class="font-body font-medium text-[16px] text-[#87898C]">Psicóloga & Psicanalista</p>
