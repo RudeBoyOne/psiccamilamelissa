@@ -2,15 +2,18 @@
 
 ## Stack
 
-TypeScript landing page, Tailwind CSS (via PostCSS), Parcel 2.13.3. No framework, no tests.
+TypeScript landing page, Tailwind CSS 3.4 (via PostCSS), daisyUI 4, Lit 3 (Web Components), Parcel 2.13.3. No framework, no tests.
 
 ## Commands
 
 | Command | Action |
 |---------|--------|
-| `npm start` | Dev server on `:3000` (`parcel index.html --open --port 3000 --no-cache`) |
+| `npm run dev` | Dev server on `:3000` (background, sem abrir browser) |
+| `npm start` | Dev server on `:3000` (abre browser) |
 | `npm run build` | Build to `build/` dir (`--dist-dir build --public-url ./`) |
-| `npm run clean` | Remove `dist/` and `.parcel-cache/` (`rm -rf dist .parcel-cache`) |
+| `npm run clean` | Remove `dist/` and `.parcel-cache/` |
+| `npm run stop` | Kill dev server |
+| `npm run restart` | `stop` → `clean` → `dev` |
 | `npx tsc --noEmit` | TypeScript typecheck |
 | `npx eslint .` | Lint check |
 
@@ -20,23 +23,26 @@ TypeScript landing page, Tailwind CSS (via PostCSS), Parcel 2.13.3. No framework
 
 ## Architecture
 
-- **Entry**: `index.html` → `src/js/index.ts` mounts sections sequentially.
-- **Sections**: navbar → hero → about → quote → articles → footer.
-- **PDF viewer**: `src/js/pages/displayPdf.ts` — uses `pdfjs-dist`. Accessed at `/display_pdf`.
-- **Contact form**: POSTs JSON to `https://emailsending.psiccamilamelissa.com.br/leads` with `{ service: { name: 'site.psiccamilamelissa' } }` injected server-side.
+- **Entry**: `index.html` → `src/ts/index.ts` mounts custom elements.
+- **Components**: LitElements — `<app-navbar>`, `<hero-section>`, `<about-section>`, `<quote-section>`, `<articles-grid>`, `<app-footer>`, `<pdf-viewer>`.
+- **Subcomponents**: `<about-card>`, `<article-card>`, `<contact-form>`.
+- **PDF viewer**: `<pdf-viewer>` — Lit wrapper around `pdfjs-dist`. Accessed at `/display_pdf`.
+- **Contact form**: POSTs JSON to `https://emailsending.psiccamilamelissa.com.br/leads` with `{ service: { name: 'site.psiccamilamelissa' } }` injected client-side.
 - **Analytics**: Google tag `G-XJS48Z72ZV` in `index.html`.
 
 ## Key conventions
 
-- CSS: Tailwind CSS via `src/css/main.css`. No SCSS, no Bootstrap.
+- **Components**: LitElements with `createRenderRoot() { return this }` (no Shadow DOM for Tailwind compat).
+- **Decorators**: `@customElement`, `@property`, `@state` from `lit/decorators.js`.
+- CSS: Tailwind CSS via `src/css/main.css` + daisyUI component classes (`input`, `textarea`, `alert`).
 - Icons: Bootstrap Icons (social), Lucide Icons (all others).
-- JS: Components are factory functions that create DOM elements.
+- TypeScript: strict mode enabled.
 
 ### Animações
 
 - **Todas as animações usam Tailwind CSS.** Nada de CSS puro, keyframes avulsos ou libs de animação.
 - Preferir `transition-all` + `duration-300` + `ease-in-out` como padrão.
-- Para estados animados controlados por JS, usar `element.style.propriedade` (inline). Para estado inicial estático, usar classes Tailwind.
+- Para estados animados controlados por JS, usar `element.style.propriedade` (inline) ou style bindings nos templates Lit. Para estado inicial estático, usar classes Tailwind.
 
 ## Production
 
@@ -48,13 +54,24 @@ TypeScript landing page, Tailwind CSS (via PostCSS), Parcel 2.13.3. No framework
 
 ## Workflow & MCP rules
 
+### Regra inviolável — Context7
+
+**Todo planejamento deve obrigatoriamente consultar o MCP Context7 antes de ser finalizado.** Nenhum plano de implementação, refatoração, migração ou alteração de stack pode ser considerado completo sem ao menos uma consulta ao Context7 para validar:
+
+- Versões de dependências e compatibilidade entre stacks
+- Configuração correta de ferramentas
+- Riscos técnicos de implementação
+- Correção de decisões arquiteturais
+
+Esta regra se aplica a qualquer tarefa que envolva bibliotecas, frameworks, SDKs, CLIs ou serviços externos.
+
 ### MCPs obrigatórios
 
 1. **Framelink MCP for Figma** — Extrair layout, componentes, espaçamentos, tipografia, cores e variações responsivas. Garantir aderência visual ao design.
 2. **chrome-devtools** — Validar no navegador, debugar console/rede/layout, testar responsivo e interações.
    - **Navegação**: sempre usar `reload` para atualizar a página, nunca abrir novas abas/instâncias. Reutilizar a aba existente.
    - **Gestão de páginas**: manter apenas uma página ativa. Fechar páginas excedentes com `chrome-devtools_close_page`.
-3. **context7** — Consultar documentação oficial das stacks antes de implementar decisões críticas.
+3. **context7** — **Obrigatório em todo planejamento.** Consultar documentação oficial das stacks antes de implementar decisões críticas.
 
 ### Restrições técnicas
 
@@ -62,8 +79,8 @@ TypeScript landing page, Tailwind CSS (via PostCSS), Parcel 2.13.3. No framework
 - **Sem scroll horizontal.** Nunca deve haver scroll horizontal em nenhuma viewport. Scroll permitido apenas no eixo vertical. O layout deve ser coeso até **360px de largura** (Samsung S8).
 - **Verificação em 3 viewports obrigatória** antes de finalizar qualquer alteração de layout: 360px (mobile), 768px (tablet), 1280px+ (desktop). Sem scroll horizontal em nenhuma delas.
 - **Preferir valores da escala do Tailwind** (`text-xl`, `text-3xl`, `p-4`, `gap-8`) em vez de valores arbitrários (`text-[44px]`, `gap-[33px]`). Arbitrários só quando o design exigir tamanho fora da escala disponível.
-- **Sem React**.
-- Toda estilização via **Tailwind CSS**. CSS puro só em casos extremos onde Tailwind não oferecer solução — e com autorização explícita do usuário (reportar motivo + local + aguardar OK).
+- **Sem React, sem frameworks pesados** — Lit + Web Components nativos.
+- Toda estilização via **Tailwind CSS** + **daisyUI**. CSS puro só em casos extremos onde Tailwind não oferecer solução — e com autorização explícita do usuário (reportar motivo + local + aguardar OK).
 - Ícones:
   - Redes sociais → **Bootstrap Icons**
   - Demais ícones → **Lucide Icons**
@@ -94,6 +111,6 @@ TypeScript landing page, Tailwind CSS (via PostCSS), Parcel 2.13.3. No framework
 
 - Não remover funcionalidades essenciais sem substituto adequado.
 - Não fazer mudanças silenciosas de stack fora do escopo.
-- Em caso de dúvida, consultar `context7` antes de decidir.
+- **Context7 é obrigatório em todo planejamento** — consultar antes de decidir.
 - Conflito entre layout e código existente: priorizar fidelidade ao layout + estabilidade técnica.
 - Não implementar CSS puro sem autorização explícita do usuário.

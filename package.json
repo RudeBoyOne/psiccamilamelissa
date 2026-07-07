@@ -4,8 +4,12 @@
     "type": "module",
     "description": "site/aplicação para divulgação e prestação de serviços da psicologa Camila Melissa de Souza",
     "scripts": {
+        "dev": "parcel index.html --port 3000 --open --no-cache",
         "start": "parcel index.html --open --port 3000 --no-cache",
         "build": "parcel build index.html --dist-dir build --public-url ./",
+        "clean": "rm -rf dist .parcel-cache",
+        "stop": "pkill -f 'parcel.*index.html' 2>/dev/null; exit 0",
+        "restart": "npm run stop && npm run clean && npm run dev",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
@@ -30,8 +34,8 @@
         "@parcel/packager-raw-url": "^2.13.3",
         "@parcel/transformer-jsonld": "^2.13.3",
         "@types/node": "^26.0.1",
-        "autoprefixer": "^10.5.2",
         "buffer": "^6.0.3",
+        "daisyui": "^4.12.24",
         "eslint": "^10.6.0",
         "globals": "^17.7.0",
         "parcel": "^2.13.3",
@@ -44,6 +48,7 @@
     },
     "dependencies": {
         "bootstrap-icons": "^1.11.3",
+        "lit": "^3.3.3",
         "lucide": "^1.22.0",
         "pdfjs-dist": "^4.10.38"
     }
