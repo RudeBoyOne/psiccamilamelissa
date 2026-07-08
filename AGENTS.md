@@ -2,7 +2,7 @@
 
 ## Stack
 
-TypeScript landing page, Tailwind CSS 3.4 (via PostCSS), daisyUI 4, Lit 3 (Web Components), Parcel 2.13.3. No framework, no tests.
+TypeScript landing page, Tailwind CSS 3.4 (via PostCSS), Lit 3 (Web Components — reactive components only), Parcel 2.13.3. No framework, no tests.
 
 ## Commands
 
@@ -24,8 +24,9 @@ TypeScript landing page, Tailwind CSS 3.4 (via PostCSS), daisyUI 4, Lit 3 (Web C
 ## Architecture
 
 - **Entry**: `index.html` → `src/ts/index.ts` mounts custom elements.
-- **Components**: LitElements — `<app-navbar>`, `<hero-section>`, `<about-section>`, `<quote-section>`, `<articles-grid>`, `<app-footer>`, `<pdf-viewer>`.
-- **Subcomponents**: `<about-card>`, `<article-card>`, `<contact-form>`.
+- **Components**: Hybrid approach — components with reactive state use **Lit 3**; static components use vanilla `HTMLElement`.
+  - **Lit (reactive)**: `<app-navbar>`, `<hero-section>`, `<contact-form>`, `<pdf-viewer>` — use `@state`, `@click`, `?disabled`, and incremental DOM updates.
+  - **Vanilla (static)**: `<about-section>`, `<about-card>`, `<quote-section>`, `<articles-grid>`, `<article-card>`, `<app-footer>` — extend `HTMLElement`, render once via `connectedCallback()` + `innerHTML`.
 - **PDF viewer**: `<pdf-viewer>` — Lit wrapper around `pdfjs-dist`. Accessed at `/display_pdf`.
 - **Contact form**: POSTs JSON to `https://emailsending.psiccamilamelissa.com.br/leads` with `{ service: { name: 'site.psiccamilamelissa' } }` injected client-side.
 - **Analytics**: Google tag `G-XJS48Z72ZV` in `index.html`.
@@ -34,7 +35,7 @@ TypeScript landing page, Tailwind CSS 3.4 (via PostCSS), daisyUI 4, Lit 3 (Web C
 
 - **Components**: LitElements with `createRenderRoot() { return this }` (no Shadow DOM for Tailwind compat).
 - **Decorators**: `@customElement`, `@property`, `@state` from `lit/decorators.js`.
-- CSS: Tailwind CSS via `src/css/main.css` + daisyUI component classes (`input`, `textarea`, `alert`).
+- CSS: Tailwind CSS via `src/css/main.css` + custom component classes (`.input-brand`, `.card-brand`, `.nav-link`).
 - Icons: Bootstrap Icons (social), Lucide Icons (all others).
 - TypeScript: strict mode enabled.
 
@@ -89,7 +90,7 @@ Esta regra se aplica a qualquer tarefa que envolva bibliotecas, frameworks, SDKs
 - **Verificação em 3 viewports obrigatória** antes de finalizar qualquer alteração de layout: 360px (mobile), 768px (tablet), 1280px+ (desktop). Sem scroll horizontal em nenhuma delas.
 - **Preferir valores da escala do Tailwind** (`text-xl`, `text-3xl`, `p-4`, `gap-8`) em vez de valores arbitrários (`text-[44px]`, `gap-[33px]`). Arbitrários só quando o design exigir tamanho fora da escala disponível.
 - **Sem React, sem frameworks pesados** — Lit + Web Components nativos.
-- Toda estilização via **Tailwind CSS** + **daisyUI**. CSS puro só em casos extremos onde Tailwind não oferecer solução — e com autorização explícita do usuário (reportar motivo + local + aguardar OK).
+- Toda estilização via **Tailwind CSS**. CSS puro só em casos extremos onde Tailwind não oferecer solução — e com autorização explícita do usuário (reportar motivo + local + aguardar OK).
 - **CSS inline é estritamente proibido.** O atributo `style=""` não deve ser usado em hipótese alguma. Preferir classes Tailwind, bindings de classe no Lit, ou (como último recurso, com autorização explícita) CSS puro em arquivo `.css`.
 - Ícones:
   - Redes sociais → **Bootstrap Icons**

@@ -93,12 +93,9 @@ export class ContactForm extends LitElement {
   }
 }
 
-@customElement('app-footer')
-export class AppFooter extends LitElement {
-  createRenderRoot() { return this }
-
-  render() {
-    return html`
+export class AppFooter extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `
       <footer id="contato" class="bg-accent">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div class="flex flex-col lg:flex-row gap-12 lg:gap-24">
@@ -143,7 +140,7 @@ export class AppFooter extends LitElement {
             </div>
           </div>
 
-            <div class="text-center mt-16 pt-8 border-t border-white/10">
+          <div class="text-center mt-16 pt-8 border-t border-white/10">
             <p class="font-body text-body-sm text-white/80">
               psic.camilamelissa &copy; todos os direitos reservados
             </p>
@@ -153,3 +150,5 @@ export class AppFooter extends LitElement {
     `
   }
 }
+
+customElements.define('app-footer', AppFooter)

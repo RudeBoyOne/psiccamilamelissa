@@ -1,47 +1,34 @@
-import { LitElement, html } from 'lit'
-import { customElement, property } from 'lit/decorators.js'
 import logoAbrasme from '../../assets/images/logo-abrasme.png'
 import logoSedes from '../../assets/images/logo-sedes.png'
 import logoCprj from '../../assets/images/logo-cprj.png'
 import logoGerar from '../../assets/images/logo-gerar.png'
 
-@customElement('about-card')
-export class AboutCard extends LitElement {
-  createRenderRoot() { return this }
+export class AboutCard extends HTMLElement {
+  connectedCallback() {
+    const logoUrl = this.getAttribute('logourl') || ''
+    const alt = this.getAttribute('alt') || ''
+    const title = this.getAttribute('title') || ''
+    const body = this.getAttribute('body') || ''
 
-  @property()
-  logoUrl = ''
-
-  @property()
-  alt = ''
-
-  @property()
-  title = ''
-
-  @property()
-  body = ''
-
-  render() {
-    return html`
+    this.innerHTML = `
       <div class="card-brand p-6">
-        <img src="${this.logoUrl}" alt="${this.alt}" class="h-[53px] object-contain mb-4">
+        <img src="${logoUrl}" alt="${alt}" class="h-[53px] object-contain mb-4">
         <h3 class="card-title mb-3">
-          ${this.title}
+          ${title}
         </h3>
         <p class="card-body tracking-[0.0214em]">
-          ${this.body}
+          ${body}
         </p>
       </div>
     `
   }
 }
 
-@customElement('about-section')
-export class AboutSection extends LitElement {
-  createRenderRoot() { return this }
+customElements.define('about-card', AboutCard)
 
-  render() {
-    return html`
+export class AboutSection extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `
       <section id="sobre" class="bg-muted py-16 lg:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
@@ -58,7 +45,7 @@ export class AboutSection extends LitElement {
               <about-card
                 logoUrl="${logoAbrasme}"
                 alt="ABRASME"
-                title="Congresso ABRASME – Associação Brasileira de Saúde Mental"
+                title="Congresso ABRASME &ndash; Associação Brasileira de Saúde Mental"
                 body="2022\nApresentação e debate do artigo &quot;O Enclausuramento da palavra&quot;">
               </about-card>
 
@@ -73,13 +60,13 @@ export class AboutSection extends LitElement {
                 logoUrl="${logoCprj}"
                 alt="CPRJ"
                 title="Publicação do artigo"
-                body="Revista Circulo Psicanalítico do Rio de Janeiro - 2024\nO enclausuramento da palavra. Cadernos de Psicanálise | CPRJ, v. 46, n. 51, p. 87-102, 5 nov. 2024.">
+                body="Revista Círculo Psicanalítico do Rio de Janeiro - 2024\nO enclausuramento da palavra. Cadernos de Psicanálise | CPRJ, v. 46, n. 51, p. 87-102, 5 nov. 2024.">
               </about-card>
 
               <about-card
                 logoUrl="${logoGerar}"
                 alt="Instituto Gerar"
-                title="Curso Psicanálise,\nParentalidade &\nPerinatalidade"
+                title="Curso Psicanálise,\nParentalidade &amp;\nPerinatalidade"
                 body="Instituto Gerar de Psicanálise\n2025 / até momento">
               </about-card>
             </div>
@@ -89,3 +76,5 @@ export class AboutSection extends LitElement {
     `
   }
 }
+
+customElements.define('about-section', AboutSection)
