@@ -24,7 +24,7 @@ export class AppNavbar extends LitElement {
     return html`
       <header>
         <div class="max-w-7xl mx-auto">
-          <div class="rounded-b-navbar bg-accent">
+          <div class="rounded-b-navbar bg-accent overflow-hidden">
             <!-- Mobile -->
             <div class="lg:hidden">
               <div class="flex items-center justify-between h-[100px] px-3">
