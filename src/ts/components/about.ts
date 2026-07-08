@@ -28,7 +28,7 @@ export class AboutCard extends LitElement {
         <h3 class="font-heading font-bold text-[22px] leading-[22px] text-text-gray mb-3">
           ${this.title}
         </h3>
-        <p class="font-body text-[14px] leading-[24px] tracking-[0.0214em] text-gray-5">
+        <p class="font-body text-[14px] leading-[24px] tracking-[0.0214em] text-gray-6">
           ${this.body}
         </p>
       </div>
@@ -49,7 +49,7 @@ export class AboutSection extends LitElement {
               <h2 class="font-heading font-bold text-[36px] sm:text-[48px] leading-[1.2] text-gray-7 mb-6">
                 Olá, eu sou<br>a Camila
               </h2>
-              <p class="font-label font-medium text-[18px] sm:text-[20px] leading-[36px] tracking-[0.025em] text-white">
+              <p class="font-label font-medium text-[18px] sm:text-[20px] leading-[36px] tracking-[0.025em] text-gray-7">
                 psicóloga formada pela Universidade Cruzeiro do Sul desde 2019. Trabalho como psicóloga clínica desde a minha formação e sou completamente encantada pela minha profissão. Adoro a escolha que fiz de diariamente escutar pessoas contando suas histórias, ressignificando suas dores e compartilhando suas alegrias.
               </p>
             </div>

@@ -83,8 +83,7 @@ export class ContactForm extends LitElement {
 
         ${this._toastMessage
           ? html`
-            <div class="alert ${this._toastType === 'success' ? 'alert-success' : 'alert-error'} rounded-feature shadow-lg text-white"
-                 style="background: ${this._toastType === 'success' ? '#2B112C' : '#991b1b'}">
+            <div class="alert rounded-feature shadow-lg text-white ${this._toastType === 'success' ? 'bg-accent' : 'bg-red-800'}">
               <span>${this._toastMessage}</span>
             </div>
           `
@@ -145,7 +144,7 @@ export class AppFooter extends LitElement {
           </div>
 
           <div class="text-center mt-16 pt-8 border-t border-white/10">
-            <p class="font-body text-[14px] text-[#D9DBE1]">
+            <p class="font-body text-[14px] text-white/80">
               psic.camilamelissa &copy; todos os direitos reservados
             </p>
           </div>

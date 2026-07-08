@@ -33,7 +33,7 @@ export class ArticleCard extends LitElement {
         <img src="${this.imgUrl}" alt="${this.title}" class="w-full h-48 object-cover">
         <div class="p-6">
           <h3 class="font-heading font-bold text-[22px] leading-[22px] text-text-gray mb-3">${this.title}</h3>
-          <p class="font-body text-[14px] leading-[24px] text-gray-5">${this.description}</p>
+          <p class="font-body text-[14px] leading-[24px] text-gray-6">${this.description}</p>
         </div>
       </div>
     `

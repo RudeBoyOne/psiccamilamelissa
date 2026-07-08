@@ -1,5 +1,5 @@
 import { LitElement, html } from 'lit'
-import { customElement } from 'lit/decorators.js'
+import { customElement, state } from 'lit/decorators.js'
 import fotoCamila from '../../assets/images/foto-camila.png'
 import heroBgDecoration from '../../assets/images/hero-bg-decoration.svg'
 import { UserCheck, Users, BookOpen } from 'lucide'
@@ -15,26 +15,14 @@ const qualityItems = [
 export class HeroSection extends LitElement {
   createRenderRoot() { return this }
 
+  @state()
+  private _badgeRevealed = false
+
   firstUpdated() {
-    const badgeSpan = this.querySelector<HTMLSpanElement>('#hero-badge-span')
-    if (!badgeSpan) {return}
-
-    badgeSpan.style.width = '0'
-    badgeSpan.style.opacity = '0'
-
-    const animate = () => {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          badgeSpan.style.width = `${badgeSpan.scrollWidth}px`
-          badgeSpan.style.opacity = '1'
-        })
-      })
-    }
-
     Promise.race([
       document.fonts.ready,
       new Promise(r => setTimeout(r, 1000)),
-    ]).then(animate)
+    ]).then(() => { this._badgeRevealed = true })
   }
 
   render() {
@@ -45,7 +33,7 @@ export class HeroSection extends LitElement {
             <div class="flex-1 px-4 sm:px-6 lg:px-8 pt-12 lg:pb-20">
               <div class="inline-flex items-center bg-muted rounded-full px-1 py-1 mb-8 overflow-hidden">
                 <span class="bg-accent text-white text-sm font-body px-2 sm:px-4 py-1 rounded-full">Olhar</span>
-                <span id="hero-badge-span" class="inline-block whitespace-nowrap overflow-hidden align-middle text-accent text-sm font-body px-1.5 sm:px-3 transition-all duration-[3000ms] ease-in-out">para dentro é o começo da mudança.</span>
+                <span id="hero-badge-span" class="inline-block whitespace-nowrap overflow-hidden align-middle text-accent text-sm font-body motion-reduce:transition-none transition-[max-width,opacity,padding] duration-[3000ms] ease-in-out ${this._badgeRevealed ? 'max-w-full opacity-100 px-1.5 sm:px-3' : 'max-w-0 opacity-0 px-0'}">para dentro é o começo da mudança.</span>
               </div>
 
               <h1 class="font-heading font-bold text-[44px] sm:text-[55px] md:text-[70px] xl:text-[90px] leading-[1.1] text-accent mb-6">
@@ -61,8 +49,8 @@ export class HeroSection extends LitElement {
               <div class="space-y-4 mb-10">
                 ${qualityItems.map(({ icon, text }) => html`
                   <div class="flex items-center gap-3">
-                    ${createIconElement(icon, 'w-8 h-8 text-gray-5')}
-                    <span class="font-body text-sm sm:text-xl leading-[1.41] text-gray-5">${text}</span>
+                    ${createIconElement(icon, 'w-8 h-8 text-gray-6')}
+                    <span class="font-body text-sm sm:text-xl leading-[1.41] text-gray-6">${text}</span>
                   </div>
                 `)}
               </div>
@@ -80,9 +68,9 @@ export class HeroSection extends LitElement {
               <img src="${fotoCamila}"
                    alt="Camila Melissa de Souza, psicóloga e psicanalista"
                    class="relative w-[519px] max-w-full h-auto object-contain mx-auto">
-              <div class="relative -mt-8 mx-auto w-[382px] max-w-[90%] bg-white rounded-input shadow-caption p-4 text-center lg:mb-[-1.5rem] mb-0">
-                <p class="font-body font-bold text-[24px] text-[#33475B]">Camila Melissa de Souza</p>
-                <p class="font-body font-medium text-[16px] text-[#87898C]">Psicóloga & Psicanalista</p>
+              <div class="relative -mt-8 mx-auto w-[382px] max-w-[90%] bg-white rounded-input shadow-caption p-4 text-center -mb-6">
+                <p class="font-body font-bold text-[24px] text-text-gray">Camila Melissa de Souza</p>
+                <p class="font-body font-medium text-[16px] text-gray-6">Psicóloga & Psicanalista</p>
               </div>
             </div>
           </div>
