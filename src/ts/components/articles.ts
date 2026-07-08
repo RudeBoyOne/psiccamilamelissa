@@ -35,13 +35,13 @@ export class ArticleCard extends LitElement {
 
   render() {
     return html`
-      <div class="bg-white rounded-feature shadow-card overflow-hidden cursor-pointer hover:shadow-lg motion-reduce:transition-none transition-shadow article-card"
+      <div class="card-brand cursor-pointer hover:shadow-lg motion-reduce:transition-none transition-shadow"
            role="button" tabindex="0"
            @click=${this._handleClick} @keydown=${this._handleKeyDown}>
         <img src="${this.imgUrl}" alt="${this.title}" class="w-full h-48 object-cover">
         <div class="p-6">
-          <h3 class="font-heading font-bold text-body-lg leading-[22px] text-text-gray mb-3">${this.title}</h3>
-          <p class="font-body text-body-sm text-gray-6">${this.description}</p>
+          <h3 class="card-title mb-3">${this.title}</h3>
+          <p class="card-body">${this.description}</p>
         </div>
       </div>
     `

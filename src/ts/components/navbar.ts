@@ -60,13 +60,13 @@ export class AppNavbar extends LitElement {
                   <img src="${logoNameSrc}" alt="Psicóloga Camila Melissa" class="h-[35px] ml-3 rounded-[13px]">
                 </a>
                 <nav class="absolute left-[745px] top-[26.5px] px-3 py-3 flex items-center gap-14">
-                  <a href="#sobre" class="text-white font-label font-semibold label-sm hover:opacity-80 motion-reduce:transition-none transition-opacity no-underline">
+                  <a href="#sobre" class="nav-link label-sm">
                     SOBRE
                   </a>
-                  <a href="#artigos" class="text-white font-label font-semibold label-sm hover:opacity-80 motion-reduce:transition-none transition-opacity no-underline">
+                  <a href="#artigos" class="nav-link label-sm">
                     ARTIGOS
                   </a>
-                  <a href="#contato" class="text-white font-label font-semibold label-sm hover:opacity-80 motion-reduce:transition-none transition-opacity no-underline">
+                  <a href="#contato" class="nav-link label-sm">
                     CONTATO
                   </a>
                 </nav>

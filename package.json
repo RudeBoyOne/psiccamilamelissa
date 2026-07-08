@@ -35,7 +35,6 @@
         "@parcel/transformer-jsonld": "^2.13.3",
         "@types/node": "^26.0.1",
         "buffer": "^6.0.3",
-        "daisyui": "^4.12.24",
         "eslint": "^10.6.0",
         "globals": "^17.7.0",
         "parcel": "^2.13.3",

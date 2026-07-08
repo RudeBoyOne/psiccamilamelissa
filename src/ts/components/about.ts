@@ -23,12 +23,12 @@ export class AboutCard extends LitElement {
 
   render() {
     return html`
-      <div class="bg-white rounded-feature p-6 shadow-card">
+      <div class="card-brand p-6">
         <img src="${this.logoUrl}" alt="${this.alt}" class="h-[53px] object-contain mb-4">
-        <h3 class="font-heading font-bold text-body-lg leading-[22px] text-text-gray mb-3">
+        <h3 class="card-title mb-3">
           ${this.title}
         </h3>
-        <p class="font-body text-body-sm tracking-[0.0214em] text-gray-6">
+        <p class="card-body tracking-[0.0214em]">
           ${this.body}
         </p>
       </div>

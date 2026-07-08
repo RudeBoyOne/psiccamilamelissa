@@ -60,19 +60,19 @@ export class ContactForm extends LitElement {
         <div>
           <label for="contact-name" class="font-body text-white text-base block mb-1">nome</label>
           <input id="contact-name" type="text" name="name" required maxlength="50"
-                 class="w-full input rounded-input bg-white text-gray-8 font-body text-sm focus:outline-none focus:ring-2 focus:ring-detail"
+                 class="input-brand"
                  ?disabled=${this._submitting}>
         </div>
         <div>
           <label for="contact-email" class="font-body text-white text-base block mb-1">email</label>
           <input id="contact-email" type="email" name="email" required maxlength="100"
-                 class="w-full input rounded-input bg-white text-gray-8 font-body text-sm focus:outline-none focus:ring-2 focus:ring-detail"
+                 class="input-brand"
                  ?disabled=${this._submitting}>
         </div>
         <div>
           <label for="contact-message" class="font-body text-white text-base block mb-1">mensagem</label>
           <textarea id="contact-message" name="message" required rows="5"
-                    class="w-full textarea rounded-input bg-white text-gray-8 font-body text-sm resize-none focus:outline-none focus:ring-2 focus:ring-detail"
+                    class="input-brand resize-none min-h-[120px]"
                     ?disabled=${this._submitting}></textarea>
         </div>
         <button type="submit"
@@ -83,7 +83,7 @@ export class ContactForm extends LitElement {
 
         ${this._toastMessage
           ? html`
-            <div class="alert rounded-feature shadow-lg text-white ${this._toastType === 'success' ? 'bg-accent' : 'bg-error'}">
+            <div class="flex items-center gap-2 p-4 rounded-feature shadow-lg text-white ${this._toastType === 'success' ? 'bg-accent' : 'bg-error'}">
               <span>${this._toastMessage}</span>
             </div>
           `
