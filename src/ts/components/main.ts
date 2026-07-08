@@ -21,7 +21,7 @@ export class HeroSection extends LitElement {
   firstUpdated() {
     Promise.race([
       document.fonts.ready,
-      new Promise(r => setTimeout(r, 1000)),
+      new Promise(r => setTimeout(r, 2000)),
     ]).then(() => { this._badgeRevealed = true })
   }
 
@@ -32,8 +32,8 @@ export class HeroSection extends LitElement {
           <div class="flex flex-col lg:flex-row lg:items-center">
             <div class="flex-1 px-4 sm:px-6 lg:px-8 pt-12 lg:pb-20">
               <div class="inline-flex items-center bg-muted rounded-full px-1 py-1 mb-8 overflow-hidden">
-                <span class="bg-accent text-white text-sm font-body px-2 sm:px-4 py-1 rounded-full">Olhar</span>
-                <span id="hero-badge-span" class="inline-block whitespace-nowrap overflow-hidden align-middle text-accent text-sm font-body motion-reduce:transition-none transition-[max-width,opacity,padding] duration-[3000ms] ease-in-out ${this._badgeRevealed ? 'max-w-full opacity-100 px-1.5 sm:px-3' : 'max-w-0 opacity-0 px-0'}">para dentro é o começo da mudança.</span>
+                <span class="bg-accent text-white text-sm font-body px-2 sm:px-4 py-1 rounded-full flex-shrink-0">Olhar</span>
+                <span id="hero-badge-span" class="inline-block whitespace-nowrap overflow-hidden align-middle text-accent text-sm font-body motion-reduce:transition-none transition-[max-width,opacity,padding] duration-[3000ms] ease-in-out ${this._badgeRevealed ? 'max-w-xl opacity-100 px-1.5 sm:px-3' : 'max-w-0 opacity-0 px-0'}">para dentro é o começo da mudança.</span>
               </div>
 
               <h1 class="font-heading font-bold text-[44px] sm:text-[55px] md:text-[70px] xl:text-hero leading-[1.1] text-accent mb-6">
