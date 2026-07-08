@@ -25,10 +25,10 @@ export class AboutCard extends LitElement {
     return html`
       <div class="bg-white rounded-feature p-6 shadow-card">
         <img src="${this.logoUrl}" alt="${this.alt}" class="h-[53px] object-contain mb-4">
-        <h3 class="font-heading font-bold text-[22px] leading-[22px] text-text-gray mb-3">
+        <h3 class="font-heading font-bold text-body-lg leading-[22px] text-text-gray mb-3">
           ${this.title}
         </h3>
-        <p class="font-body text-[14px] leading-[24px] tracking-[0.0214em] text-gray-6">
+        <p class="font-body text-body-sm tracking-[0.0214em] text-gray-6">
           ${this.body}
         </p>
       </div>
@@ -46,10 +46,10 @@ export class AboutSection extends LitElement {
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
             <div class="lg:w-[421px] flex-shrink-0">
-              <h2 class="font-heading font-bold text-[36px] sm:text-[48px] leading-[1.2] text-gray-7 mb-6">
+              <h2 class="font-heading font-bold text-4xl sm:text-heading-lg leading-[1.2] text-gray-7 mb-6">
                 Olá, eu sou<br>a Camila
               </h2>
-              <p class="font-label font-medium text-[18px] sm:text-[20px] leading-[36px] tracking-[0.025em] text-gray-7">
+              <p class="font-label font-medium text-lg sm:text-xl leading-9 tracking-wide text-gray-7">
                 psicóloga formada pela Universidade Cruzeiro do Sul desde 2019. Trabalho como psicóloga clínica desde a minha formação e sou completamente encantada pela minha profissão. Adoro a escolha que fiz de diariamente escutar pessoas contando suas histórias, ressignificando suas dores e compartilhando suas alegrias.
               </p>
             </div>
