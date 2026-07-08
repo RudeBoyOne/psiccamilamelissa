@@ -44,6 +44,15 @@ TypeScript landing page, Tailwind CSS 3.4 (via PostCSS), daisyUI 4, Lit 3 (Web C
 - Preferir `transition-all` + `duration-300` + `ease-in-out` como padrão.
 - Para estados animados controlados por JS, usar classes Tailwind condicionais ou bindings de classe no Lit. **CSS inline (`element.style`) é estritamente proibido.**
 
+## Design Context
+
+- **Register**: brand — landing page for psychologist/psychoanalyst
+- **North Star**: "O Espelho Profundo" (introspective, intellectual, elegant)
+- **Colors**: Roxo Poético `#2B112C` (primary), Latão `#B38B3E` (gold accent), Lavanda Silenciosa `#C8C1C8` (muted bg)
+- **Typography**: Playfair Display (headings) + Plus Jakarta Sans (body) + Poppins (labels)
+- **Key files**: `PRODUCT.md` (strategy), `DESIGN.md` (visual system), `.impeccable/design.json` (tokens)
+- **Live mode**: pre-configured — run `/impeccable live` to visually iterate
+
 ## Production
 
 - Apache `.htaccess` handles: HTTPS redirect, www→non-www, `/home`→`/` redirect.

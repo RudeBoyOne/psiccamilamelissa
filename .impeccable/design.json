@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-07T00:00:00.000Z",
+  "title": "Design System: Psic. Camila Melissa",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Roxo Poético",
+        "canonical": "oklch(0.15 0.12 330)",
+        "tonalRamp": [
+          "#0c050c", "#160917", "#1f0d21", "#2b112c",
+          "#3a1a3c", "#4c264e", "#603362", "#77427a"
+        ]
+      },
+      "secondary": {
+        "role": "secondary",
+        "displayName": "Latão",
+        "canonical": "oklch(0.62 0.12 85)",
+        "tonalRamp": [
+          "#2d220d", "#473614", "#604a1c", "#7b5f25",
+          "#987530", "#b68c3c", "#d4a44a", "#f2bd59"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Lavanda Silenciosa",
+        "canonical": "oklch(0.80 0.01 320)",
+        "tonalRamp": [
+          "#7a727a", "#8d858d", "#9f989f", "#b2abb2",
+          "#c5bec5", "#d8d2d8", "#ece6ec", "#faf8fa"
+        ]
+      },
+      "neutral-bg": {
+        "role": "neutral",
+        "displayName": "Branco Pétala",
+        "canonical": "oklch(0.98 0 0)"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline only. The single most prominent text on the page."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings (h2)."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card titles, subtitles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All prose text, capped at 65–75ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Navigation links, badge labels, button labels."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card",
+        "value": "0px 18px 58px 16px rgba(0, 0, 0, 0.06)",
+        "purpose": "Article cards, about cards. Diffuse wide shadow."
+      },
+      {
+        "name": "caption",
+        "value": "0px 39px 100px 0px rgba(25, 62, 108, 0.12)",
+        "purpose": "Hero caption card. Longer, softer drop shadow."
+      },
+      {
+        "name": "dark",
+        "value": "0px 10px 20px 0px rgba(41, 41, 42, 0.07)",
+        "purpose": "Hover states, interactive elevation."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default easing for state transitions (opacity, shadow)."
+      },
+      {
+        "name": "duration-fast",
+        "value": "200ms",
+        "purpose": "Hover states, focus rings."
+      },
+      {
+        "name": "duration-slow",
+        "value": "500ms",
+        "purpose": "Mobile menu accordion."
+      },
+      {
+        "name": "pulse-ring",
+        "value": "2s ease-out infinite",
+        "purpose": "Hero CTA attention animation."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Sólido e convidativo. Roxo Poético background, white text, 8px radius.",
+      "html": "<button class=\"ds-btn-primary\">Vamos conversar?</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 12px; background: #2B112C; color: #fff; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 22px; font-weight: 700; padding: 20px 32px; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s, box-shadow 0.2s; box-shadow: 0 0 0 0 rgba(180, 100, 80, 0.4); animation: ds-pulse-ring 2s ease-out infinite; } .ds-btn-primary:hover { opacity: 0.9; } .ds-btn-primary:focus-visible { outline: 2px solid #B38B3E; outline-offset: 2px; } @keyframes ds-pulse-ring { 0% { box-shadow: 0 0 0 0 rgba(43, 17, 44, 0.4); } 70% { box-shadow: 0 0 0 30px rgba(43, 17, 44, 0); } 100% { box-shadow: 0 0 0 0 rgba(43, 17, 44, 0); } }"
+    },
+    {
+      "name": "Navbar",
+      "kind": "nav",
+      "refersTo": "navbar",
+      "description": "Roxo Poético full-width bar, rounded bottom, uppercase Poppins links.",
+      "html": "<nav class=\"ds-navbar\"><a class=\"ds-nav-link\" href=\"#\">SOBRE</a><a class=\"ds-nav-link\" href=\"#\">ARTIGOS</a><a class=\"ds-nav-link\" href=\"#\">CONTATO</a></nav>",
+      "css": ".ds-navbar { background: #2B112C; border-radius: 0 0 15px 15px; display: flex; align-items: center; justify-content: center; gap: 56px; padding: 26.5px 12px; height: 100px; } .ds-nav-link { color: #fff; font-family: Poppins, system-ui, sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.125em; text-transform: uppercase; line-height: 23px; text-decoration: none; transition: opacity 0.2s; } .ds-nav-link:hover { opacity: 0.8; } .ds-nav-link:focus-visible { outline: 2px solid #B38B3E; outline-offset: 4px; }"
+    },
+    {
+      "name": "Article Card",
+      "kind": "card",
+      "refersTo": "card-default",
+      "description": "White card with diffuse shadow, 8px radius, image header.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-img\"></div><div class=\"ds-card-body\"><h3 class=\"ds-card-title\">Título do Artigo</h3><p class=\"ds-card-text\">Descrição breve do conteúdo do artigo acadêmico.</p></div></div>",
+      "css": ".ds-card { background: #fff; border-radius: 8px; box-shadow: 0px 18px 58px 16px rgba(0,0,0,0.06); overflow: hidden; cursor: pointer; transition: box-shadow 0.2s; } .ds-card:hover { box-shadow: 0 20px 68px 20px rgba(0,0,0,0.09); } .ds-card-img { height: 192px; background: #C8C1C8; } .ds-card-body { padding: 24px; } .ds-card-title { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 22px; line-height: 1; color: #363940; margin: 0 0 12px 0; } .ds-card-text { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 14px; line-height: 24px; color: #8B8C8C; margin: 0; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input-default",
+      "description": "White input with 10px radius, Latão focus ring on Roxo Poético bg.",
+      "html": "<div class=\"ds-input-group\"><label class=\"ds-input-label\">nome</label><input class=\"ds-input\" type=\"text\" placeholder=\"Seu nome\"></div>",
+      "css": ".ds-input-group { display: flex; flex-direction: column; gap: 4px; } .ds-input-label { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 16px; color: #fff; margin-bottom: 4px; } .ds-input { width: 100%; background: #fff; color: #151617; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 14px; padding: 8px 16px; border: 1px solid #d1d1d1; border-radius: 10px; outline: none; transition: box-shadow 0.2s; box-sizing: border-box; } .ds-input:focus { box-shadow: 0 0 0 2px #B38B3E; border-color: transparent; } .ds-input::placeholder { color: #8B8C8C; }"
+    },
+    {
+      "name": "Quote Block",
+      "kind": "custom",
+      "refersTo": "quote-section",
+      "description": "Full-width Roxo Poético band, centered serif quote in white.",
+      "html": "<div class=\"ds-quote\"><p class=\"ds-quote-text\">\"Volte seus olhos para dentro, contemple suas próprias profundezas.\"</p><p class=\"ds-quote-author\">Sigmund Freud</p></div>",
+      "css": ".ds-quote { background: #2B112C; padding: 80px 24px; text-align: center; } .ds-quote-text { font-family: 'Playfair Display', Georgia, serif; font-weight: 900; font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.33; color: #fff; margin: 0 0 24px 0; max-width: 800px; margin-left: auto; margin-right: auto; text-wrap: balance; } .ds-quote-author { font-family: Poppins, system-ui, sans-serif; font-size: 16px; line-height: 32px; letter-spacing: 0.0278em; color: rgba(255,255,255,0.8); margin: 0; }"
+    },
+    {
+      "name": "Hero Badge",
+      "kind": "chip",
+      "refersTo": "badge",
+      "description": "Pill badge with Roxo Poético accent segment + muted segment.",
+      "html": "<div class=\"ds-badge\"><span class=\"ds-badge-accent\">Olhar</span><span class=\"ds-badge-text\">para dentro é o começo da mudança.</span></div>",
+      "css": ".ds-badge { display: inline-flex; align-items: center; background: #C8C1C8; border-radius: 26.5px; padding: 4px; overflow: hidden; } .ds-badge-accent { background: #2B112C; color: #fff; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 14px; padding: 4px 16px; border-radius: 26.5px; white-space: nowrap; } .ds-badge-text { color: #2B112C; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 14px; padding: 4px 12px; white-space: nowrap; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "O Espelho Profundo",
+    "overview": "The Deep Mirror. A design system that feels less like a website and more like walking into a well-appointed psychoanalysis office — serious without being cold, intellectual without being pretentious. The dark purple anchor (#2B112C) creates an atmosphere of depth and introspection; the gold accent (#B38B3E) adds refinement without flash. Every component is táctil e convidativo — buttons that beg to be clicked, forms that feel safe to fill out, cards that invite reading. This system explicitly rejects the generic psychology-site look: no pastel blues, no stock photos of smiling people, no clip-art brains. It also rejects cold medical sterility on one side and juvenile trendiness on the other.",
+    "keyCharacteristics": [
+      "Dark purple + gold as committed color strategy (one saturated color carries ~40% of surfaces)",
+      "Playfair Display for reflective, literary headings; Plus Jakarta Sans for warm clarity in body text",
+      "Generous whitespace and breathing room — therapy starts with space to think",
+      "Tactile, weighty interaction (pulse-ring CTA, rounded corners, soft shadows)",
+      "Mobile-first, single-column at narrow widths, asymmetric at desktop"
+    ],
+    "rules": [
+      { "name": "The One Voice Rule", "body": "Roxo Poético is the single voice. Latão is the counterpoint, never the melody. A detail that appears in gold more than 10% of the time loses its function.", "section": "colors" },
+      { "name": "The Warmth-From-Depth Rule", "body": "The palette does not use warm pastels, beige, cream, or sand. Warmth comes from the purple's natural depth and the gold's glow, not from tinted whites.", "section": "colors" },
+      { "name": "The Display-Only Rule", "body": "The hero 90px Display size (Playfair Display 700) may only be used for the primary hero heading. No other heading uses it.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest. Shadows appear only as a structural indicator — cards, the hero caption, and hover states.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use Roxo Poético (#2B112C) as the dominant surface color for navigation, footer, and the quote band.",
+      "Do use Latão (#B38B3E) sparingly and deliberately — focus rings, hover accents, detail highlights only.",
+      "Do keep body text at Grafite (#4F4F4F) or darker. Never use Chumbo Claro (#8B8C8C) for body copy.",
+      "Do use Playfair Display for all headings — it carries the literary-intellectual tone.",
+      "Do use generous whitespace between sections (80px min).",
+      "Do use text-wrap: balance on all h1–h3 headings and text-wrap: pretty on body prose."
+    ],
+    "donts": [
+      "Don't use pastel blues, light blue gradients, or any medical color palette.",
+      "Don't use stock photos of smiling people or generic therapy imagery.",
+      "Don't use gradient text (background-clip: text with a gradient).",
+      "Don't use glassmorphism.",
+      "Don't use tiny uppercase tracked labels above every section heading as a repeating scaffolding pattern.",
+      "Don't use side-stripe borders.",
+      "Don't use monospace fonts.",
+      "Don't use large rounded-corner icons above every heading.",
+      "Don't make the design too informal or juvenile.",
+      "Don't use numbered section markers (01 / 02 / 03) as default scaffolding."
+    ]
+  }
+}
