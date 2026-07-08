@@ -18,6 +18,8 @@ export default {
         'gray-7': 'rgb(var(--color-gray-7) / <alpha-value>)',
         'gray-8': 'rgb(var(--color-gray-8) / <alpha-value>)',
         'text-gray': 'rgb(var(--color-text-gray) / <alpha-value>)',
+        'neutral-bg': 'rgb(var(--color-neutral-bg) / <alpha-value>)',
+        'error': 'rgb(var(--color-error) / <alpha-value>)',
       },
       fontFamily: {
         heading: ['"Playfair Display"', 'serif'],
