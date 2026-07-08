@@ -26,14 +26,22 @@ export class ArticleCard extends LitElement {
     window.location.href = '/display_pdf'
   }
 
+  private _handleKeyDown(e: KeyboardEvent) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      this._handleClick()
+    }
+  }
+
   render() {
     return html`
-      <div class="bg-white rounded-feature shadow-card overflow-hidden cursor-pointer hover:shadow-lg transition-shadow article-card"
-           @click=${this._handleClick}>
+      <div class="bg-white rounded-feature shadow-card overflow-hidden cursor-pointer hover:shadow-lg motion-reduce:transition-none transition-shadow article-card"
+           role="button" tabindex="0"
+           @click=${this._handleClick} @keydown=${this._handleKeyDown}>
         <img src="${this.imgUrl}" alt="${this.title}" class="w-full h-48 object-cover">
         <div class="p-6">
-          <h3 class="font-heading font-bold text-[22px] leading-[22px] text-text-gray mb-3">${this.title}</h3>
-          <p class="font-body text-[14px] leading-[24px] text-gray-6">${this.description}</p>
+          <h3 class="font-heading font-bold text-body-lg leading-[22px] text-text-gray mb-3">${this.title}</h3>
+          <p class="font-body text-body-sm text-gray-6">${this.description}</p>
         </div>
       </div>
     `
@@ -50,7 +58,7 @@ export class ArticlesGrid extends LitElement {
     return html`
       <section id="artigos" class="bg-muted py-16 lg:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 class="font-heading font-bold text-[36px] sm:text-[48px] leading-[1.33] text-center text-gray-7 mb-12">
+          <h2 class="font-heading font-bold text-4xl sm:text-heading-lg leading-[1.33] text-center text-gray-7 mb-12">
             Meus artigos
           </h2>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

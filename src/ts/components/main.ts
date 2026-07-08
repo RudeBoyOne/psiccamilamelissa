@@ -36,7 +36,7 @@ export class HeroSection extends LitElement {
                 <span id="hero-badge-span" class="inline-block whitespace-nowrap overflow-hidden align-middle text-accent text-sm font-body motion-reduce:transition-none transition-[max-width,opacity,padding] duration-[3000ms] ease-in-out ${this._badgeRevealed ? 'max-w-full opacity-100 px-1.5 sm:px-3' : 'max-w-0 opacity-0 px-0'}">para dentro é o começo da mudança.</span>
               </div>
 
-              <h1 class="font-heading font-bold text-[44px] sm:text-[55px] md:text-[70px] xl:text-[90px] leading-[1.1] text-accent mb-6">
+              <h1 class="font-heading font-bold text-[44px] sm:text-[55px] md:text-[70px] xl:text-hero leading-[1.1] text-accent mb-6">
                 Atendimento clínico
               </h1>
 
@@ -56,8 +56,8 @@ export class HeroSection extends LitElement {
               </div>
 
               <a href="https://wa.me/5511959525369?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20terapia/análise."
-                 target="_blank"
-                 class="inline-flex items-center gap-3 bg-accent text-white font-body font-bold text-[22px] px-8 py-5 rounded-feature animate-pulse-ring hover:opacity-90">
+                 target="_blank" rel="noopener noreferrer"
+                 class="inline-flex items-center gap-3 bg-accent text-white font-body font-bold text-body-lg px-8 py-5 rounded-feature animate-pulse-ring hover:opacity-90">
                 Vamos conversar?
                 <i class="bi bi-whatsapp text-2xl"></i>
               </a>
@@ -69,8 +69,8 @@ export class HeroSection extends LitElement {
                    alt="Camila Melissa de Souza, psicóloga e psicanalista"
                    class="relative w-[519px] max-w-full h-auto object-contain mx-auto">
               <div class="relative -mt-8 mx-auto w-[382px] max-w-[90%] bg-white rounded-input shadow-caption p-4 text-center -mb-6">
-                <p class="font-body font-bold text-[24px] text-text-gray">Camila Melissa de Souza</p>
-                <p class="font-body font-medium text-[16px] text-gray-6">Psicóloga & Psicanalista</p>
+                <p class="font-body font-bold text-heading-md text-text-gray">Camila Melissa de Souza</p>
+                <p class="font-body font-medium text-base text-gray-6">Psicóloga & Psicanalista</p>
               </div>
             </div>
           </div>

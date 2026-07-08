@@ -27,10 +27,10 @@ export class AppNavbar extends LitElement {
           <div class="rounded-b-navbar bg-accent">
             <!-- Mobile -->
             <div class="lg:hidden">
-              <div class="flex items-center justify-between h-[100px] pl-[13px] pr-[13px]">
-                <a href="/" class="flex items-center shrink-0">
-                  <img src="${logoSrc}" alt="Camila Melissa" class="w-[38px] h-[38px] rounded-full object-cover">
-                  <img src="${logoNameSrc}" alt="Psicóloga Camila Melissa" class="h-[23px] ml-[12px] rounded-[13px]">
+              <div class="flex items-center justify-between h-[100px] px-3">
+                <a href="/" class="flex items-center shrink-0 py-1" aria-label="Página inicial">
+                  <img src="${logoSrc}" alt="Camila Melissa" class="w-9 h-9 rounded-full object-cover">
+                  <img src="${logoNameSrc}" alt="Psicóloga Camila Melissa" class="h-[23px] ml-3 rounded-xl">
                 </a>
                 <button @click=${this._toggle} class="text-white p-2" aria-label=${this._isOpen ? 'Fechar menu' : 'Abrir menu'} aria-expanded="${this._isOpen ? 'true' : 'false'}">
                     <span class="relative block w-7 h-7">
@@ -55,18 +55,18 @@ export class AppNavbar extends LitElement {
             <!-- Desktop -->
             <div class="hidden lg:flex justify-center">
               <div class="w-[1110px] h-[100px] relative">
-                <a href="/" class="absolute left-[21px] top-[21px] flex items-center">
+                <a href="/" class="absolute left-[21px] top-[21px] flex items-center" aria-label="Página inicial">
                   <img src="${logoSrc}" alt="Camila Melissa" class="w-[58px] h-[58px] rounded-full object-cover">
-                  <img src="${logoNameSrc}" alt="Psicóloga Camila Melissa" class="h-[35px] ml-[12px] rounded-[13px]">
+                  <img src="${logoNameSrc}" alt="Psicóloga Camila Melissa" class="h-[35px] ml-3 rounded-[13px]">
                 </a>
                 <nav class="absolute left-[745px] top-[26.5px] px-3 py-3 flex items-center gap-14">
-                  <a href="#sobre" class="text-white font-label font-semibold text-xs tracking-[0.125em] uppercase leading-[23px] hover:opacity-80 transition-opacity no-underline">
+                  <a href="#sobre" class="text-white font-label font-semibold label-sm hover:opacity-80 motion-reduce:transition-none transition-opacity no-underline">
                     SOBRE
                   </a>
-                  <a href="#artigos" class="text-white font-label font-semibold text-xs tracking-[0.125em] uppercase leading-[23px] hover:opacity-80 transition-opacity no-underline">
+                  <a href="#artigos" class="text-white font-label font-semibold label-sm hover:opacity-80 motion-reduce:transition-none transition-opacity no-underline">
                     ARTIGOS
                   </a>
-                  <a href="#contato" class="text-white font-label font-semibold text-xs tracking-[0.125em] uppercase leading-[23px] hover:opacity-80 transition-opacity no-underline">
+                  <a href="#contato" class="text-white font-label font-semibold label-sm hover:opacity-80 motion-reduce:transition-none transition-opacity no-underline">
                     CONTATO
                   </a>
                 </nav>
