@@ -82,7 +82,7 @@ export class AboutSection extends LitElement {
               </p>
             </div>
 
-            <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-x-[1.2rem] items-start">
+            <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-x-[1.2rem] gap-y-4 sm:gap-y-0 items-start">
               <about-card
                 logourl=${logoAbrasme}
                 alt="ABRASME"
