@@ -26,11 +26,11 @@ export class AboutCard extends LitElement {
 
   render() {
     return html`
-      <div class="card-brand p-6 min-h-44">
+      <div class="card-brand p-6 min-h-48">
         <img src="${this.logourl}" alt="${this.alt}" class="h-[53px] object-contain mb-4">
         <h3 class="card-title mb-3 line-clamp-2 max-sm:line-clamp-none">${this.title}</h3>
         <div class="motion-reduce:transition-none transition-[grid-template-rows] duration-[1500ms] ease-in-out grid max-sm:grid-rows-[1fr] ${this.expanded ? 'sm:grid-rows-[1fr]' : 'sm:grid-rows-[0fr]'}">
-          <div class="overflow-hidden min-h-0 ${this.expanded ? 'sm:pb-4' : ''}">
+          <div class="overflow-hidden min-h-0 ${this.expanded ? 'sm:pb-8' : ''}">
             <p class="card-body tracking-[0.0214em]">${this.body}</p>
           </div>
         </div>
@@ -82,7 +82,7 @@ export class AboutSection extends LitElement {
               </p>
             </div>
 
-            <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6 items-start">
+            <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-x-[1.2rem] items-start">
               <about-card
                 logourl=${logoAbrasme}
                 alt="ABRASME"
