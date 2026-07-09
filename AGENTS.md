@@ -64,6 +64,17 @@ TypeScript landing page, Tailwind CSS 3.4 (via PostCSS), Lit 3 (Web Components �
 
 ## Workflow & MCP rules
 
+### Regra inviolável — Verificação visual obrigatória
+
+**Todo código implementado deve ser testado e verificado visualmente no navegador antes de ser considerado completo.** Nenhuma alteração de layout, estilo, componente ou animação pode ser finalizada sem validação via **chrome-devtools MCP** nas 3 viewports obrigatórias (360px, 768px, 1280px+). A verificação deve incluir:
+
+- Screenshot ou snapshot da alteração funcionando
+- Checagem de scroll horizontal (`document.documentElement.scrollWidth <= document.documentElement.clientWidth`)
+- Console limpo (sem erros)
+- Comportamento responsivo nas 3 viewports
+
+Esta regra se aplica a toda e qualquer alteração no código, independentemente de tamanho ou escopo.
+
 ### Regra inviolável — Context7
 
 **Todo planejamento deve obrigatoriamente consultar o MCP Context7 antes de ser finalizado.** Nenhum plano de implementação, refatoração, migração ou alteração de stack pode ser considerado completo sem ao menos uma consulta ao Context7 para validar:
