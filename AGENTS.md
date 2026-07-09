@@ -136,3 +136,7 @@ Esta regra se aplica a qualquer tarefa que envolva bibliotecas, frameworks, SDKs
 - **Context7 é obrigatório em todo planejamento** — consultar antes de decidir.
 - Conflito entre layout e código existente: priorizar fidelidade ao layout + estabilidade técnica.
 - Jamais implementar CSS puro ou CSS inline sem autorização explícita do usuário. Violações serão rejeitadas em code review.
+
+### Cleanup pós-verificação
+
+**Após finalizar testes e verificações visuais, todo artefato gerado durante o processo deve ser removido.** Isso inclui screenshots, snapshots, arquivos de trace, dumps de console, ou qualquer outro arquivo criado exclusivamente para validação. O diretório `screenshots/` na raiz do projeto, se existir, deve ser excluído por completo (`rm -rf screenshots/`). A exceção são arquivos committed intencionalmente como parte da documentação do projeto.
