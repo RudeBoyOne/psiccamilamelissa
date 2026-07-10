@@ -4,22 +4,11 @@ import './components/navbar'
 import './components/main'
 import './components/about'
 import './components/quote'
-import './components/articles'
+import './components/articles/articles'
 import './components/footer'
-import './pages/displayPdf'
 
 const init = async () => {
-  const path = window.location.pathname
   const main = document.getElementById('main')!
-
-  if (path === '/display_pdf') {
-    document.body.insertAdjacentHTML('afterbegin', '<app-navbar></app-navbar>')
-    main.className = 'flex-1 overflow-x-hidden'
-    main.innerHTML = '<pdf-viewer></pdf-viewer>'
-    document.body.insertAdjacentHTML('beforeend', '<app-footer></app-footer>')
-    return
-  }
-
   main.className = 'flex-1 overflow-x-hidden'
   main.innerHTML = `
     <app-navbar></app-navbar>

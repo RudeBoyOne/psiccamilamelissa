@@ -1,6 +1,7 @@
-import articlesData from '../pages/articles/articlesData'
+import articlesData from './articlesData'
 
-const articlesDataMap = articlesData as Record<string, { title: string; pdf: string; img: string; description: string }>
+type ArticleData = { title: string; img: string; description: string; externalUrl: string }
+const articlesDataMap = articlesData as Record<string, ArticleData>
 
 export class ArticleCard extends HTMLElement {
   connectedCallback() {
@@ -10,7 +11,7 @@ export class ArticleCard extends HTMLElement {
     const description = this.getAttribute('description') || ''
 
     this.innerHTML = `
-      <div class="card-brand cursor-pointer hover:shadow-lg motion-reduce:transition-none transition-shadow"
+      <div class="card-brand cursor-pointer hover:border-detail motion-reduce:transition-none transition-colors w-full max-w-xl mx-auto"
            role="button" tabindex="0">
         <img src="${imgUrl}" alt="${title}" class="w-full h-48 object-cover">
         <div class="p-6">
@@ -21,13 +22,12 @@ export class ArticleCard extends HTMLElement {
     `
 
     const div = this.querySelector<HTMLElement>('.card-brand')
-    if (!div) return
+    if (!div) { return }
 
     div.addEventListener('click', () => {
       const article = articlesDataMap[articleId]
-      if (!article) return
-      localStorage.setItem('pdf', article.pdf)
-      window.location.href = '/display_pdf'
+      if (!article?.externalUrl) { return }
+      window.open(article.externalUrl, '_blank', 'noopener,noreferrer')
     })
 
     div.addEventListener('keydown', (e: KeyboardEvent) => {
@@ -43,11 +43,12 @@ customElements.define('article-card', ArticleCard)
 
 export class ArticlesGrid extends HTMLElement {
   connectedCallback() {
-    const entries = Object.entries(articlesData) as [string, { title: string; pdf: string; img: string; description: string }][]
-    const cards = entries.map(([id, { title, img, description }]) => `
+    const entries = Object.entries(articlesData) as [string, ArticleData][]
+
+    const allCards = entries.map(([id, { title, img, description }]) => `
       <article-card
-        articleId="${id}"
-        imgUrl="${img}"
+        articleid="${id}"
+        imgurl="${img}"
         title="${title}"
         description="${description}">
       </article-card>
@@ -59,8 +60,8 @@ export class ArticlesGrid extends HTMLElement {
           <h2 class="font-heading font-bold text-4xl sm:text-heading-lg leading-[1.33] text-center text-gray-7 mb-12">
             Meus artigos
           </h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            ${cards}
+          <div class="flex flex-wrap justify-center gap-8">
+            ${allCards}
           </div>
         </div>
       </section>

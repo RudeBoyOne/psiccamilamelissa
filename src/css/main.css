@@ -29,7 +29,7 @@
   }
 
   .card-brand {
-    @apply bg-white rounded-feature shadow-card overflow-hidden;
+    @apply bg-white rounded-feature border border-gray-1 overflow-hidden;
   }
 
   .card-title {
