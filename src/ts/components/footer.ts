@@ -3,7 +3,6 @@ import { customElement, state } from 'lit/decorators.js'
 import logoSrc from '../../assets/images/logo-camila.png'
 import logoNameSrc from '../../assets/images/logo-nome.png'
 import sendEmail from '../services/emailSendingService'
-import 'bootstrap-icons/font/bootstrap-icons.css'
 
 const sanitizeInput = (str: string) => {
   return str.replace(/[<>"]/g, '').trim()
