@@ -53,24 +53,22 @@ export class AppNavbar extends LitElement {
             </div>
 
             <!-- Desktop -->
-            <div class="hidden lg:flex justify-center">
-              <div class="w-[1110px] h-[100px] relative">
-                <a href="/" class="absolute left-[21px] top-[21px] flex items-center" aria-label="Página inicial">
-                  <img src="${logoSrc}" alt="Camila Melissa" class="w-[58px] h-[58px] rounded-full object-cover">
-                  <img src="${logoNameSrc}" alt="Psicóloga Camila Melissa" class="h-[35px] ml-3 rounded-[13px]">
+            <div class="hidden lg:flex items-center justify-between h-[100px] px-5">
+              <a href="/" class="flex items-center shrink-0" aria-label="Página inicial">
+                <img src="${logoSrc}" alt="Camila Melissa" class="w-[58px] h-[58px] rounded-full object-cover">
+                <img src="${logoNameSrc}" alt="Psicóloga Camila Melissa" class="h-[35px] ml-3 rounded-[13px]">
+              </a>
+              <nav class="flex items-center gap-14">
+                <a href="#sobre" class="nav-link label-sm">
+                  SOBRE
                 </a>
-                <nav class="absolute left-[745px] top-[26.5px] px-3 py-3 flex items-center gap-14">
-                  <a href="#sobre" class="nav-link label-sm">
-                    SOBRE
-                  </a>
-                  <a href="#artigos" class="nav-link label-sm">
-                    ARTIGOS
-                  </a>
-                  <a href="#contato" class="nav-link label-sm">
-                    CONTATO
-                  </a>
-                </nav>
-              </div>
+                <a href="#artigos" class="nav-link label-sm">
+                  ARTIGOS
+                </a>
+                <a href="#contato" class="nav-link label-sm">
+                  CONTATO
+                </a>
+              </nav>
             </div>
           </div>
         </div>

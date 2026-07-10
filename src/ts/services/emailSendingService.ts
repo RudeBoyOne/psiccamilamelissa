@@ -11,15 +11,10 @@ interface EmailBody {
 }
 
 const fetchData = async (url: string, options: RequestInit) => {
-  try {
-    const response = await fetch(url, options)
-    if (!response.ok) {throw new Error(`Erro: ${response.statusText}`)}
-    const result = await response.json()
-    return result.data
-  } catch (error) {
-    console.error(error instanceof Error ? error.message : 'Unknown error')
-    throw error
-  }
+  const response = await fetch(url, options)
+  if (!response.ok) {throw new Error(`Erro: ${response.statusText}`)}
+  const result = await response.json()
+  return result.data
 }
 
 const sendEmail = (body: EmailBody) => {

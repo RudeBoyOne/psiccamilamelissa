@@ -21,5 +21,5 @@ const init = async () => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  init().catch(err => console.error('init error:', err))
+  init().catch(() => {})
 })
