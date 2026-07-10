@@ -98,7 +98,7 @@ export class AppFooter extends HTMLElement {
     this.innerHTML = `
       <footer id="contato" class="bg-accent">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div class="flex flex-col lg:flex-row gap-12 lg:gap-24">
+          <div class="flex flex-col-reverse lg:flex-row gap-12 lg:justify-between">
             <div class="flex-shrink-0">
               <a href="/" class="flex items-center gap-3 mb-8 py-1" aria-label="Página inicial">
                 <img src="${logoSrc}" alt="Camila Melissa" class="w-[53px] h-[53px] lg:w-[58px] lg:h-[58px] rounded-full object-cover">
