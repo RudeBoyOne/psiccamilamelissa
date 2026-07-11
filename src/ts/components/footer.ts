@@ -3,6 +3,7 @@ import { customElement, state } from 'lit/decorators.js'
 import logoSrc from '../../assets/images/logo-camila.png'
 import logoNameSrc from '../../assets/images/logo-nome.png'
 import sendEmail from '../services/emailSendingService'
+import { instagramIcon, linkedinIcon, whatsappIcon, envelopeIcon } from '../utils/icons-bootstrap'
 
 const sanitizeInput = (str: string) => {
   return str.replace(/[<>"]/g, '').trim()
@@ -109,24 +110,24 @@ export class AppFooter extends HTMLElement {
                    class="text-white hover:text-white/80 motion-reduce:transition-none transition-colors p-2"
                    aria-label="Instagram"
                    rel="noopener noreferrer">
-                  <i class="bi bi-instagram text-3xl block"></i>
+                  <span class="w-7 h-7 block">${instagramIcon}</span>
                 </a>
                 <a href="https://www.linkedin.com/in/camila-melissa-de-souza-a91413191" target="_blank"
                    class="text-white hover:text-white/80 motion-reduce:transition-none transition-colors p-2"
                    aria-label="LinkedIn"
                    rel="noopener noreferrer">
-                  <i class="bi bi-linkedin text-3xl block"></i>
+                  <span class="w-7 h-7 block">${linkedinIcon}</span>
                 </a>
                 <a href="https://wa.me/5511959525369?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20terapia/análise." target="_blank"
                    class="text-white hover:text-white/80 motion-reduce:transition-none transition-colors p-2"
                    aria-label="WhatsApp"
                    rel="noopener noreferrer">
-                  <i class="bi bi-whatsapp text-3xl block"></i>
+                  <span class="w-7 h-7 block">${whatsappIcon}</span>
                 </a>
                 <a href="mailto:contato@psiccamilamelissa.com.br"
                    class="text-white hover:text-white/80 motion-reduce:transition-none transition-colors p-2"
                    aria-label="Email">
-                  <i class="bi bi-envelope text-3xl block"></i>
+                  <span class="w-7 h-7 block">${envelopeIcon}</span>
                 </a>
               </div>
             </div>

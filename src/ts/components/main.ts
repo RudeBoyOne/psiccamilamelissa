@@ -1,9 +1,11 @@
 import { LitElement, html } from 'lit'
 import { customElement, state } from 'lit/decorators.js'
+import { unsafeHTML } from 'lit/directives/unsafe-html.js'
 import fotoCamila from '../../assets/images/foto-camila.png'
 import heroBgDecoration from '../../assets/images/hero-bg-decoration.svg'
 import { UserCheck, Users, BookOpen } from 'lucide'
 import { createIconElement } from '../utils/icons'
+import { whatsappIcon } from '../utils/icons-bootstrap'
 
 const qualityItems = [
   { icon: UserCheck, text: '5+ de experiência no atendimento clínico' },
@@ -59,7 +61,7 @@ export class HeroSection extends LitElement {
                  target="_blank" rel="noopener noreferrer"
                  class="inline-flex items-center gap-3 bg-accent text-white font-body font-bold text-body-lg px-8 py-5 rounded-feature animate-pulse-ring hover:opacity-90">
                 Vamos conversar?
-                <i class="bi bi-whatsapp text-2xl"></i>
+                <span class="w-6 h-6">${unsafeHTML(whatsappIcon)}</span>
               </a>
             </div>
 

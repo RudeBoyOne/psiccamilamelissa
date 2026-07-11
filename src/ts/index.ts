@@ -1,5 +1,3 @@
-import '../css/bootstrap-icons-custom.css'
-
 import './components/navbar'
 import './components/main'
 import './components/about'
