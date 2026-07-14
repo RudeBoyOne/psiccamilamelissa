@@ -16,6 +16,9 @@ export class AboutCard extends LitElement {
   alt = ''
 
   @property()
+  logoHeight = 'max-h-12'
+
+  @property()
   title = ''
 
   @property()
@@ -27,7 +30,7 @@ export class AboutCard extends LitElement {
   render() {
     return html`
       <div class="card-brand p-6 min-h-48">
-        <img src="${this.logourl}" alt="${this.alt}" class="h-[53px] object-contain mb-4">
+        <img src="${this.logourl}" alt="${this.alt}" class="${this.logoHeight} w-auto object-contain mb-4">
         <h3 class="card-title mb-3 line-clamp-2 max-sm:line-clamp-none">${this.title}</h3>
         <div class="motion-reduce:transition-none transition-[grid-template-rows] duration-[1500ms] ease-in-out grid max-sm:grid-rows-[1fr] ${this.expanded ? 'sm:grid-rows-[1fr]' : 'sm:grid-rows-[0fr]'}">
           <div class="overflow-hidden min-h-0 ${this.expanded ? 'sm:pb-8' : ''}">
@@ -86,6 +89,7 @@ export class AboutSection extends LitElement {
               <about-card
                 logourl=${logoAbrasme}
                 alt="ABRASME"
+                logoHeight="max-h-14"
                 title="Congresso ABRASME &ndash; Associação Brasileira de Saúde Mental"
                 body=${'2022\nApresentação e debate do artigo "O Enclausuramento da palavra"'}>
               </about-card>
@@ -93,6 +97,7 @@ export class AboutSection extends LitElement {
               <about-card
                 logourl=${logoSedes}
                 alt="Instituto Sedes Sapientiae"
+                logoHeight="max-h-16"
                 title=${'Clínica Psicanalítica\nConflito e Sintoma'}
                 body=${'Instituto Sedes Sapientiae\n2022 à 2024\nEstudo aprofundado nas obras completas de Freud e estudos de caso.'}>
               </about-card>
@@ -100,6 +105,7 @@ export class AboutSection extends LitElement {
               <about-card
                 logourl=${logoCprj}
                 alt="CPRJ"
+                logoHeight="max-h-16"
                 title="Publicação do artigo"
                 body=${"Revista Círculo Psicanalítico do Rio de Janeiro - 2024\nO enclausuramento da palavra. Cadernos de Psicanálise | CPRJ, v. 46, n. 51, p. 87-102, 5 nov. 2024."}>
               </about-card>
@@ -107,6 +113,7 @@ export class AboutSection extends LitElement {
               <about-card class="self-end"
                 logourl=${logoGerar}
                 alt="Instituto Gerar"
+                logoHeight="max-h-8"
                 title=${'Curso Psicanálise,\nParentalidade &\nPerinatalidade'}
                 body=${'Instituto Gerar de Psicanálise\n2025 / até momento'}>
               </about-card>
