@@ -29,9 +29,9 @@ export class AboutCard extends LitElement {
 
   render() {
     return html`
-      <div class="card-brand p-6 min-h-48">
+      <div class="card-brand p-6 min-h-48 h-full">
         <img src="${this.logourl}" alt="${this.alt}" class="${this.logoHeight} w-auto object-contain mb-4">
-        <h3 class="card-title mb-3 line-clamp-2 max-sm:line-clamp-none">${this.title}</h3>
+        <h3 class="card-title mb-3">${this.title}</h3>
         <div class="motion-reduce:transition-none transition-[grid-template-rows] duration-[1500ms] ease-in-out grid max-sm:grid-rows-[1fr] ${this.expanded ? 'sm:grid-rows-[1fr]' : 'sm:grid-rows-[0fr]'}">
           <div class="overflow-hidden min-h-0 ${this.expanded ? 'sm:pb-8' : ''}">
             <p class="card-body tracking-[0.0214em]">${this.body}</p>
@@ -85,7 +85,7 @@ export class AboutSection extends LitElement {
               </p>
             </div>
 
-            <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-x-[1.2rem] gap-y-4 sm:gap-y-0 items-start">
+            <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 gap-[1.2rem]">
               <about-card
                 logourl=${logoAbrasme}
                 alt="ABRASME"
@@ -110,10 +110,10 @@ export class AboutSection extends LitElement {
                 body=${"Revista Círculo Psicanalítico do Rio de Janeiro - 2024\nO enclausuramento da palavra. Cadernos de Psicanálise | CPRJ, v. 46, n. 51, p. 87-102, 5 nov. 2024."}>
               </about-card>
 
-              <about-card class="self-end"
+              <about-card
                 logourl=${logoGerar}
                 alt="Instituto Gerar"
-                logoHeight="max-h-8"
+                logoHeight="max-h-10"
                 title=${'Curso Psicanálise,\nParentalidade &\nPerinatalidade'}
                 body=${'Instituto Gerar de Psicanálise\n2025 / até momento'}>
               </about-card>
