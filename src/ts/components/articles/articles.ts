@@ -11,9 +11,9 @@ export class ArticleCard extends HTMLElement {
     const description = this.getAttribute('description') || ''
 
     this.innerHTML = `
-      <div class="card-brand cursor-pointer hover:border-detail motion-reduce:transition-none transition-colors w-full max-w-xl mx-auto"
+      <div class="card-brand cursor-pointer hover:border-detail motion-reduce:transition-none transition-colors w-full max-w-xs mx-auto"
            role="button" tabindex="0">
-        <img src="${imgUrl}" alt="${title}" class="w-full h-48 object-cover">
+        <img src="${imgUrl}" alt="${title}" class="w-full h-72 object-cover">
         <div class="p-6">
           <h3 class="card-title mb-3">${title}</h3>
           <p class="card-body">${description}</p>
