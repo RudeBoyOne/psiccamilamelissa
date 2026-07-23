@@ -4,8 +4,7 @@
     "type": "module",
     "description": "site/aplicação para divulgação e prestação de serviços da psicologa Camila Melissa de Souza",
     "scripts": {
-        "dev": "parcel index.html --port 3000 --no-cache",
-        "start": "parcel index.html --open --port 3000 --no-cache",
+        "start": "parcel index.html --port 3000 --no-cache",
         "build": "parcel build index.html --dist-dir build --public-url ./",
         "clean": "rm -rf dist .parcel-cache",
         "stop": "pkill -f 'parcel.*index.html' 2>/dev/null; exit 0",

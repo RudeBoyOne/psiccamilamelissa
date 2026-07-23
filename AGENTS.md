@@ -8,12 +8,11 @@ TypeScript landing page, Tailwind CSS 3.4 (via PostCSS), Lit 3 (Web Components �
 
 | Command | Action |
 |---------|--------|
-| `npm run dev` | Dev server on `:3000` (background, sem abrir browser) |
 | `npm start` | Dev server on `:3000` (abre browser) |
 | `npm run build` | Build to `build/` dir (`--dist-dir build --public-url ./`) |
 | `npm run clean` | Remove `dist/` and `.parcel-cache/` |
 | `npm run stop` | Kill dev server |
-| `npm run restart` | `stop` → `clean` → `dev` |
+| `npm run restart` | `stop` → `clean` → `start` |
 | `npx tsc --noEmit` | TypeScript typecheck |
 | `npx eslint .` | Lint check |
 
@@ -25,8 +24,8 @@ TypeScript landing page, Tailwind CSS 3.4 (via PostCSS), Lit 3 (Web Components �
 
 - **Entry**: `index.html` → `src/ts/index.ts` mounts custom elements.
 - **Components**: Hybrid approach — components with reactive state use **Lit 3**; static components use vanilla `HTMLElement`.
-  - **Lit (reactive)**: `<app-navbar>`, `<hero-section>`, `<contact-form>`, `<pdf-viewer>` — use `@state`, `@click`, `?disabled`, and incremental DOM updates.
-  - **Vanilla (static)**: `<about-section>`, `<about-card>`, `<quote-section>`, `<articles-grid>`, `<article-card>`, `<app-footer>` — extend `HTMLElement`, render once via `connectedCallback()` + `innerHTML`.
+  - **Lit (reactive)**: `<app-navbar>`, `<hero-section>`, `<contact-form>`, `<pdf-viewer>`, `<about-section>`, `<about-card>` — use `@state`, `@property`, `@click`, `?disabled`, and incremental DOM updates.
+  - **Vanilla (static)**: `<quote-section>`, `<articles-grid>`, `<article-card>`, `<app-footer>` — extend `HTMLElement`, render once via `connectedCallback()` + `innerHTML`.
 - **PDF viewer**: `<pdf-viewer>` — Lit wrapper around `pdfjs-dist`. Accessed at `/display_pdf`.
 - **Contact form**: POSTs JSON to `https://emailsending.psiccamilamelissa.com.br/leads` with `{ service: { name: 'site.psiccamilamelissa' } }` injected client-side.
 - **Analytics**: Google tag `G-XJS48Z72ZV` in `index.html`.
@@ -74,6 +73,14 @@ TypeScript landing page, Tailwind CSS 3.4 (via PostCSS), Lit 3 (Web Components �
 - Comportamento responsivo nas 3 viewports
 
 Esta regra se aplica a toda e qualquer alteração no código, independentemente de tamanho ou escopo.
+
+### Regra inviolável — Comandos exclusivos do package.json
+
+**Todo comando relacionado ao projeto (iniciar, parar, limpar, buildar, testar) deve ser executado exclusivamente via scripts definidos em `package.json`.** É estritamente proibido rodar comandos diretos como `npx parcel`, `rm -rf dist`, `npx vite`, ou qualquer outro atalho que bypass os scripts do projeto. Os únicos comandos externos permitidos são `npx tsc --noEmit` (typecheck) e `npx eslint .` (lint), pois não estão no package.json.
+
+### Regra inviolável — Porta 3000 em uso = projeto rodando
+
+**Se a porta 3000 estiver em uso, o projeto já está rodando.** Neste caso, acessar `http://localhost:3000` diretamente. Jamais matar o processo existente para subir um novo servidor. Exceção: se houver um erro explícito no servidor que impeça o funcionamento, o agente deve reportar o problema ao usuário antes de qualquer ação.
 
 ### Regra inviolável — Context7
 
