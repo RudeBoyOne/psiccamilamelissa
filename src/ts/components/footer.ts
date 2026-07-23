@@ -58,19 +58,19 @@ export class ContactForm extends LitElement {
     return html`
       <form @submit=${this._handleSubmit} class="space-y-4">
         <div>
-          <label for="contact-name" class="font-body text-white text-base block mb-1">nome</label>
+          <label for="contact-name" class="font-body text-white text-base block mb-1">Nome</label>
           <input id="contact-name" type="text" name="name" required maxlength="50"
                  class="input-brand"
                  ?disabled=${this._submitting}>
         </div>
         <div>
-          <label for="contact-email" class="font-body text-white text-base block mb-1">email</label>
+          <label for="contact-email" class="font-body text-white text-base block mb-1">Email</label>
           <input id="contact-email" type="email" name="email" required maxlength="100"
                  class="input-brand"
                  ?disabled=${this._submitting}>
         </div>
         <div>
-          <label for="contact-message" class="font-body text-white text-base block mb-1">mensagem</label>
+          <label for="contact-message" class="font-body text-white text-base block mb-1">Mensagem</label>
           <textarea id="contact-message" name="message" required rows="5"
                     class="input-brand resize-none min-h-[120px]"
                     ?disabled=${this._submitting}></textarea>
@@ -97,7 +97,7 @@ export class AppFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <footer id="contato" class="bg-accent">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
           <div class="flex flex-col-reverse lg:flex-row gap-12 lg:justify-between">
             <div class="flex-shrink-0">
               <a href="/" class="flex items-center gap-3 mb-8 py-1" aria-label="Página inicial">
@@ -134,13 +134,13 @@ export class AppFooter extends HTMLElement {
 
             <div class="flex-1 max-w-[531px]">
               <h3 class="font-heading font-bold text-3xl sm:text-4xl leading-[1.2] text-white mb-8">
-                Agende um horario!
+                Agende um horário!
               </h3>
               <contact-form></contact-form>
             </div>
           </div>
 
-          <div class="text-center mt-16 pt-8 border-t border-white/10">
+          <div class="text-center mt-16 py-8 border-t border-white/10">
             <p class="font-body text-body-sm text-white/80">
               psic.camilamelissa &copy; todos os direitos reservados
             </p>
