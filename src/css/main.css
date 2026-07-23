@@ -36,6 +36,14 @@
     @apply font-heading font-bold text-body-lg leading-[22px] text-text-gray;
   }
 
+  .card-subtitle {
+    @apply font-label text-sm tracking-wider text-gray-5;
+  }
+
+  .card-subtitle-two {
+    @apply font-label text-xs tracking-wider text-gray-5;
+  }
+
   .card-body {
     @apply font-body text-body-sm text-gray-6;
   }

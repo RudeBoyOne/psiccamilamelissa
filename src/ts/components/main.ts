@@ -8,8 +8,8 @@ import { createIconElement } from '../utils/icons'
 import { whatsappIcon } from '../utils/icons-bootstrap'
 
 const qualityItems = [
-  { icon: UserCheck, text: '5+ de experiência no atendimento clínico' },
-  { icon: Users, text: '+ de 50 pacientes' },
+  { icon: UserCheck, text: '7 anos de experiência no atendimento clínico' },
+  { icon: Users, text: '+ de 80 pacientes' },
   { icon: BookOpen, text: 'estou em constante aprendizado' },
 ]
 
