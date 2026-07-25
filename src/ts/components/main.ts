@@ -1,7 +1,7 @@
 import { LitElement, html } from 'lit'
 import { customElement, state } from 'lit/decorators.js'
 import { unsafeHTML } from 'lit/directives/unsafe-html.js'
-import fotoCamila from '../../assets/images/foto-camila.png'
+import fotoCamila from '../../assets/images/hero-image.webp'
 import heroBgDecoration from '../../assets/images/hero-bg-decoration.svg'
 import { UserCheck, Users, BookOpen } from 'lucide'
 import { createIconElement } from '../utils/icons'
@@ -66,11 +66,11 @@ export class HeroSection extends LitElement {
             </div>
 
             <div class="relative flex-shrink-0 mt-8 lg:mt-0 lg:ml-8 overflow-visible">
-              <img src="${heroBgDecoration}" alt="" class="absolute pointer-events-none w-[490px] sm:w-[738px] lg:w-[850px] max-w-none -left-10 sm:left-4 lg:-left-52 lg:-top-8" aria-hidden="true">
+              <img src="${heroBgDecoration}" alt="" class="absolute pointer-events-none w-[490px] sm:w-[738px] lg:w-[877px] max-w-none -left-10 sm:left-4 lg:-left-32 lg:-top-10" aria-hidden="true">
               <img src="${fotoCamila}"
                    alt="Camila Melissa de Souza, psicóloga e psicanalista"
-                   class="relative w-[519px] max-w-full h-auto object-contain mx-auto">
-              <div class="relative -mt-8 mx-auto w-[382px] max-w-[90%] bg-white rounded-input shadow-caption p-4 text-center -mb-6">
+                   class="relative w-[600px] max-w-full h-auto object-contain mx-auto">
+              <div class="relative -mt-6 mx-auto w-[382px] max-w-[90%] bg-white rounded-input shadow-caption p-4 text-center -mb-6">
                 <p class="font-body font-bold text-heading-md text-text-gray">Camila Melissa de Souza</p>
                 <p class="font-body font-medium text-base text-gray-6">Psicóloga & Psicanalista</p>
               </div>
