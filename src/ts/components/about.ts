@@ -36,7 +36,7 @@ export class AboutCard extends LitElement {
   render() {
     return html`
       <div class="card-brand p-6 min-h-48 h-full">
-        <img src="${this.logourl}" alt="${this.alt}" class="${this.logoHeight} w-auto object-contain mb-4">
+        <img src="${this.logourl}" alt="${this.alt}" class="${this.logoHeight} w-auto object-contain mb-4" loading="lazy">
         <h3 class="card-title mb-1">${this.title}</h3>
         <p class="card-subtitle mb-1">${this.subtitle}</p>
         <p class="card-subtitle-two mb-3">${this.year}</p>

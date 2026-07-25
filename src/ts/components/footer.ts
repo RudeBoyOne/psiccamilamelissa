@@ -101,8 +101,8 @@ export class AppFooter extends HTMLElement {
           <div class="flex flex-col-reverse lg:flex-row gap-12 lg:justify-between">
             <div class="flex-shrink-0">
               <a href="/" class="flex items-center gap-3 mb-8 py-1" aria-label="Página inicial">
-                <img src="${logoSrc}" alt="Camila Melissa" class="w-[53px] h-[53px] lg:w-[58px] lg:h-[58px] rounded-full object-cover">
-                <img src="${logoNameSrc}" alt="Psicóloga Camila Melissa" class="h-[33px] lg:h-[35px]">
+                <img src="${logoSrc}" alt="Camila Melissa" class="w-[53px] h-[53px] lg:w-[58px] lg:h-[58px] rounded-full object-cover" loading="lazy">
+                <img src="${logoNameSrc}" alt="Psicóloga Camila Melissa" class="h-[33px] lg:h-[35px]" loading="lazy">
               </a>
 
               <div class="flex items-center gap-2">
