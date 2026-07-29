@@ -11,7 +11,7 @@ export class ArticleCard extends HTMLElement {
     const description = this.getAttribute('description') || ''
 
     this.innerHTML = `
-      <div class="card-brand cursor-pointer hover:border-detail motion-reduce:transition-none transition-colors w-full max-w-xs mx-auto"
+      <div class="card-brand cursor-pointer hover:border-detail motion-reduce:transition-none transition-colors w-full h-full"
            role="button" tabindex="0">
         <img src="${imgUrl}" alt="${title}" class="w-full h-72 object-cover" loading="lazy">
         <div class="p-6">
@@ -68,7 +68,7 @@ export class ArticlesGrid extends HTMLElement {
           <h2 class="font-heading font-bold text-4xl sm:text-heading-lg leading-[1.33] text-center text-gray-7 mb-12">
             Meus artigos
           </h2>
-          <div class="flex flex-wrap justify-center gap-8">
+          <div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-8 justify-center max-w-2xl mx-auto">
             ${allCards}
           </div>
         </div>

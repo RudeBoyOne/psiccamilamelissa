@@ -48,6 +48,10 @@
     @apply font-body text-body-sm text-gray-6;
   }
 
+  article-card {
+    @apply block;
+  }
+
   .nav-link {
     @apply text-white font-label font-semibold hover:opacity-80 motion-reduce:transition-none transition-opacity no-underline;
   }
