@@ -46,6 +46,7 @@
     },
     "dependencies": {
         "lit": "^3.3.3",
-        "lucide": "^1.22.0"
+        "lucide": "^1.22.0",
+        "pdfjs-dist": "^6.1.200"
     }
 }

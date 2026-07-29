@@ -1,6 +1,6 @@
-import articlesData from './articlesData'
+import articlesData, { type ArticleData } from './articlesData'
+import './article-pdf-modal'
 
-type ArticleData = { title: string; img: string; description: string; externalUrl: string }
 const articlesDataMap = articlesData as Record<string, ArticleData>
 
 export class ArticleCard extends HTMLElement {
@@ -26,8 +26,16 @@ export class ArticleCard extends HTMLElement {
 
     div.addEventListener('click', () => {
       const article = articlesDataMap[articleId]
-      if (!article?.externalUrl) { return }
-      window.open(article.externalUrl, '_blank', 'noopener,noreferrer')
+      if (!article) { return }
+
+      if (article.pdfUrl) {
+        const modal = document.querySelector('article-pdf-modal')
+        if (modal) {
+          (modal as any).constructor.open(article.title, article.pdfUrl)
+        }
+      } else if (article.externalUrl) {
+        window.open(article.externalUrl, '_blank', 'noopener,noreferrer')
+      }
     })
 
     div.addEventListener('keydown', (e: KeyboardEvent) => {

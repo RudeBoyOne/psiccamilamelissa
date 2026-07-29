@@ -3,6 +3,7 @@ import './components/main'
 import './components/about'
 import './components/quote'
 import './components/articles/articles'
+import './components/articles/article-pdf-modal'
 import './components/footer'
 
 const init = async () => {
@@ -14,6 +15,7 @@ const init = async () => {
     <about-section></about-section>
     <quote-section></quote-section>
     <articles-grid></articles-grid>
+    <article-pdf-modal></article-pdf-modal>
     <app-footer></app-footer>
   `
 }
