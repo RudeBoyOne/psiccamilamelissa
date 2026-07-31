@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /emailsending/
+
+Sitemap: https://psiccamilamelissa.com.br/sitemap.xml
