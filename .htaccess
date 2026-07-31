@@ -12,9 +12,4 @@
 
   # Redireciona /home para /
   RewriteRule ^home/?$ / [R=301,L]
-
-  # Redireciona antigas rotas SPA para a landing page
-  RewriteRule ^about/?$ / [R=301,L]
-  RewriteRule ^articles/?$ / [R=301,L]
-  RewriteRule ^contact/?$ / [R=301,L]
 </IfModule>
