@@ -5,12 +5,12 @@ import fotoCamila from '../../assets/images/hero-image.webp'
 import heroBgDecoration from '../../assets/images/hero-bg-decoration.svg'
 import { UserCheck, Users, BookOpen } from 'lucide'
 import { createIconElement } from '../utils/icons'
-import { whatsappIcon } from '../utils/icons-bootstrap'
+import { whatsappIcon } from '../utils/icons-social-midea'
 
 const qualityItems = [
   { icon: UserCheck, text: '7 anos de experiência no atendimento clínico' },
   { icon: Users, text: '+ de 80 pacientes' },
-  { icon: BookOpen, text: 'estou em constante aprendizado' },
+  { icon: BookOpen, text: 'em constante aprendizado' },
 ]
 
 @customElement('hero-section')
@@ -73,6 +73,7 @@ export class HeroSection extends LitElement {
               <div class="relative -mt-6 mx-auto w-[382px] max-w-[90%] bg-white rounded-input shadow-caption p-4 text-center -mb-6">
                 <p class="font-body font-bold text-heading-md text-text-gray">Camila Melissa de Souza</p>
                 <p class="font-body font-medium text-base text-gray-6">Psicóloga & Psicanalista</p>
+                <p class="font-body font-medium text-base text-gray-6"> CRP 06/158929</p>
               </div>
             </div>
           </div>

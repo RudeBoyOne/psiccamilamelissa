@@ -3,7 +3,7 @@ import { customElement, state } from 'lit/decorators.js'
 import logoSrc from '../../assets/images/logo-camila.png'
 import logoNameSrc from '../../assets/images/logo-nome.png'
 import sendEmail from '../services/emailSendingService'
-import { instagramIcon, linkedinIcon, whatsappIcon, envelopeIcon } from '../utils/icons-bootstrap'
+import { instagramIcon, linkedinIcon, whatsappIcon, envelopeIcon, googleIcon } from '../utils/icons-social-midea'
 
 const sanitizeInput = (str: string) => {
   return str.replace(/[<>"]/g, '').trim()
@@ -128,6 +128,12 @@ export class AppFooter extends HTMLElement {
                    class="text-white hover:text-white/80 motion-reduce:transition-none transition-colors p-2"
                    aria-label="Email">
                   <span class="w-7 h-7 block">${envelopeIcon}</span>
+                </a>
+                <a href="https://share.google/0HiZFP8Y78hZ7vWR4"
+                   class="text-white hover:text-white/80 motion-reduce:transition-none transition-colors p-2"
+                   aria-label="Google"
+                   rel="noopener noreferrer">
+                  <span class="w-7 h-7 block">${googleIcon}</span>
                 </a>
               </div>
             </div>
