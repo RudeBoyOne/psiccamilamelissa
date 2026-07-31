@@ -1,0 +1,9 @@
+/* Minimal CSS for pdfjs-dist canvas viewer */
+
+.canvasWrapper {
+  position: relative;
+}
+
+.pdf-page {
+  position: relative;
+}

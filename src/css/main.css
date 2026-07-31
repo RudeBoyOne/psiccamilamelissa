@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  :root {
+    --color-accent: 43 17 44;
+    --color-detail: 179 139 62;
+    --color-muted: 200 193 200;
+    --color-gray-1: 249 248 249;
+    --color-gray-5: 115 115 115;
+    --color-gray-6: 79 79 79;
+    --color-gray-7: 45 47 48;
+    --color-gray-8: 21 22 23;
+    --color-text-gray: 54 57 64;
+    --color-neutral-bg: 249 248 249;
+    --color-error: 153 27 27;
+  }
+}
+
+@layer components {
+  .input-brand {
+    @apply w-full rounded-input bg-white text-gray-8 font-body text-sm px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-detail focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .card-brand {
+    @apply bg-white rounded-feature border border-gray-1 overflow-hidden;
+  }
+
+  .card-title {
+    @apply font-heading font-bold text-body-lg leading-[22px] text-text-gray;
+  }
+
+  .card-subtitle {
+    @apply font-label text-sm tracking-wider text-gray-5;
+  }
+
+  .card-subtitle-two {
+    @apply font-label text-xs tracking-wider text-gray-5;
+  }
+
+  .card-body {
+    @apply font-body text-body-sm text-gray-6;
+  }
+
+  article-card {
+    @apply block;
+  }
+
+  .nav-link {
+    @apply text-white font-label font-semibold hover:opacity-80 motion-reduce:transition-none transition-opacity no-underline;
+  }
+}
