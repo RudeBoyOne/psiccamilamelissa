@@ -28,6 +28,7 @@ TypeScript landing page, Tailwind CSS 3.4 (via PostCSS), Lit 3 (Web Components �
   - **Vanilla (static)**: `<quote-section>`, `<articles-grid>`, `<article-card>`, `<app-footer>` — extend `HTMLElement`, render once via `connectedCallback()` + `innerHTML`.
 - **Contact form**: POSTs JSON to `https://emailsending.psiccamilamelissa.com.br/leads` with `{ service: { name: 'site.psiccamilamelissa' } }` injected client-side.
 - **Analytics**: Google tag `G-XJS48Z72ZV` in `index.html`.
+- **Animations**: `IntersectionObserver` individual por card para staggered reveal. Cards Lit usam `firstUpdated()` + `disconnectedCallback()` para lifecycle. Cards vanilla usam `connectedCallback()` + `disconnectedCallback()`.
 
 ## Key conventions
 
@@ -42,6 +43,24 @@ TypeScript landing page, Tailwind CSS 3.4 (via PostCSS), Lit 3 (Web Components �
 - **Todas as animações usam exclusivamente classes Tailwind.** Nada de CSS puro, keyframes avulsos, libs de animação ou CSS inline.
 - Preferir `transition-all` + `duration-300` + `ease-in-out` como padrão.
 - Para estados animados controlados por JS, usar classes Tailwind condicionais ou bindings de classe no Lit. **CSS inline (`element.style`) é estritamente proibido.**
+
+#### Staggered Reveal (Entrada Sequencial)
+
+Implementação padrão para cards (articles e about):
+
+- **Observer individual**: Cada card tem seu próprio `IntersectionObserver`
+- **Configuração**: `threshold: 0.15`, `rootMargin: '0px 0px -80px 0px'`
+- **Estado inicial**: `opacity-0 translate-y-8`
+- **Transição**: `transition-all duration-[1700ms] ease-out`
+- **Acessibilidade**: `motion-reduce:transition-none` em todos os cards
+- **Cleanup**: `unobserve()` após trigger, `disconnect()` no `disconnectedCallback()`
+- **Overflow**: `overflow-hidden` na section para prevenir flash
+
+**Delays desktop** (via prefixo `lg:`):
+- Cards Lit (about): `lg:delay-0`, `lg:delay-300`, `lg:delay-500`, `lg:delay-700`
+- Cards vanilla (articles): `lg:delay-0`, `lg:delay-300`
+
+**Mobile**: Sem delays CSS — timing natural pelo scroll.
 
 ## Design Context
 

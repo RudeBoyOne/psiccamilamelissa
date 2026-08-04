@@ -180,6 +180,47 @@ A top-aligned, full-width bar with rounded bottom corners (15px). Roxo Poético 
 - **Border:** None. Shadows provide the edge definition.
 - **Hover:** `hover:shadow-lg` transition on article cards (cursor pointer, opens PDF viewer).
 
+### Article Card
+
+- **Layout:** Flex column with image (h-72, object-cover) on top, content below.
+- **Icon:** `SquareArrowOutUpRight` (Lucide) positioned bottom-right via `mt-auto self-end`.
+- **Hover:** `hover:border-detail` color transition.
+- **Accessibility:** `role="button"`, `tabindex="0"`, keyboard Enter/Space support.
+- **Animation:** Staggered reveal with individual `IntersectionObserver`.
+
+### About Card
+
+- **Layout:** Flex column with logo (object-contain), title, subtitle, year, and body text.
+- **Logo heights:** Configurable via `logoHeight` property (default: `max-h-12`).
+- **Body text:** Always visible (no expansion animation).
+- **Animation:** Staggered reveal with individual `IntersectionObserver`.
+
+## 6. Animations
+
+### Staggered Reveal (Entrada Sequencial)
+
+Cards usam `IntersectionObserver` individual para animação de entrada. O observer observa cada card separadamente, garantindo que a animação só dispara quando o card entra no viewport.
+
+- **Estado inicial:** `opacity-0 translate-y-8` (invisível, deslocado para baixo)
+- **Transição:** `transition-all duration-[1700ms] ease-out`
+- **Trigger:** `threshold: 0.15`, `rootMargin: '0px 0px -80px 0px'`
+- **Acessibilidade:** `motion-reduce:transition-none` reseta animação para usuários com redução de movimento
+- **Cleanup:** `unobserve()` após trigger, `disconnect()` no `disconnectedCallback()`
+- **Overflow:** `overflow-hidden` na section para prevenir flash de conteúdo
+
+### Mobile vs Desktop
+
+- **Mobile (sem prefixo `lg:`):** Sem delays CSS — timing natural pelo scroll. Cards aparecem um por um conforme o usuário chega neles.
+- **Desktop (`lg:delay-*`):** Delays escalonados para animação sequencial mesmo quando cards estão lado a lado.
+  - About cards: `lg:delay-0`, `lg:delay-300`, `lg:delay-500`, `lg:delay-700`
+  - Article cards: `lg:delay-0`, `lg:delay-300`
+
+### Named Rules
+
+**The Scroll-Reveal Rule.** Animações de entrada só disparam quando o card entra no viewport durante scroll. Não dispara em page load ou navbar click (exceto quando a seção já está visível). Observer desconecta após trigger — não re-dispara no scroll reverso.
+
+**The Motion-Reduce Rule.** Toda animação deve ter `motion-reduce:transition-none` para respeitar preferências do sistema.
+
 ### Input / Textarea
 
 - **Shape:** Rounded 10px input radius.
@@ -204,7 +245,7 @@ A full-width Roxo Poético band with centered text. No card, no shadow, no borde
 
 Inline pill shape (26.5px pill radius) with Roxo Poético text inside, on Lavanda Silenciosa background, or inverted (white text on Roxo Poético). Used only in the hero for the "Olhar" tagline. Transition-all over 3 seconds on page load.
 
-## 6. Do's and Don'ts
+## 7. Do's and Don'ts
 
 ### Do:
 
@@ -214,6 +255,9 @@ Inline pill shape (26.5px pill radius) with Roxo Poético text inside, on Lavand
 - **Do** use Playfair Display for all headings — it carries the literary-intellectual tone.
 - **Do** use generous whitespace between sections (80px min). Therapy needs room to breathe.
 - **Do** use `text-wrap: balance` on all h1–h3 headings and `text-wrap: pretty` on body prose.
+- **Do** use staggered reveal animations with individual `IntersectionObserver` per card.
+- **Do** use `motion-reduce:transition-none` on all animated elements.
+- **Do** use `overflow-hidden` on sections with reveal animations to prevent flash.
 
 ### Don't:
 
@@ -228,3 +272,6 @@ Inline pill shape (26.5px pill radius) with Roxo Poético text inside, on Lavand
 - **Don't** use large rounded-corner icons above every heading. Screams template.
 - **Don't** make the design too informal or juvenile — no playful colors, trendy UI, or casual tone.
 - **Don't** use numbered section markers (01 / 02 / 03) as default scaffolding.
+- **Don't** animate all cards simultaneously on mobile — use per-card observers for scroll-reveal.
+- **Don't** use CSS inline (`style=""`) for animations — use Tailwind classes only.
+- **Don't** re-trigger animations on scroll reverso — observer must disconnect after first trigger.
