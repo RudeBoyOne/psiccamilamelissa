@@ -30,9 +30,6 @@ export class AboutCard extends LitElement {
   @property()
   body = ''
 
-  @property({ type: Boolean })
-  expanded = false
-
   render() {
     return html`
       <div class="card-brand p-6 min-h-48 h-full">
@@ -40,11 +37,7 @@ export class AboutCard extends LitElement {
         <h3 class="card-title mb-1">${this.title}</h3>
         <p class="card-subtitle mb-1">${this.subtitle}</p>
         <p class="card-subtitle-two mb-3">${this.year}</p>
-        <div class="motion-reduce:transition-none transition-[grid-template-rows] duration-[1500ms] ease-in-out grid max-sm:grid-rows-[1fr] ${this.expanded ? 'sm:grid-rows-[1fr]' : 'sm:grid-rows-[0fr]'}">
-          <div class="overflow-hidden min-h-0 ${this.expanded ? 'sm:pb-8' : ''}">
-            <p class="card-body tracking-[0.0214em]">${this.body}</p>
-          </div>
-        </div>
+        <p class="card-body tracking-[0.0214em]">${this.body}</p>
       </div>
     `
   }
@@ -57,20 +50,23 @@ export class AboutSection extends LitElement {
   private _observer: IntersectionObserver | null = null
 
   firstUpdated() {
-    const section = this.querySelector('#sobre')
-    if (!section) { return }
+    const cards = Array.from(this.querySelectorAll('about-card'))
+    if (!cards.length) { return }
 
     this._observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) { return }
-        const cards = Array.from(this.querySelectorAll('about-card'))
-        cards.forEach(card => { (card as AboutCard).expanded = true })
-        this._observer?.disconnect()
-        this._observer = null
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove('opacity-0', 'translate-y-8')
+            entry.target.classList.add('opacity-100', 'translate-y-0')
+            this._observer?.unobserve(entry.target)
+          }
+        })
       },
-      { threshold: 0.1 },
+      { threshold: 0.15, rootMargin: '0px 0px -80px 0px' },
     )
-    this._observer.observe(section)
+
+    cards.forEach(card => this._observer?.observe(card))
   }
 
   disconnectedCallback() {
@@ -81,7 +77,7 @@ export class AboutSection extends LitElement {
 
   render() {
     return html`
-      <section id="sobre" class="bg-muted py-16 lg:py-20">
+      <section id="sobre" class="bg-muted py-16 lg:py-20 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
             <div class="lg:w-[421px] flex-shrink-0">
@@ -95,6 +91,7 @@ export class AboutSection extends LitElement {
 
             <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 gap-[1.2rem]">
               <about-card
+                class="opacity-0 translate-y-8 motion-reduce:transition-none transition-all duration-[1700ms] ease-out lg:delay-0"
                 logourl=${logoAbrasme}
                 alt="ABRASME"
                 logoHeight="max-h-14"
@@ -105,6 +102,7 @@ export class AboutSection extends LitElement {
               </about-card>
 
               <about-card
+                class="opacity-0 translate-y-8 motion-reduce:transition-none transition-all duration-[1700ms] ease-out lg:delay-300"
                 logourl=${logoSedes}
                 alt="Instituto Sedes Sapientiae"
                 logoHeight="max-h-16"
@@ -115,6 +113,7 @@ export class AboutSection extends LitElement {
               </about-card>
 
               <about-card
+                class="opacity-0 translate-y-8 motion-reduce:transition-none transition-all duration-[1700ms] ease-out lg:delay-500"
                 logourl=${logoCprj}
                 alt="CPRJ"
                 logoHeight="max-h-16"
@@ -125,6 +124,7 @@ export class AboutSection extends LitElement {
               </about-card>
 
               <about-card
+                class="opacity-0 translate-y-8 motion-reduce:transition-none transition-all duration-[1700ms] ease-out lg:delay-700"
                 logourl=${logoGerar}
                 alt="Instituto Gerar"
                 logoHeight="max-h-10"

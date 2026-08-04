@@ -53,11 +53,14 @@ export class ArticleCard extends HTMLElement {
 customElements.define('article-card', ArticleCard)
 
 export class ArticlesGrid extends HTMLElement {
+  private _observer: IntersectionObserver | null = null
+
   connectedCallback() {
     const entries = Object.entries(articlesData) as [string, ArticleData][]
 
-    const allCards = entries.map(([id, { title, img, description }]) => `
+    const allCards = entries.map(([id, { title, img, description }], index) => `
       <article-card
+        class="opacity-0 translate-y-8 motion-reduce:transition-none transition-all duration-[1700ms] ease-out ${index === 0 ? 'lg:delay-0' : 'lg:delay-300'}"
         articleid="${id}"
         imgurl="${img}"
         title="${title}"
@@ -66,7 +69,7 @@ export class ArticlesGrid extends HTMLElement {
     `).join('')
 
     this.innerHTML = `
-      <section id="artigos" class="bg-muted py-16 lg:py-20">
+      <section id="artigos" class="bg-muted py-16 lg:py-20 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 class="font-heading font-bold text-4xl sm:text-heading-lg leading-[1.33] text-center text-gray-7 mb-6">
             Meus artigos
@@ -78,6 +81,26 @@ export class ArticlesGrid extends HTMLElement {
         </div>
       </section>
     `
+
+    const cards = Array.from(this.querySelectorAll('article-card'))
+    if (!cards.length) { return }
+
+    this._observer = new IntersectionObserver((observerEntries) => {
+      observerEntries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0', 'translate-y-8')
+          entry.target.classList.add('opacity-100', 'translate-y-0')
+          this._observer?.unobserve(entry.target)
+        }
+      })
+    }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' })
+
+    cards.forEach(card => this._observer?.observe(card))
+  }
+
+  disconnectedCallback() {
+    this._observer?.disconnect()
+    this._observer = null
   }
 }
 
