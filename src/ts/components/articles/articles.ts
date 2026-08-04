@@ -1,5 +1,7 @@
 import articlesData, { type ArticleData } from './articlesData'
 import './article-pdf-modal'
+import { createIconElement } from '../../utils/icons'
+import { SquareArrowOutUpRight } from 'lucide'
 
 const articlesDataMap = articlesData as Record<string, ArticleData>
 
@@ -11,12 +13,13 @@ export class ArticleCard extends HTMLElement {
     const description = this.getAttribute('description') || ''
 
     this.innerHTML = `
-      <div class="card-brand cursor-pointer hover:border-detail motion-reduce:transition-none transition-colors w-full h-full"
+      <div class="card-brand flex flex-col cursor-pointer hover:border-detail motion-reduce:transition-none transition-colors w-full h-full"
            role="button" tabindex="0">
         <img src="${imgUrl}" alt="${title}" class="w-full h-72 object-cover" loading="lazy">
-        <div class="p-6">
+        <div class="p-6 flex-1 flex flex-col">
           <h3 class="card-title mb-3">${title}</h3>
           <p class="card-body">${description}</p>
+          <span class="mt-auto self-end"> ${createIconElement(SquareArrowOutUpRight, 'w-5 h-5 text-gray-5').outerHTML} </span>
         </div>
       </div>
     `
@@ -65,9 +68,10 @@ export class ArticlesGrid extends HTMLElement {
     this.innerHTML = `
       <section id="artigos" class="bg-muted py-16 lg:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 class="font-heading font-bold text-4xl sm:text-heading-lg leading-[1.33] text-center text-gray-7 mb-12">
+          <h2 class="font-heading font-bold text-4xl sm:text-heading-lg leading-[1.33] text-center text-gray-7 mb-6">
             Meus artigos
           </h2>
+          <h3 class="font-bold text-center mb-6">Acesse...</h3>
           <div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-8 justify-center max-w-2xl mx-auto">
             ${allCards}
           </div>
